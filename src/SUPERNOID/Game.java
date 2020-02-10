@@ -1,8 +1,7 @@
 package SUPERNOID;
 
 import SUPERNOID.GameObjects.Ball;
-import SUPERNOID.GameObjects.Blocks;
-import SUPERNOID.GameObjects.GameObjects;
+import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
 
 /**
@@ -13,14 +12,14 @@ public class Game {
     //Properties
     private Ball ball;
     private Paddle paddle;
-    private Blocks blocks;
+    private Block block;
 
 
     //Game Constructor
-    public Game(Ball ball, Paddle paddle, Blocks blocks) {
+    public Game(Ball ball, Paddle paddle, Block block) {
         this.ball = ball;
         this.paddle = paddle;
-        this.blocks = blocks;
+        this.block = block;
 
 
 

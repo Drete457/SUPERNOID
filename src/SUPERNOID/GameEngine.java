@@ -3,7 +3,7 @@ package SUPERNOID;
 //import the object ball
 import SUPERNOID.GameObjects.Ball;
 //import the object Paddle and blocks
-import SUPERNOID.GameObjects.Blocks;
+import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
 
 /**
@@ -13,13 +13,13 @@ public class GameEngine {
 
     //create the variable type Ball
     private Ball ball;
-    //create the variable type Blocks
-    private Blocks[] blocks;
+    //create the variable type Block
+    private Block[] blocks;
     //create the variable type padle
     private Paddle paddle;
 
     //start the contructer
-    public GameEngine(Ball ball, Blocks[] blocks, Paddle paddle) {
+    public GameEngine(Ball ball, Block[] blocks, Paddle paddle) {
         this.ball = ball;
         this.blocks = blocks;
         this.paddle = paddle;
@@ -33,16 +33,16 @@ public class GameEngine {
 
     //verify if there any type of collision
     private void collisionDetect() {
-        for (Blocks blocks : blocks) {
-            if (ball.checkX(blocks) && ball.checkY(blocks) || blocks.checkX(ball) && blocks.checkY(ball)) {
+        for (Block block : blocks) {
+            if (ball.checkX(block) && ball.checkY(block) || block.checkX(ball) && block.checkY(ball)) {
                 if (ball.collied()) {
-                    blocks.delete();
+                    block.delete();
                     ball.setCurrentY(/*direction, need to see how to make that*/);
                     ball.setCurrentX(...........................................);
                     continue;
                 }
 
-                blocks.delete();
+                block.delete();
             }
         }
     }

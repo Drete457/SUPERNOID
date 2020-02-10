@@ -2,12 +2,12 @@ package SUPERNOID.GameObjects;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public abstract class GameObjects {
+public abstract class GameObject {
 
     private double x;
     private double y;
 
-    public GameObjects(double x, double y, String url) {
+    public GameObject(double x, double y, String url) {
         this.x = x;
         this.y = y;
         Picture picture = new Picture (x, y, url);

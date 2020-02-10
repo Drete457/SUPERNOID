@@ -34,7 +34,7 @@ public class GameEngine {
                 if (ball.checkX(blocks) && ball.checkY(blocks) || blocks.checkX(ball) && blocks.checkY(ball)) {
                     if (ball.collied()) {
                         blocks.delete();
-                        ball.setCurrentY(//directon, need to see how to make that);
+                        ball.setCurrentY(/*direction, need to see how to make that*/);
                         continue;
                     }
 

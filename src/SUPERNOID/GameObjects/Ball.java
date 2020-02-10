@@ -1,12 +1,15 @@
 package SUPERNOID.GameObjects;
 
-import org.academiadecodigo.simplegraphics.pictures.Picture;
+import SUPERNOID.GridPosition;
 
 public class Ball extends GameObjects {
 
-    public Ball(){
-        super(10,10,"SUPERNOID/GameObjects/Images/ball.png");
-    }
+    private static final int BALLSPEED = 10;
+    private int hitDamage = 10;
+    private GridPosition position;
 
+    public Ball(double xPos, double yPos, String image){
+        super(xPos, yPos, image);
+    }
 
 }

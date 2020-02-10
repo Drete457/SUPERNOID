@@ -4,7 +4,12 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class GameObjects {
 
+    private double x;
+    private double y;
+
     public GameObjects(double x, double y, String url) {
+        this.x = x;
+        this.y = y;
         Picture picture = new Picture (x, y, url);
         picture.draw();
     }

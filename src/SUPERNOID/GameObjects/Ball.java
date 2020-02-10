@@ -1,6 +1,6 @@
 package SUPERNOID.GameObjects;
 
-import SUPERNOID.simplegraphics.pictures.Picture;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Ball extends Picture {
 

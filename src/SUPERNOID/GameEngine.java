@@ -12,34 +12,46 @@ import SUPERNOID.GameObjects.Paddle;
 public class GameEngine {
 
     //create the variable type Ball
-        private Ball ball;
-        //create the variable type Blocks
-        private Blocks[] blocks;
+    private Ball ball;
+    //create the variable type Blocks
+    private Blocks[] blocks;
+    //create the variable type padle
+    private Paddle paddle;
 
-        //start the contructer
-        public GameEngine(Ball ball, Blocks[] blocks) {
-            this.ball = ball;
-            this.blocks = blocks;
+    //start the contructer
+    public GameEngine(Ball ball, Blocks[] blocks, Paddle paddle) {
+        this.ball = ball;
+        this.blocks = blocks;
+        this.paddle = paddle;
+    }
 
-        }
+    //run the method collisionDetect
+    public void checkCollisions() {
+        collisionDetect();
+        paddlecollisionDetect();
+    }
 
-        //run the method collisionDetect
-        public void checkCollisions() {
-            collisionDetect();
-        }
-
-        //verify if there any type of collision
-        private void collisionDetect() {
-            for (Blocks blocks : blocks) {
-                if (ball.checkX(blocks) && ball.checkY(blocks) || blocks.checkX(ball) && blocks.checkY(ball)) {
-                    if (ball.collied()) {
-                        blocks.delete();
-                        ball.setCurrentY(/*direction, need to see how to make that*/);
-                        continue;
-                    }
-
+    //verify if there any type of collision
+    private void collisionDetect() {
+        for (Blocks blocks : blocks) {
+            if (ball.checkX(blocks) && ball.checkY(blocks) || blocks.checkX(ball) && blocks.checkY(ball)) {
+                if (ball.collied()) {
                     blocks.delete();
+                    ball.setCurrentY(/*direction, need to see how to make that*/);
+                    ball.setCurrentX(...........................................);
+                    continue;
                 }
+
+                blocks.delete();
+            }
+        }
+    }
+
+    private void paddlecollisionDetect() {
+        if (paddle.checkX(ball) && paddle.checkY(ball) || ball.checkX(paddle) && ball.checkY(paddle)) {
+            if (ball.collied) {
+                ball.setCurrentY(..................................................);
+                ball.setCurrentX(..................................................);
             }
 
         }

@@ -1,6 +1,6 @@
 package SUPERNOID;
 
-import SUPERNOID.GameObjects.GameObjects;
+import SUPERNOID.GameObjects.GameObject;
 
 /**
  * Created by codecadet on 08/02/2020.
@@ -10,7 +10,7 @@ public class GridPosition {
     private double x;
     private double y;
     private Grid grid;
-    private GameObjects gameObj;
+    private GameObject gameObj;
 
     public GridPosition(double x, double y, Grid grid) {
         this.x = x;

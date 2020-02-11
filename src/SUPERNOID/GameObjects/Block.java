@@ -47,3 +47,31 @@ public class Block extends GameObject {
     }
 }
 
+/* private void initBrick(int x, int y) {
+
+        this.x = x;
+        this.y = y;
+
+        destroyed = false;
+
+        loadImage();
+        getImageDimensions();
+    }
+
+    private void loadImage() {
+
+        Image Icon ii = new ImageIcon("src/resources/brick.png");
+        image = ii.getImage();
+    }
+
+    boolean isDestroyed() {
+
+        return destroyed;
+    }
+
+    void setDestroyed(boolean val) {
+
+        destroyed = val;
+    }
+}*/
+

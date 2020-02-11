@@ -1,6 +1,11 @@
 package SUPERNOID.simplegraphics.keyboard;
 
-public class KeyboardReceive implements KeyboardHandler{
+import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+
+public class KeyboardReceive implements KeyboardHandler {
 
     //create the object that will receive the keyboard
     private KeyboardHandler keyPressed = new KeyboardReceive();//put this in the class that will receive the keyboard input

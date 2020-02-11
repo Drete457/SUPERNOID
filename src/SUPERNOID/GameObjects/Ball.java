@@ -1,12 +1,31 @@
 package SUPERNOID.GameObjects;
 
-import SUPERNOID.simplegraphics.pictures.Picture;
+import SUPERNOID.GridPosition;
 
-public class Ball extends Picture {
+public class Ball extends GameObject {
 
-    public Ball(){
-        super(10,10,"SUPERNOID/GameObjects/Images/ball.png");
+    private static final int BALLSPEED = 10;
+    private int hitDamage = 10;
+    private GridPosition position;
+    private boolean moving = false;
+
+    public Ball(double xPos, double yPos, String image){
+        super(xPos, yPos, image);
     }
 
+    public void damageBlock(Block block) {
+        block.hit(hitDamage);
+    }
 
+    public GridPosition getPosition() {
+        return position;
+    }
+
+    public boolean isMoving() {
+        return moving;
+    }
+
+    public void setMoving(boolean moving) {
+        this.moving = moving;
+    }
 }

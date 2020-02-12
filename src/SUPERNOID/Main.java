@@ -1,12 +1,17 @@
 package SUPERNOID;
 
-        import SUPERNOID.GameObjects.Ball;
-        import org.academiadecodigo.simplegraphics.graphics.Canvas;
 
-/**
- * Created by codecadet on 08/02/2020.
- */
 public class Main {
 
-//master move
+    //The Beginning of the game, and Interrupted when it finish
+    public static void main(String[] args) throws InterruptedException {
+
+        //will instance the game and initialise
+        Game game = new Game();
+
+        //draw the BackGround and start the game
+        game.backGround();
+        game.start();
+
+    }
 }

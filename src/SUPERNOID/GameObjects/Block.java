@@ -10,7 +10,7 @@ public class Block {
 
     private int blockEnergy = 10;
     private boolean destroyed = false;
-    
+
     public Block(double xPos, double yPos, String url) {
         picture = new Picture(xPos, yPos, url);
         picture.grow(-7,-7);
@@ -74,32 +74,3 @@ public class Block {
     }
 
 }
-
-/* private void initBrick(int x, int y) {
-
-        this.x = x;
-        this.y = y;
-
-        destroyed = false;
-
-        loadImage();
-        getImageDimensions();
-    }
-
-    private void loadImage() {
-
-        Image Icon ii = new ImageIcon("src/resources/brick.png");
-        image = ii.getImage();
-    }
-
-    boolean isDestroyed() {
-
-        return destroyed;
-    }
-
-    void setDestroyed(boolean val) {
-
-        destroyed = val;
-    }
-}*/
-

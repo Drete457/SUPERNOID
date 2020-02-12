@@ -1,24 +1,23 @@
 package SUPERNOID.GameObjects;
 
-import SUPERNOID.GridPosition;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class Ball extends GameObject {
+public class Ball {
 
     private static final int BALLSPEED = 10;
     private int hitDamage = 10;
-    private GridPosition position;
     private boolean moving = false;
+    private Picture ball;
 
     public Ball(double xPos, double yPos, String image){
-        super(xPos, yPos, image);
+        ball = new Picture (xPos, yPos, image);
+        //ball.grow(-80, -80);
+        ball.draw();
+
     }
 
     public void damageBlock(Block block) {
         block.hit(hitDamage);
-    }
-
-    public GridPosition getPosition() {
-        return position;
     }
 
     public boolean isMoving() {

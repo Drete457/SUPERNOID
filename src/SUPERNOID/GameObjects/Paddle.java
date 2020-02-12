@@ -1,21 +1,14 @@
 package SUPERNOID.GameObjects;
 
-import SUPERNOID.GridPosition;
-
-public class Paddle extends GameObject {
+public class Paddle {
 
     private static final int PADDLESPEED = 10;
-    private GridPosition position;
     private int width;
     private int height;
 
-    public Paddle(double xPos, double yPos, String image){
+    /*public Paddle(double xPos, double yPos, String image){
         super(xPos, yPos, image);
-    }
-
-    public GridPosition getPosition() {
-        return position;
-    }
+    }*/
 
     public int getWidth() {
         return width;
@@ -23,10 +16,6 @@ public class Paddle extends GameObject {
 
     public int getHeight() {
         return height;
-    }
-
-    public void setPosition(GridPosition position) {
-        this.position = position;
     }
 
     public void setWidth(int width) {

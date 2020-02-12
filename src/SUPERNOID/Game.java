@@ -6,11 +6,12 @@ import SUPERNOID.GameObjects.Paddle;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 /**
  * Created by codecadet on 08/02/2020.
  */
-public class Game implements KeyboardEvent{
+public class Game extends KeyboardEvent {
 
     //Properties
     //Print the BackGround

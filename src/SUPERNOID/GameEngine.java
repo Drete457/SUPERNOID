@@ -26,7 +26,7 @@ public class GameEngine {
     }
 
     //run the method collisionDetect
-    public void checkCollisions() {
+    /*public void checkCollisions() {
         collisionDetect();
         paddlecollisionDetect();
     }
@@ -37,7 +37,7 @@ public class GameEngine {
             if (ball.checkX(block) && ball.checkY(block) || block.checkX(ball) && block.checkY(ball)) {
                 if (ball.collied()) {
                     block.delete();
-                    ball.setCurrentY(/*direction, need to see how to make that*/);
+                    ball.setCurrentY(*//*direction, need to see how to make that*//*);
                     ball.setCurrentX(...........................................);
                     continue;
                 }
@@ -55,5 +55,5 @@ public class GameEngine {
             }
 
         }
-    }
+    }*/
 }

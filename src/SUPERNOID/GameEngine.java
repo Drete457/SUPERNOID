@@ -19,8 +19,8 @@ public class GameEngine {
 
     //run the method collisionDetect
     public boolean checkCollisionsPaddle(Paddle paddle) {
-     this.paddle = paddle;
-     return paddleCollisionDetectWall();
+        this.paddle = paddle;
+        return paddleCollisionDetectWall();
     }
 
     private boolean paddleCollisionDetectWall() {

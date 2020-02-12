@@ -1,18 +1,20 @@
 package SUPERNOID.GameObjects;
 
-import SUPERNOID.GridPosition;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class Block extends GameObject {
+public class Block {
 
+    private Picture picture;
     public static final int BLOCKWIDTH = 64;
     public static final int BLOCKHEIGHT = 32;
 
-    private int blockEnergy;
+    private int blockEnergy = 10;
     private boolean destroyed = false;
-    private GridPosition position;
 
-    public Block(double xPos, double yPos, String image) {
-        super(xPos, yPos, image);
+    public Block(double xPos, double yPos, String url) {
+        picture = new Picture(xPos, yPos, url);
+        picture.grow(-7,-7);
+        picture.draw();
     }
 
     public int getBlockEnergy() {
@@ -34,44 +36,41 @@ public class Block extends GameObject {
         return destroyed;
     }
 
-    public GridPosition getPosition() {
-        return position;
-    }
-
     public void setDestroyed(boolean destroyed) {
         this.destroyed = destroyed;
     }
 
-    public void setPosition(GridPosition position) {
-        this.position = position;
+    //Get Picture
+    public Picture getPicture() {
+        return picture;
     }
+
+    //Set Picture
+    public void setPicture(String url) {
+        this.picture.load(url);
+    }
+
+    private enum BlockList {
+        BLUE("SUPERNOID/GameObjects/Images/color-blocks/blue_40x15.jpg"),
+        BROWN("SUPERNOID/GameObjects/Images/color-blocks/brown_40x15.jpg"),
+        GREEN("SUPERNOID/GameObjects/Images/color-blocks/green_40x15.jpg"),
+        CYAN("SUPERNOID/GameObjects/Images/color-blocks/light_blue_40x15.jpg"),
+        LIME("SUPERNOID/GameObjects/Images/color-blocks/light_green_40x15.jpg"),
+        MAGENTA("SUPERNOID/GameObjects/Images/color-blocks/magenta_40x15.jpg"),
+        ORANGE("SUPERNOID/GameObjects/Images/color-blocks/orange_40x15.jpg"),
+        PINK("SUPERNOID/GameObjects/Images/color-blocks/pink_40x15.jpg"),
+        RED("SUPERNOID/GameObjects/Images/color-blocks/red_40x15.jpg"),
+        YELLOW("SUPERNOID/GameObjects/Images/color-blocks/yellow_40x15.jpg");
+
+        private String image;
+
+        BlockList(String image){
+            this.image = image;
+        }
+
+        String getImage() {
+            return this.image;
+        }
+    }
+
 }
-
-/* private void initBrick(int x, int y) {
-
-        this.x = x;
-        this.y = y;
-
-        destroyed = false;
-
-        loadImage();
-        getImageDimensions();
-    }
-
-    private void loadImage() {
-
-        Image Icon ii = new ImageIcon("src/resources/brick.png");
-        image = ii.getImage();
-    }
-
-    boolean isDestroyed() {
-
-        return destroyed;
-    }
-
-    void setDestroyed(boolean val) {
-
-        destroyed = val;
-    }
-}*/
-

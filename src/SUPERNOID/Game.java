@@ -10,7 +10,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 /**
  * Created by codecadet on 08/02/2020.
  */
-public class Game {
+public class Game implements KeyboardEvent{
 
     //Properties
     //Print the BackGround

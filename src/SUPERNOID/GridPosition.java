@@ -8,7 +8,6 @@ public class GridPosition {
     private double x;
     private double y;
     private Grid grid;
-    private GameObject gameObj;
 
     public GridPosition(double x, double y, Grid grid) {
         this.x = x;

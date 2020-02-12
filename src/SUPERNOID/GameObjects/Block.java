@@ -5,15 +5,14 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Block {
 
     private Picture picture;
-    public static final int BLOCKWIDTH = 64;
-    public static final int BLOCKHEIGHT = 32;
+    public static final int BLOCKWIDTH = 40;
+    public static final int BLOCKHEIGHT = 15;
 
     private int blockEnergy = 10;
     private boolean destroyed = false;
     
     public Block(double xPos, double yPos, String url) {
         picture = new Picture(xPos, yPos, url);
-        picture.grow(-7,-7);
         picture.draw();
     }
 

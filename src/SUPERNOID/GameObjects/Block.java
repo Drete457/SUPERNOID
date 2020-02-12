@@ -2,7 +2,7 @@ package SUPERNOID.GameObjects;
 
 import SUPERNOID.GridPosition;
 
-public class Block extends GameObject {
+public class Block {
 
     public static final int BLOCKWIDTH = 64;
     public static final int BLOCKHEIGHT = 32;
@@ -11,9 +11,9 @@ public class Block extends GameObject {
     private boolean destroyed = false;
     private GridPosition position;
 
-    public Block(double xPos, double yPos, String image) {
+    /*public Block(double xPos, double yPos, String image) {
         super(xPos, yPos, image);
-    }
+    }*/
 
     public int getBlockEnergy() {
         return blockEnergy;

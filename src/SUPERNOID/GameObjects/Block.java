@@ -14,7 +14,7 @@ public class Block {
     private GridPosition position;
 
     public Block(double xPos, double yPos, String url) {
-        setPicture(url);
+        //setPicture(url)
         picture = new Picture(xPos, yPos, url);
         picture.draw();
     }

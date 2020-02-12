@@ -3,7 +3,7 @@ package SUPERNOID.GameObjects;
 import SUPERNOID.Grid;
 
 public class ObjFactory {
-
+/*
 
     private static final int BLOCK_TOP_PADDING = 80;
     private static final int BLOCK_LEFT_PADDING = 50;
@@ -31,5 +31,5 @@ public class ObjFactory {
 
         return blocks;
     }
-
+*/
 }

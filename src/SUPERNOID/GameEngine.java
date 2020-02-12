@@ -25,35 +25,5 @@ public class GameEngine {
         this.paddle = paddle;
     }
 
-    //run the method collisionDetect
-    /*public void checkCollisions() {
-        collisionDetect();
-        paddlecollisionDetect();
-    }
 
-    //verify if there any type of collision
-    private void collisionDetect() {
-        for (Block block : blocks) {
-            if (ball.checkX(block) && ball.checkY(block) || block.checkX(ball) && block.checkY(ball)) {
-                if (ball.collied()) {
-                    block.delete();
-                    ball.setCurrentY(*//*direction, need to see how to make that*//*);
-                    ball.setCurrentX(...........................................);
-                    continue;
-                }
-
-                block.delete();
-            }
-        }
-    }
-
-    private void paddlecollisionDetect() {
-        if (paddle.checkX(ball) && paddle.checkY(ball) || ball.checkX(paddle) && ball.checkY(paddle)) {
-            if (ball.collied) {
-                ball.setCurrentY(..................................................);
-                ball.setCurrentX(..................................................);
-            }
-
-        }
-    }*/
 }

@@ -13,6 +13,7 @@ public class Block {
     
     public Block(double xPos, double yPos, String url) {
         picture = new Picture(xPos, yPos, url);
+        picture.grow(-7,-7);
         picture.draw();
     }
 

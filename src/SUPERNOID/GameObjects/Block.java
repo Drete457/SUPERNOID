@@ -13,6 +13,7 @@ public class Block {
     private boolean destroyed = false;
     private GridPosition position;
 
+    
     public Block(double xPos, double yPos, String url) {
         setPicture(url);
         picture = new Picture(xPos, yPos, url);

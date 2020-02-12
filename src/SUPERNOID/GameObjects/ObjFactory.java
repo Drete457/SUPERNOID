@@ -22,8 +22,8 @@ public class ObjFactory {
         Block[] blocks = new Block[numberOfBlocks];
 
         for (int i = 1; i <= 3 ; i++) {
-            for (int j = 1; j <= numberOfBlocks ; j++) {
-                blocks[i] = new Block(i * BLOCK_TOP_PADDING, j * BLOCK_LEFT_PADDING, blockUrl);
+            for (int j = 1; j <= 6 ; j++) {
+                blocks[i] = new Block((j * (Block.BLOCKWIDTH)) + BLOCK_LEFT_PADDING, (i * (Block.BLOCKHEIGHT)+ BLOCK_TOP_PADDING) , blockUrl);
             }
         }
 

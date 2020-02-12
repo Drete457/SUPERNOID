@@ -3,13 +3,13 @@ package SUPERNOID.GameObjects;
 import SUPERNOID.Grid;
 
 public class ObjFactory {
-
+/*
     public static Ball getNewBall(Paddle paddle) {
         return new Ball(paddle.getX(), paddle.getY(),"ball.png");
     }
 
-    public static Paddle getNewPaddle(Grid grid){
-        return new Paddle(grid.getX() / 2, grid.getY() /2, "Paddle.png");
+   /* public static Paddle getNewPaddle(Grid grid){
+      //  return new Paddle(grid.getX() / 2, grid.getY() /2, "Paddle.png");
     }
 
     public static Block[] getNewBlocks(int numberOfBlocks){
@@ -19,5 +19,5 @@ public class ObjFactory {
         }
         return blocks;
     }
-
+*/
 }

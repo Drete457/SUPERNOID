@@ -1,16 +1,11 @@
 package SUPERNOID;
 
-import SUPERNOID.GameObjects.GameObject;
-<<<<<<< HEAD
-=======
-
->>>>>>> a326d73fda03932382689433ccd094241f35b0af
 
 /**
  * Created by codecadet on 08/02/2020.
  */
 public class GridPosition {
-
+/*
     private double x;
     private double y;
     private Grid grid;
@@ -29,4 +24,5 @@ public class GridPosition {
         this.y = y;
         //show();
     }
+    */
 }

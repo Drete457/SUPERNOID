@@ -7,6 +7,7 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
  * Created by codecadet on 08/02/2020.
@@ -65,6 +66,12 @@ public class Game extends KeyboardEvent {
         keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
         keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(keyPressedSpace);
+
+        //loading the game logo - add pos and source later
+        Picture logo = new Picture();
+        logo.draw();
+
+
 
 
     }

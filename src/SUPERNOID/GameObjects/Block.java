@@ -51,16 +51,16 @@ public class Block {
     }
 
     private enum BlockType {
-        BLUE("SUPERNOID/GameObjects/Images/color-blocks/blue_40x15.jpg"),
-        BROWN("SUPERNOID/GameObjects/Images/color-blocks/brown_40x15.jpg"),
-        GREEN("SUPERNOID/GameObjects/Images/color-blocks/green_40x15.jpg"),
-        CYAN("SUPERNOID/GameObjects/Images/color-blocks/light_blue_40x15.jpg"),
-        LIME("SUPERNOID/GameObjects/Images/color-blocks/light_green_40x15.jpg"),
-        MAGENTA("SUPERNOID/GameObjects/Images/color-blocks/magenta_40x15.jpg"),
-        ORANGE("SUPERNOID/GameObjects/Images/color-blocks/orange_40x15.jpg"),
-        PINK("SUPERNOID/GameObjects/Images/color-blocks/pink_40x15.jpg"),
-        RED("SUPERNOID/GameObjects/Images/color-blocks/red_40x15.jpg"),
-        YELLOW("SUPERNOID/GameObjects/Images/color-blocks/yellow_40x15.jpg");
+        BLUE("resources/Images/color-blocks/blue_40x15.jpg"),
+        BROWN("resources/Images/color-blocks/brown_40x15.jpg"),
+        GREEN("resources/Images/color-blocks/green_40x15.jpg"),
+        CYAN("resources/Images/color-blocks/light_blue_40x15.jpg"),
+        LIME("resources/Images/color-blocks/light_green_40x15.jpg"),
+        MAGENTA("resources/Images/color-blocks/magenta_40x15.jpg"),
+        ORANGE("resources/Images/color-blocks/orange_40x15.jpg"),
+        PINK("resources/Images/color-blocks/pink_40x15.jpg"),
+        RED("resources/Images/color-blocks/red_40x15.jpg"),
+        YELLOW("resources/Images/color-blocks/yellow_40x15.jpg");
 
         private String image;
 

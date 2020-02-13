@@ -20,7 +20,7 @@ public class ObjFactory {
     }
 
     public static Block[] getNewBlocks(int numberOfBlocks) {
-        String blockUrl = new String("SUPERNOID/GameObjects/Images/color-blocks/blue_40X15.jpg");
+        String blockUrl = new String("resources/Images/color-blocks/blue_40X15.jpg");
         Block[] blocks = new Block[numberOfBlocks];
 
         for (int i = 1; i <= 4 ; i++) {

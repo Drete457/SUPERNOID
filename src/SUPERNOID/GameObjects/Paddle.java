@@ -20,7 +20,7 @@ public class Paddle implements KeyboardHandler{
 
     //start the paddle object
     public Paddle(GameEngine engine) {
-        picture = new Picture(positionX, positionY, "SUPERNOID/GameObjects/Images/general/monitor_180x41.png");
+        picture = new Picture(positionX, positionY, "resources/Images/general/monitor_180x41.png");
         picture.draw();
         this.engine = engine;
     }

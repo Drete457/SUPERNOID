@@ -9,6 +9,7 @@ public class Main {
         //will instance the game and initialise
         Game game = new Game();
 
+
         //draw the BackGround and start the game
         game.backGround();
         game.start();

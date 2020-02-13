@@ -20,15 +20,13 @@ public class GameEngine {
     //run the method collisionDetect
     public boolean checkCollisionsPaddle(Paddle paddle) {
         this.paddle = paddle;
-        return paddleCollisionDetectWall();
-    }
+        return paddleCollisionDetectWall(); }
 
+    //verify if the paddle have reach the limit of the game area
     private boolean paddleCollisionDetectWall() {
-        if (paddle.getPositionX() < 360 && paddle.getPositionX() > 70) {
-            return true;
-        }
-        return false;
-    }
+        boolean detect = false;
+        if (paddle.getPositionX() < 380 && paddle.getPositionX() > 60) { detect = true; }
+        return detect; }
 
     //verify if there any type of collision
    /* private void collisionDetect() {

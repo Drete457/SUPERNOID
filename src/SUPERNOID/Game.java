@@ -20,6 +20,9 @@ public class Game extends KeyboardEvent {
     //Print the paddle
     private Paddle paddle;
 
+    //Create the game engine
+    private GameEngine engine = new GameEngine();
+
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
     private Keyboard keyboard;
@@ -35,7 +38,7 @@ public class Game extends KeyboardEvent {
     //Game Constructor
     public Game() {
         this.backGround = new Grid();
-        this.paddle = new Paddle();
+        this.paddle = new Paddle(engine);
         keyboard = new Keyboard(paddle);
 
     }

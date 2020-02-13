@@ -5,15 +5,15 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Block {
 
     private Picture picture;
-    public static final int BLOCKWIDTH = 64;
-    public static final int BLOCKHEIGHT = 32;
+    public static final int BLOCKWIDTH = 40;
+    public static final int BLOCKHEIGHT = 15;
 
     private int blockEnergy = 10;
     private boolean destroyed = false;
 
-    public Block(double xPos, double yPos, String url) {
-        picture = new Picture(xPos, yPos, url);
-        picture.grow(-7,-7);
+    public Block(double xPos, double yPos) {
+        BlockType randomBlock = BlockType.values() [(int) (Math.random() * BlockType.values().length)];
+        picture = new Picture(xPos, yPos, randomBlock.getImage());
         picture.draw();
     }
 
@@ -50,7 +50,7 @@ public class Block {
         this.picture.load(url);
     }
 
-    private enum BlockList {
+    private enum BlockType {
         BLUE("SUPERNOID/GameObjects/Images/color-blocks/blue_40x15.jpg"),
         BROWN("SUPERNOID/GameObjects/Images/color-blocks/brown_40x15.jpg"),
         GREEN("SUPERNOID/GameObjects/Images/color-blocks/green_40x15.jpg"),
@@ -64,13 +64,14 @@ public class Block {
 
         private String image;
 
-        BlockList(String image){
+        BlockType(String image){
             this.image = image;
         }
 
         String getImage() {
-            return this.image;
+            return image;
         }
+
     }
 
 }

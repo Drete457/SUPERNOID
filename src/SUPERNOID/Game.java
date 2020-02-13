@@ -6,11 +6,7 @@ import SUPERNOID.GameObjects.Paddle;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-/**
- * Created by codecadet on 08/02/2020.
- */
 public class Game extends KeyboardEvent {
 
     //Properties
@@ -20,8 +16,11 @@ public class Game extends KeyboardEvent {
     //Print the paddle
     private Paddle paddle;
 
+    //print the ball
+    private Ball ball;
+
     //Create the game engine
-    private GameEngine engine = new GameEngine();
+    private GameEngine engine;
 
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
@@ -38,9 +37,10 @@ public class Game extends KeyboardEvent {
     //Game Constructor
     public Game() {
         this.backGround = new Grid();
-        this.paddle = new Paddle(engine);
+        this.paddle = new Paddle();
+        this.engine = new GameEngine();
+        this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
-
     }
 
     //Draw the back ground
@@ -51,24 +51,22 @@ public class Game extends KeyboardEvent {
     //Methods - Game Start
     public void start() {
 
-        //run the code for the left key
-        keyPressedLeft.setKey(KeyboardEvent.KEY_LEFT);
-        keyPressedLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboard.addEventListener(keyPressedLeft);
+            //run the code for the left key
+            keyPressedLeft.setKey(KeyboardEvent.KEY_LEFT);
+            keyPressedLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            keyboard.addEventListener(keyPressedLeft);
 
-        //run the code for the right key
-        keyPressedRight.setKey(KeyboardEvent.KEY_RIGHT);
-        keyPressedRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboard.addEventListener(keyPressedRight);
+            //run the code for the right key
+            keyPressedRight.setKey(KeyboardEvent.KEY_RIGHT);
+            keyPressedRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            keyboard.addEventListener(keyPressedRight);
 
-        //run the code for the space key
-        keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
-        keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboard.addEventListener(keyPressedSpace);
+            //run the code for the space key
+            keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
+            keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            keyboard.addEventListener(keyPressedSpace);
 
+            engine.paddleCollisionDetectWall(paddle);
 
     }
-
-
-
 }

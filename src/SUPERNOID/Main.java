@@ -12,6 +12,7 @@ public class Main {
 
         //draw the BackGround and start the game
         game.backGround();
+        game.initLogos();
         game.start();
 
     }

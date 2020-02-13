@@ -49,6 +49,7 @@ public class Game extends KeyboardEvent {
         return this.backGround;
     }
 
+
     //Methods - Game Start
     public void start() {
 
@@ -70,6 +71,7 @@ public class Game extends KeyboardEvent {
         //loading the game logo - add pos and source later
         Picture logo = new Picture();
         logo.draw();
+
 
 
 

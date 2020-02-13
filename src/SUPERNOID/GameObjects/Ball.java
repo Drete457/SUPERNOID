@@ -1,9 +1,6 @@
 package SUPERNOID.GameObjects;
 
-import SUPERNOID.GameEngine;
-import javafx.scene.shape.Circle;
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Ellipse;
+
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Ball {
@@ -20,7 +17,7 @@ public class Ball {
     //start the paddle object
     public Ball(Paddle paddle) {
         positionX = paddle.getPositionX() + (paddle.getWidth()/2-8);
-        picture = new Picture(positionX, positionY, "SUPERNOID/GameObjects/Images/general/ball_15x15.png");
+        picture = new Picture(positionX, positionY, "resources/Images/general/ball_15x15.png");
         picture.draw();
     }
 

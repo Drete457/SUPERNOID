@@ -12,7 +12,7 @@ public class Grid {
 
 
     public Grid() {
-        picture = new Picture(PADDING, PADDING, "SUPERNOID/GameObjects/Images/general/field_900x900.gif");
+        picture = new Picture(PADDING, PADDING, "resources/Images/general/field_900x900.gif");
         picture.draw();
 
     }

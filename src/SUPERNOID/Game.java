@@ -7,6 +7,7 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 
+
 public class Game extends KeyboardEvent {
 
     //Properties
@@ -67,6 +68,5 @@ public class Game extends KeyboardEvent {
             keyboard.addEventListener(keyPressedSpace);
 
             engine.paddleCollisionDetectWall(paddle);
-
     }
 }

@@ -50,7 +50,7 @@ public class Game extends KeyboardEvent {
     }
 
     //Methods - Game Start
-    public void start() {
+    public void start() throws InterruptedException {
 
             //run the code for the left key
             keyPressedLeft.setKey(KeyboardEvent.KEY_LEFT);
@@ -64,9 +64,13 @@ public class Game extends KeyboardEvent {
 
             //run the code for the space key
             keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
-            keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
             keyboard.addEventListener(keyPressedSpace);
 
-            engine.paddleCollisionDetectWall(paddle);
+            while (ball.isAlive()){
+                engine.moveBall(ball);
+                Thread.sleep(20);
+           }
+        }
     }
-}
+

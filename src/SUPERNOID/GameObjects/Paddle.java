@@ -29,7 +29,7 @@ public class Paddle implements KeyboardHandler{
     public int getHeight() { return picture.getHeight(); }
 
     //print the new position of the paddle
-    public void setPosition(int width) { picture.translate(width,0);}
+    public void setPosition(double width) { picture.translate(width,0);}
 
     //get the X of the paddle
     public int getPositionX(){ return picture.getX(); }
@@ -39,11 +39,12 @@ public class Paddle implements KeyboardHandler{
     public void keyPressed(KeyboardEvent keyboardEvent) {
         switch (keyboardEvent.getKey()){
             case KeyboardEvent.KEY_LEFT:
-                if (GameEngine.paddleCollisionDetectWall(this)) { setPosition(-SPEED); } else { setPosition(SPEED*2); }
-                break;
+                 GameEngine.paddleCollisionDetectWall(this, -SPEED);
+
+                    break;
             case KeyboardEvent.KEY_RIGHT:
-                if (GameEngine.paddleCollisionDetectWall(this)) { setPosition(SPEED); } else { setPosition(-SPEED*2); }
-                break;
+                 GameEngine.paddleCollisionDetectWall(this, SPEED);
+                    break;
         }
     }
 

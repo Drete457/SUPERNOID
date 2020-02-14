@@ -3,9 +3,7 @@ package SUPERNOID.GameObjects;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Ball{
-
-    //speed of the ball
-    private final int SPEED = 20;
+    
     //the start position in X
     private final int positionX;
     //the start position in Y

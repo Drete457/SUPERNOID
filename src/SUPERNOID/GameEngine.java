@@ -48,7 +48,7 @@ public class GameEngine {
         { ball.setY(-ball.getY()); ball.move(); }
 
         //if the y of the ball reach 850 or more, is delete
-        if ( ball.getPositionY() >= 850 )
+        if ( ball.getPositionY() >= 900 )
         { ball.setAlive(); }
     }
 

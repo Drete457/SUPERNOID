@@ -41,10 +41,13 @@ public class Paddle implements KeyboardHandler{
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         switch (keyboardEvent.getKey()){
+
+            //Run the paddle to the left
             case KeyboardEvent.KEY_LEFT:
                  GameEngine.paddleCollisionDetectWall(this, -SPEED);
                  break;
 
+            //run the paddle top the right
             case KeyboardEvent.KEY_RIGHT:
                  GameEngine.paddleCollisionDetectWall(this, SPEED);
                  break;

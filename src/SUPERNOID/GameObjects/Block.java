@@ -20,6 +20,7 @@ public class Block {
         picture = new Picture(xPos, yPos, randomBlock.getImage());
     }
 
+    //return the energy that block have
     public int getBlockEnergy() {
         return blockEnergy;
     }

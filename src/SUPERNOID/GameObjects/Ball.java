@@ -32,7 +32,7 @@ public class Ball{
     public boolean isAlive() { return alive; }
 
     //kill the ball
-    public void setAlive() { alive = false; }
+    public void setAlive() { picture.delete(); alive = false; }
 
     //get the Width of the ball
     public int getWidth() {
@@ -58,5 +58,8 @@ public class Ball{
 
     //memorise the new axis y
     public void setY(double y) { this.y=y; }
+
+    public double getX() { return x; }
+    public double getY() { return y; }
 
 }

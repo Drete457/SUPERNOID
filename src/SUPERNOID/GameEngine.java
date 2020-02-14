@@ -15,29 +15,28 @@ public class GameEngine {
 
 
     //verify if the ball have reach the limit of the game area
-    private void ballCollisionDetectWall(Ball ball){
+    private boolean ballCollisionDetectWall(Ball ball){
         if (ball.getPositionX() > 55 && ball.getPositionX() < 550
-        && ball.getPositionY() > 55 && ball.getPositionY() < 900) {
-        }
+        && ball.getPositionY() > 55 && ball.getPositionY() < 900) { return true; }
+        return false;
     }
 
-    private void ballCollisionBlocs(Ball ball){}
+    private boolean ballCollisionBlocks(Ball ball){ return false; }
 
+    //verify if the ball can continue the direction or move to another one.
     private void nextBallDirection(Ball ball){
-        double x = ball.getPositionX();
-        double y = ball.getPositionY();
-        if (ball.getPositionX() < 0) {
-            x = 1;}
-        if (ball.getPositionX() > ball.getWidth() - 15) {
-            x = -1; }
-        if (ball.getPositionY() < 0) {
-            y = 1; }
-        if (ball.getPositionY() > ball.getHeight() - 15) {
-            y = -1; }
 
-         ball.setX(x);
-         ball.setY(y);
-         ball.move();
+        //if the ball didn't hit the wall, continue in the same direction
+        if (ballCollisionDetectWall(ball)){ ball.move();}
+        else if ( ball.getPositionX() >= 550 && ball.getPositionY() < 900 && ball.getPositionY() > 55)
+        { ball.setX(-ball.getX()); ball.move(); }
+        else if ( ball.getPositionX() <= 55 && ball.getPositionY() > 55 && ball.getPositionY() < 900 )
+        { ball.setX(-ball.getX()); ball.move(); }
+        else if ( ball.getPositionY() >= 55 && ball.getPositionX() < 550 && ball.getPositionX() > 55 )
+        { ball.setY(-ball.getY()); ball.move(); }
+        if ( ball.getPositionY() >= 850 )
+        { ball.setAlive(); }
+
     }
 
     public void moveBall(Ball ball) {

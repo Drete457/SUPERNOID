@@ -75,7 +75,7 @@ public class Game {
 
         while (ball.isAlive()) {
             engine.moveBall(ball);
-            Thread.sleep(20);
+            Thread.sleep(4);
         }
     }
 }

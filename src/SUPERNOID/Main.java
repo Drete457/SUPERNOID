@@ -12,11 +12,26 @@ public class Main {
         int level = 1;
 
         //draw the BackGround and start the game
+        //game.initScreen();
         game.backGround();
+        game.scoreDraw();
+        //game.livesLost(1);
+        //game.livesLost(2);
+        //game.livesLost(3);
+        //game.livesLost(4);
+        game.score("010");
+        //game.score("020");
 
+
+        if (level == 1) {
+            game.loadLevel1();
+        } else if (level == 2){
+            game.loadLevel2();
+        }
+
+        //game.initScreen();
         if (level == 1) { game.loadLevel1(); }
         else if (level == 2){ game.loadLevel2(); }
-        game.initLogos();
         game.start();
     }
 }

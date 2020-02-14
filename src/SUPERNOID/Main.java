@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         //will instance the game and initialise
-        Game game = new Game();
+        Game game = new Game(100);
 
         //draw the BackGround and start the game
         game.backGround();

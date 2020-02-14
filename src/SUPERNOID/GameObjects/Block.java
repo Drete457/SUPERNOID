@@ -18,7 +18,7 @@ public class Block {
     public Block(double xPos, double yPos) {
         BlockType randomBlock = BlockType.values() [(int) (Math.random() * BlockType.values().length)];
         picture = new Picture(xPos, yPos, randomBlock.getImage());
-        picture.draw();
+        //picture.draw();
     }
 
     public int getBlockEnergy() {

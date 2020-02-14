@@ -20,6 +20,7 @@ public class Main {
         //game.livesLost(3);
         //game.livesLost(4);
         game.score("010");
+        //game.score("020");
 
         if (level == 1) {
             game.loadLevel1();

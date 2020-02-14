@@ -116,10 +116,9 @@ public class Game {
     }
 
     //update score
-    public Text score(String points) {
-        scoreDraw().delete();
+    public void score(String points) {
+        //scoreDraw().delete();
         scoreDraw().setText(points);
-        return scoreDraw();
     }
 
 

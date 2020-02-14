@@ -2,20 +2,17 @@ package SUPERNOID;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-/**
- * Created by codecadet on 08/02/2020.
- */
 public class Grid {
 
+    //Padding of 10
     public static final int PADDING = 10;
+
+    //memorise the backgroud
     private Picture picture;
 
-
+    //initiate the constructor of the grid
     public Grid() {
         picture = new Picture(PADDING, PADDING, "resources/Images/general/field_900x900.gif");
         picture.draw();
-
     }
-
-
 }

@@ -43,11 +43,11 @@ public class Paddle implements KeyboardHandler{
         switch (keyboardEvent.getKey()){
             case KeyboardEvent.KEY_LEFT:
                  GameEngine.paddleCollisionDetectWall(this, -SPEED);
+                 break;
 
-                    break;
             case KeyboardEvent.KEY_RIGHT:
                  GameEngine.paddleCollisionDetectWall(this, SPEED);
-                    break;
+                 break;
         }
     }
 

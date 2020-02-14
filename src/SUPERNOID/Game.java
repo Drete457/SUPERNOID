@@ -6,8 +6,6 @@ import SUPERNOID.GameObjects.Paddle;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
-
 
 public class Game {
 
@@ -46,14 +44,11 @@ public class Game {
     }
 
     //Draw the back ground
-    public Grid backGround() {
-        return this.backGround;
-    }
+    public Grid backGround() { return this.backGround; }
 
     public void initLogos() {
 
     }
-
 
     //Methods - Game Start
     public void start() throws InterruptedException {
@@ -73,6 +68,7 @@ public class Game {
         keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
         keyboard.addEventListener(keyPressedSpace);
 
+        //cicle that verify the movement of the ball and the collision of the blocks, paddle and ball
         while (ball.isAlive()) {
             engine.moveBall(ball,paddle);
             Thread.sleep(4);

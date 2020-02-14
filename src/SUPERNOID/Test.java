@@ -10,7 +10,7 @@ public class Test {
 
     public static void main(String[] args) {
         Canvas canvas = Canvas.getInstance();
-        Picture field = new Picture(10,10,"resources/Images/general/field_900x900.jpg");
+        Picture field = new Picture(10,10,"resources/Images/general/field_900x900.git");
         canvas.show(field);
         Block[] blocks = new Block[100];
         blocks = ObjFactory.getNewBlocks(11,5, 50,0);

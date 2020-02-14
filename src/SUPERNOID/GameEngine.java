@@ -13,14 +13,11 @@ public class GameEngine {
     }
 
     public void paddleCollisionBall(Ball ball, Paddle paddle){
-        if (ball.getPositionY() >= paddle.getPositionY()-Grid.PADDING && ballInTheLimitXPaddle(ball,paddle))
-                {
-            System.out.println("entrou2");
-            System.out.println(paddle.getPositionX() + " " + paddle.getWidth() + " " + paddle.getPositionY());
+        if (ball.getPositionY() >= paddle.getPositionY()-Grid.PADDING && ballInTheLimitXPaddle(ball,paddle)) {
             ball.setY(-ball.getY()); ball.move();}
     }
 
-
+    //verify if the ball touch the Paddle in Axis X
     private boolean ballInTheLimitXPaddle(Ball ball, Paddle paddle){
         if (ball.getPositionX() >= paddle.getPositionX()-Grid.PADDING &&
            ball.getPositionX() <= paddle.getPositionX()+paddle.getWidth())
@@ -53,8 +50,6 @@ public class GameEngine {
         //if the y of the ball reach 850 or more, is delete
         if ( ball.getPositionY() >= 850 )
         { ball.setAlive(); }
-
-
     }
 
     //make the ball move

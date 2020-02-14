@@ -22,13 +22,6 @@ public class Main {
         game.score("010");
         //game.score("020");
 
-
-        if (level == 1) {
-            game.loadLevel1();
-        } else if (level == 2){
-            game.loadLevel2();
-        }
-
         //game.initScreen();
         if (level == 1) { game.loadLevel1(); }
         else if (level == 2){ game.loadLevel2(); }

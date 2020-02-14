@@ -55,6 +55,7 @@ public class GameEngine {
 
     //make the ball move
     public void moveBall(Ball ball, Paddle paddle) {
+        ballCollisionBlocks(ball);
         paddleCollisionBall(ball, paddle);
         nextBallDirection(ball);
     }

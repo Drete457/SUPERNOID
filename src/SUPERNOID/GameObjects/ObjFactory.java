@@ -4,7 +4,7 @@ import SUPERNOID.Game;
 
 public class ObjFactory {
 
-    public static int startingIndex = 0;
+    public static int startingIndex;
 
     private static final int BLOCK_TOP_PADDING = 80;
     private static final int BLOCK_LEFT_PADDING = 90;

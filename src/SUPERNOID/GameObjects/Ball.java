@@ -8,9 +8,9 @@ public class Ball{
     //speed of the ball
     private int SPEED = 1;
     //the start position in X
-    private final int positionX;
+    private int positionX;
     //the start position in Y
-    private final int positionY = 785;
+    private int positionY = 785;
     //to memorise the ball
     private Picture picture;
     //memorise if the ball is alive or not

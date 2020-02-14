@@ -9,7 +9,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 
-public class Game extends KeyboardEvent {
+public class Game {
 
     //Properties
     //Print the BackGround

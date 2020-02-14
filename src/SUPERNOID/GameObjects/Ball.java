@@ -28,7 +28,11 @@ public class Ball{
         picture.draw();
     }
 
-    public boolean isAlive(){ return alive; }
+    //return if the ball is alive
+    public boolean isAlive() { return alive; }
+
+    //kill the ball
+    public void setAlive() { alive = false; }
 
     //get the Width of the ball
     public int getWidth() {

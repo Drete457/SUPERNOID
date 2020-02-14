@@ -12,7 +12,7 @@ public class Grid {
 
     //initiate the constructor of the grid
     public Grid() {
-        picture = new Picture(PADDING, PADDING, "resources/Images/general/field_900x900.gif");
+        picture = new Picture(PADDING, PADDING, "resources/Images/general/field_900x900_c.jpg");
         picture.draw();
     }
 }

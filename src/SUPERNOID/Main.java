@@ -12,7 +12,7 @@ public class Main {
         int level = 1;
 
         //draw the BackGround and start the game
-        game.initScreen();
+        //game.initScreen();
         game.backGround();
         game.scoreDraw();
         //game.livesLost(1);
@@ -28,7 +28,7 @@ public class Main {
             game.loadLevel2();
         }
 
-        game.initScreen();
+        //game.initScreen();
         game.start();
 
     }

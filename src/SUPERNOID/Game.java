@@ -52,11 +52,15 @@ public class Game {
     }
 
     //Draw the back ground
-    public Grid backGround() { return this.backGround; }
+    public Grid backGround() {
+        Hearts.drawAll();
+        return this.backGround;
+    }
 
     //Draw the initial screen
     public void initScreen() {
-        Hearts.drawAll();
+        Picture screen = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/startScreen_900x900_v1.jpg");
+        screen.draw();
 
     }
 
@@ -144,7 +148,7 @@ public class Game {
     private enum Hearts {
 
         HEART1(new Picture(665, 665, "resources/Images/general/life_46x50_1.jpg")),
-        HEART2(new Picture(710, 665, "resources/Images/general/life_46x50_3.jpg")),
+        HEART2(new Picture(710, 665, "resources/Images/general/life_46x50_2.jpg")),
         HEART3(new Picture(755, 665, "resources/Images/general/life_46x50_3.jpg")),
         HEART4(new Picture(800, 665, "resources/Images/general/life_46x50_4.jpg"));
 

@@ -17,9 +17,9 @@ public class GameEngine {
         if (ball.getPositionY() > paddle.getPositionY()-Grid.PADDING && ballInTheLimitXPaddle(ball,paddle)) {
             ball.setY(-ball.getY()); ball.move(); }
         if (ball.getPositionX() < paddle.getPositionX()-Grid.PADDING && ball.getPositionY() > paddle.getPositionY()) {
-            ball.setX(0); ball.setY(0); ball.move(); }
+            ball.setX(0); ball.setY(1); ball.move(); }
         if (ball.getPositionX() > paddle.getWidth()+Grid.PADDING && ball.getPositionY() > paddle.getPositionY()) {
-            ball.setX(0); ball.setY(0); ball.move();}
+            ball.setX(0); ball.setY(1); ball.move();}
     }
 
     //verify if the ball touch the Paddle in Axis X

@@ -7,7 +7,7 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 
-public class Game {
+public class Game{
 
     //Properties
     //Print the BackGround
@@ -35,7 +35,10 @@ public class Game {
     private KeyboardEvent keyPressedRight = new KeyboardEvent();
 
     //create the object that will receive the input space
-    private KeyboardEvent keyPressedSpace = new KeyboardEvent();
+    private KeyboardEvent keyPressedNew = new KeyboardEvent();
+
+    //create the object that will receive the input space
+    private KeyboardEvent keyPressedExit = new KeyboardEvent();
 
     //Game Constructor
     public Game(int totalBlocks) {
@@ -50,9 +53,7 @@ public class Game {
     //Draw the back ground
     public Grid backGround() { return this.backGround; }
 
-    public void initLogos() {
-
-    }
+    public void initLogos() { }
 
     //Methods - Game Start
     public void start() throws InterruptedException {
@@ -67,10 +68,15 @@ public class Game {
         keyPressedRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(keyPressedRight);
 
-        //run the code for the space key
-        keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
-        keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
-        keyboard.addEventListener(keyPressedSpace);
+        //run the code for the N key - New Game
+        keyPressedNew.setKey(KeyboardEvent.KEY_N);
+        keyPressedNew.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(keyPressedNew);
+
+        //run the code for the E key - Exit
+        keyPressedExit.setKey(KeyboardEvent.KEY_E);
+        keyPressedExit.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(keyPressedExit);
 
         //cicle that verify the movement of the ball and the collision of the blocks, paddle and ball
         while (ball.isAlive()) {

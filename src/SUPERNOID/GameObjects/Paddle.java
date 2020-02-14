@@ -1,6 +1,8 @@
 package SUPERNOID.GameObjects;
 
+import SUPERNOID.Game;
 import SUPERNOID.GameEngine;
+import SUPERNOID.Main;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -41,10 +43,13 @@ public class Paddle implements KeyboardHandler{
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         switch (keyboardEvent.getKey()){
+
+            //Run the paddle to the left
             case KeyboardEvent.KEY_LEFT:
                  GameEngine.paddleCollisionDetectWall(this, -SPEED);
                  break;
 
+            //run the paddle top the right
             case KeyboardEvent.KEY_RIGHT:
                  GameEngine.paddleCollisionDetectWall(this, SPEED);
                  break;

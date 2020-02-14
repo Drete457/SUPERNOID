@@ -1,34 +1,31 @@
 package SUPERNOID.GameObjects;
 
 import SUPERNOID.Game;
-import SUPERNOID.Grid;
 
 public class ObjFactory {
+
+    private static int actualIndex = 0;
 
     private static final int BLOCK_TOP_PADDING = 80;
     private static final int BLOCK_LEFT_PADDING = 90;
 
-
-    public static Ball getNewBall(Paddle paddle) {
-        //return new Ball(paddle.getX(), paddle.getY(), "ball.png");
-        return null;
-    }
-
-    public static Paddle getNewPaddle(Grid grid) {
-        //return new Paddle(grid.getX() / 2, grid.getY() / 2, "Paddle.png");
-        return null;
-    }
-
+    //Create blocks for the game. The total number of blocks is numberOfColumns x numberOfRows
     public static void getNewBlocks(int numberOfColumns, int numberOfRows, int initialVerticalPos, int initialHorizontalPos, Game game) {
+        //Initializes array with the total number of blocks
         Block[] blocks = new Block[numberOfColumns * numberOfRows];
-        int index = game.blocks.length;
 
+        //index of the block object that will be created
+        int index = actualIndex;
+
+        //Create each block and save it in the corresponding index of the array
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
-            for (int colNumber = 0; colNumber < numberOfColumns; colNumber++) {
 
+            for (int colNumber = 0; colNumber < numberOfColumns; colNumber++) {
                 game.blocks[index++] = new Block((colNumber * Block.BLOCKWIDTH) + BLOCK_LEFT_PADDING + initialHorizontalPos,
                         (rowNumber * Block.BLOCKHEIGHT) + BLOCK_TOP_PADDING + initialVerticalPos);
+
             }
+        actualIndex = index;
         }
     }
 

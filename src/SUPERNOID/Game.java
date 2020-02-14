@@ -46,7 +46,7 @@ public class Game extends KeyboardEvent {
     }
 
     //Draw the back ground
-    public Grid backGround(){
+    public Grid backGround() {
         return this.backGround;
     }
 
@@ -58,25 +58,26 @@ public class Game extends KeyboardEvent {
     //Methods - Game Start
     public void start() throws InterruptedException {
 
-            //run the code for the left key
-            keyPressedLeft.setKey(KeyboardEvent.KEY_LEFT);
-            keyPressedLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            keyboard.addEventListener(keyPressedLeft);
+        //run the code for the left key
+        keyPressedLeft.setKey(KeyboardEvent.KEY_LEFT);
+        keyPressedLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(keyPressedLeft);
 
-            //run the code for the right key
-            keyPressedRight.setKey(KeyboardEvent.KEY_RIGHT);
-            keyPressedRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            keyboard.addEventListener(keyPressedRight);
+        //run the code for the right key
+        keyPressedRight.setKey(KeyboardEvent.KEY_RIGHT);
+        keyPressedRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(keyPressedRight);
 
-            //run the code for the space key
-            keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
-            keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
-            keyboard.addEventListener(keyPressedSpace);
-        
-            while (ball.isAlive()){
-                engine.moveBall(ball);
-                Thread.sleep(20);
-           }
+        //run the code for the space key
+        keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
+        keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        keyboard.addEventListener(keyPressedSpace);
+
+        while (ball.isAlive()) {
+            engine.moveBall(ball);
+            Thread.sleep(20);
         }
+    }
+}
 
 

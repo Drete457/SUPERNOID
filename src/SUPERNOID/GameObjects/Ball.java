@@ -46,8 +46,8 @@ public class Ball{
     }
 
     //print the new position of the ball
-    public void move() { picture.translate(x,y);
-        System.out.println("x: " + picture.getX() + " y: " + picture.getY());}
+    public void move() { picture.translate(x,y); }
+
     //get the X of the ball
     public int getPositionX() { return picture.getX(); }
 

@@ -9,7 +9,7 @@ public class Block {
     public static final int BLOCKHEIGHT = 15;
 
     //Returns the energy of the block. After a block is hit, this value decreases, if this value is zero, block is destroyed
-    private int blockEnergy = 10;
+    private int blockEnergy = 1;
 
     //if true, block is destroyed, it must be deleted
     private boolean destroyed = false;
@@ -68,9 +68,13 @@ public class Block {
         return destroyed;
     }
 
+    public void resetDestroyed() {
+        this.destroyed = false;
+    }
+
     //destroyed setter, deletes image when block is destroyed
-    public void setDestroyed(boolean destroyed) {
-        this.destroyed = destroyed;
+    public void setDestroyed() {
+        this.destroyed = true;
         // if block was destroyed, delete its picture from canvas
         picture.delete();
     }

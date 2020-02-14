@@ -68,12 +68,12 @@ public class Game implements KeyboardHandler {
     public void initScreen() {
         Picture screen = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/startScreen_900x900_v1.jpg");
         screen.draw();
-
     }
 
 
     //draw the first lvl
     public void loadLevel1() {
+        ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
         ObjFactory.getNewBlocks(11, 5, 150, 0, this); // 11 x 5 = 55 blocks - 100 total
         ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 125 total
@@ -82,6 +82,7 @@ public class Game implements KeyboardHandler {
 
     //draw the second lvl
     public void loadLevel2() {
+        ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
         ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 70 total
         ObjFactory.getNewBlocks(11, 5, 350, 0, this); // 11 x 5 = 55 blocks - 125 total
@@ -92,6 +93,7 @@ public class Game implements KeyboardHandler {
         //Draw blocks after creating them
         for (Block singleBlock : blocks) {
             singleBlock.getPicture().draw();
+            singleBlock.resetDestroyed();
         }
     }
 
@@ -187,7 +189,8 @@ public class Game implements KeyboardHandler {
         public void restart() {
             ball.delete();
             this.ball = new Ball(paddle);
-            blocks = new Block[150];
+            loadLevel1();
+          //  blocks = new Block[blocks.length];
         }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard

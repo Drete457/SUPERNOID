@@ -29,6 +29,9 @@ public class Ball{
         picture.draw();
     }
 
+    //delete the image of the ball
+    public void delete() { picture.delete(); }
+
     //return if the ball is alive
     public boolean isAlive() { return alive; }
 

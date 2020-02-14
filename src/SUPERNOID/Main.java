@@ -3,8 +3,8 @@ package SUPERNOID;
 public class Main {
 
     //The Beginning of the game, and Interrupted when it finish
-    public static void main(String[] args) throws InterruptedException {
-
+    public static void main(String[] args) throws InterruptedException  {
+        
         //will instance the game and initialise
         Game game = new Game(125);
 
@@ -22,6 +22,7 @@ public class Main {
         game.score("010");
         //game.score("020");
 
+
         if (level == 1) {
             game.loadLevel1();
         } else if (level == 2){
@@ -29,7 +30,8 @@ public class Main {
         }
 
         //game.initScreen();
+        if (level == 1) { game.loadLevel1(); }
+        else if (level == 2){ game.loadLevel2(); }
         game.start();
-
     }
 }

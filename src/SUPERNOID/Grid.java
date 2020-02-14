@@ -7,7 +7,7 @@ public class Grid {
     //Padding of 10
     public static final int PADDING = 10;
 
-    //memorise the backgroud
+    //memorise the background
     private Picture picture;
 
     //initiate the constructor of the grid

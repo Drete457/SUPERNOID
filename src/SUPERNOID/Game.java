@@ -10,8 +10,9 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-public class Game {
+public class Game implements KeyboardHandler {
 
     //Properties
     //Print the BackGround
@@ -31,7 +32,9 @@ public class Game {
 
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
-    private Keyboard keyboard;
+    private Keyboard keyboard; //Keyboard for the paddle
+    private Keyboard keyboardGame; //keyboard for the game menu
+
     //create the object that will receive the input left
     private KeyboardEvent keyPressedLeft = new KeyboardEvent();
 
@@ -39,7 +42,10 @@ public class Game {
     private KeyboardEvent keyPressedRight = new KeyboardEvent();
 
     //create the object that will receive the input space
-    private KeyboardEvent keyPressedSpace = new KeyboardEvent();
+    private KeyboardEvent keyPressedNew = new KeyboardEvent();
+
+    //create the object that will receive the input space
+    private KeyboardEvent keyPressedExit = new KeyboardEvent();
 
     //Game Constructor
     public Game(int totalBlocks) {
@@ -48,6 +54,7 @@ public class Game {
         this.engine = new GameEngine();
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
+        keyboardGame = new Keyboard(this);
         blocks = new Block[totalBlocks];
     }
 
@@ -64,21 +71,24 @@ public class Game {
 
     }
 
+
+    //draw the first lvl
     public void loadLevel1() {
-        ObjFactory.getNewBlocks(11,5, 50,0, this); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(11,5, 150,0, this); // 11 x 5 = 55 blocks - 100 total
-        ObjFactory.getNewBlocks(5,3, 250, 120, this); // 5 x 3 = 15 blocks - 125 total
+        ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
+        ObjFactory.getNewBlocks(11, 5, 150, 0, this); // 11 x 5 = 55 blocks - 100 total
+        ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 125 total
         drawBlocks();
     }
 
-    public void loadLevel2(){
-        ObjFactory.getNewBlocks(11,5, 50,0, this); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(5,3, 250, 120, this); // 5 x 3 = 15 blocks - 70 total
-        ObjFactory.getNewBlocks(11,5, 350,0, this); // 11 x 5 = 55 blocks - 125 total
+    //draw the second lvl
+    public void loadLevel2() {
+        ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
+        ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 70 total
+        ObjFactory.getNewBlocks(11, 5, 350, 0, this); // 11 x 5 = 55 blocks - 125 total
         drawBlocks();
     }
 
-    public void drawBlocks(){
+    public void drawBlocks() {
         //Draw blocks after creating them
         for (Block singleBlock : blocks) {
             singleBlock.getPicture().draw();
@@ -98,17 +108,23 @@ public class Game {
         keyPressedRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(keyPressedRight);
 
-        //run the code for the space key
-        keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
-        keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
-        keyboard.addEventListener(keyPressedSpace);
+        //run the code for the N key - New Game
+        keyPressedNew.setKey(KeyboardEvent.KEY_N);
+        keyPressedNew.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardGame.addEventListener(keyPressedNew);
 
-        //cicle that verify the movement of the ball and the collision of the blocks, paddle and ball
+        //run the code for the E key - Exit
+        keyPressedExit.setKey(KeyboardEvent.KEY_E);
+        keyPressedExit.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardGame.addEventListener(keyPressedExit);
+
+        //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
         while (ball.isAlive()) {
-            engine.moveBall(ball,paddle);
+            engine.moveBall(ball, paddle);
             Thread.sleep(2);
         }
     }
+
 
     //Draw initial score
     public Text scoreDraw() {
@@ -165,8 +181,38 @@ public class Game {
             HEART3.pic.draw();
             HEART4.pic.draw();
         }
+    }
+
+        //restart the game method
+        public void restart() {
+            ball.delete();
+            this.ball = new Ball(paddle);
+            blocks = new Block[150];
+        }
+
+        //listen the keyboard so is possible to restart the game make the paddle move using the keyboard
+        @Override
+        public void keyPressed(KeyboardEvent keyboardEvent) {
+            switch (keyboardEvent.getKey()) {
+
+                //restart the game
+                case KeyboardEvent.KEY_N:
+                    restart();
+                    break;
+
+                //exit the game
+                case KeyboardEvent.KEY_E:
+                    System.exit(0);
+                    break;
+            }
+        }
+
+        //disable method
+        @Override
+        public void keyReleased(KeyboardEvent keyboardEvent) {
+        }
 
     }
-}
+
 
 

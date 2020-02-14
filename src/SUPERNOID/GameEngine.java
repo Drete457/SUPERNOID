@@ -12,9 +12,14 @@ public class GameEngine {
         else if (paddle.getPositionX() >= 378) { paddle.setPosition(-10); }
     }
 
+    //verify the collision between the ball and the paddle
     public void paddleCollisionBall(Ball ball, Paddle paddle){
-        if (ball.getPositionY() >= paddle.getPositionY()-Grid.PADDING && ballInTheLimitXPaddle(ball,paddle)) {
-            ball.setY(-ball.getY()); ball.move();}
+        if (ball.getPositionY() > paddle.getPositionY()-Grid.PADDING && ballInTheLimitXPaddle(ball,paddle)) {
+            ball.setY(-ball.getY()); ball.move(); }
+        if (ball.getPositionX() < paddle.getPositionX()-Grid.PADDING && ball.getPositionY() > paddle.getPositionY()) {
+            ball.setX(0); ball.setY(0); ball.move(); }
+        if (ball.getPositionX() > paddle.getWidth()+Grid.PADDING && ball.getPositionY() > paddle.getPositionY()) {
+            ball.setX(0); ball.setY(0); ball.move();}
     }
 
     //verify if the ball touch the Paddle in Axis X

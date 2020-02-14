@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
         ​
-<project name="SuperNoid" default="jarfile">
+<project name="SUPERNOID" default="jarfile">
     ​
     <!-- Initialize build properties  -->
     <target name="init" description="Initializes properties">
-        <property name="project.name" value="MyProject" />
+        <property name="project.name" value="SUPERNOID" />
         <property name="src.dir" value="src" />
         <property name="main.class" value="SUPERNOID.Main" />
         <property name="build.dir" value="build" />

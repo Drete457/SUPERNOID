@@ -18,7 +18,7 @@ public class ObjFactory {
         return null;
     }
 
-    public static Block[] getNewBlocks(int numberOfColumns, int numberOfRows, int initalVerticalPos, int initialHorizontalPos) {
+    public static Block[] getNewBlocks(int numberOfColumns, int numberOfRows, int initialVerticalPos, int initialHorizontalPos) {
         Block[] blocks = new Block[numberOfColumns * numberOfRows];
 
         int index = -1;
@@ -30,7 +30,7 @@ public class ObjFactory {
 
                 System.out.println(index);
                 blocks[index] = new Block((colNumber * Block.BLOCKWIDTH) + BLOCK_LEFT_PADDING + initialHorizontalPos,
-                        (rowNumber * Block.BLOCKHEIGHT) + BLOCK_TOP_PADDING + initalVerticalPos);
+                        (rowNumber * Block.BLOCKHEIGHT) + BLOCK_TOP_PADDING + initialVerticalPos);
             }
         }
 

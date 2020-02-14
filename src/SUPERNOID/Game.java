@@ -3,9 +3,12 @@ package SUPERNOID;
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Game {
 
@@ -50,7 +53,9 @@ public class Game {
     //Draw the back ground
     public Grid backGround() { return this.backGround; }
 
-    public void initLogos() {
+    //Draw the initial screen
+    public void initScreen() {
+        Hearts.drawAll();
 
     }
 
@@ -79,8 +84,63 @@ public class Game {
         }
     }
 
-    public void score() {
-        
+    //Draw initial score
+    public Text scoreDraw() {
+        Text score = new Text(750, 485, "000");
+        score.setColor(Color.WHITE);
+        score.grow(50, 40);
+        score.draw();
+        return score;
+    }
+
+    //update score
+    public Text score(String points) {
+        scoreDraw().delete();
+        scoreDraw().setText(points);
+        return scoreDraw();
+    }
+
+
+    public void livesLost(int livesLost) {
+
+        switch (livesLost) {
+            case 1:
+                Hearts.HEART4.pic.delete();
+                break;
+            case 2:
+                Hearts.HEART3.pic.delete();
+                break;
+            case 3:
+                Hearts.HEART2.pic.delete();
+                break;
+            case 4:
+                Hearts.HEART1.pic.delete();
+                break;
+        }
+
+    }
+
+    private enum Hearts {
+
+        HEART1(new Picture(665, 665, "resources/Images/general/life_46x50_1.jpg")),
+        HEART2(new Picture(710, 665, "resources/Images/general/life_46x50_3.jpg")),
+        HEART3(new Picture(755, 665, "resources/Images/general/life_46x50_3.jpg")),
+        HEART4(new Picture(800, 665, "resources/Images/general/life_46x50_4.jpg"));
+
+        private Picture pic;
+
+        Hearts(Picture pic) {
+            this.pic = pic;
+
+        }
+
+        private static void drawAll() {
+            HEART1.pic.draw();
+            HEART2.pic.draw();
+            HEART3.pic.draw();
+            HEART4.pic.draw();
+        }
+
     }
 }
 

@@ -16,9 +16,6 @@ public class Game {
     //Array of Blocks for this game
     Block[] blocks;
 
-    //totalBlocks for this game
-    int totalBlocks;
-
     //Print the paddle
     private Paddle paddle;
 
@@ -48,7 +45,6 @@ public class Game {
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
         blocks = new Block[totalBlocks];
-        this.totalBlocks = totalBlocks;
     }
 
     //Draw the back ground

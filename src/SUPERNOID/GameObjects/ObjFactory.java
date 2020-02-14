@@ -1,5 +1,6 @@
 package SUPERNOID.GameObjects;
 
+import SUPERNOID.Game;
 import SUPERNOID.Grid;
 
 public class ObjFactory {
@@ -18,9 +19,8 @@ public class ObjFactory {
         return null;
     }
 
-    public static Block[] getNewBlocks(int numberOfColumns, int numberOfRows, int initialVerticalPos, int initialHorizontalPos) {
+    public static Block[] getNewBlocks(int numberOfColumns, int numberOfRows, int initialVerticalPos, int initialHorizontalPos, Game game) {
         Block[] blocks = new Block[numberOfColumns * numberOfRows];
-
         int index = -1;
 
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {

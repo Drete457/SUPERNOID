@@ -4,7 +4,7 @@ import SUPERNOID.Game;
 
 public class ObjFactory {
 
-    private static int actualIndex = 0;
+    private static int startingIndex = 0;
 
     private static final int BLOCK_TOP_PADDING = 80;
     private static final int BLOCK_LEFT_PADDING = 90;
@@ -15,7 +15,7 @@ public class ObjFactory {
         Block[] blocks = new Block[numberOfColumns * numberOfRows];
 
         //index of the block object that will be created
-        int index = actualIndex;
+        int index = startingIndex;
 
         //Create each block and save it in the corresponding index of the array
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
@@ -25,9 +25,7 @@ public class ObjFactory {
                         (rowNumber * Block.BLOCKHEIGHT) + BLOCK_TOP_PADDING + initialVerticalPos);
 
             }
-        actualIndex = index;
+            startingIndex = index;
         }
     }
-
-
 }

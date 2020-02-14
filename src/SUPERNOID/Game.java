@@ -82,6 +82,10 @@ public class Game {
             Thread.sleep(2);
         }
     }
+
+    public void score() {
+        
+    }
 }
 
 

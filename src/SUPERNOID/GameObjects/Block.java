@@ -16,9 +16,8 @@ public class Block {
 
     //Constructor
     public Block(double xPos, double yPos) {
-        BlockType randomBlock = BlockType.values() [(int) (Math.random() * BlockType.values().length)];
+        BlockType randomBlock = BlockType.values()[(int) (Math.random() * BlockType.values().length)];
         picture = new Picture(xPos, yPos, randomBlock.getImage());
-        picture.draw();
     }
 
     public int getBlockEnergy() {
@@ -31,22 +30,48 @@ public class Block {
     }
 
     //Method to call when the ball hist the block
-    public void hit(int damage){
+    public void hit(int damage) {
         //decrease energy and if its <= 0, set destroyed to true
         blockEnergy -= damage;
         if (blockEnergy <= 0) {
             destroyed = true;
+            // if block was destroyed, delete its picture from canvas
+            picture.delete();
         }
     }
+
+
+    //get the Width of the block
+    public int getWidth() {
+        return picture.getWidth();
+    }
+
+    //get the Height of the block
+    public int getHeight() {
+        return picture.getHeight();
+    }
+
+    //get the X position of the block
+    public int getPositionX() {
+        return picture.getX();
+    }
+
+    //get the Y position of the block
+    public int getPositionY() {
+        return picture.getY();
+    }
+
 
     //getter for destroyed
     public boolean isDestroyed() {
         return destroyed;
     }
 
-    //destroyed setter
+    //destroyed setter, deletes image when block is destroyed
     public void setDestroyed(boolean destroyed) {
         this.destroyed = destroyed;
+        // if block was destroyed, delete its picture from canvas
+        picture.delete();
     }
 
     //Get Picture
@@ -74,7 +99,7 @@ public class Block {
 
         private String image;
 
-        BlockType(String image){
+        BlockType(String image) {
             this.image = image;
         }
 

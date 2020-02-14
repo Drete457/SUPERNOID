@@ -9,7 +9,7 @@ public class Main {
         Game game = new Game(125);
 
         //Game level
-        int level = 2;
+        int level = 1;
 
         //draw the BackGround and start the game
         game.backGround();

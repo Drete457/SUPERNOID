@@ -32,7 +32,10 @@ public class Paddle implements KeyboardHandler{
     public void setPosition(double width) { picture.translate(width,0);}
 
     //get the X of the paddle
-    public int getPositionX(){ return picture.getX(); }
+    public int getPositionX() { return picture.getX(); }
+
+    //get the Y of the paddle
+    public int getPositionY() { return picture.getY(); }
 
     //make the paddle move using the keyboard
     @Override

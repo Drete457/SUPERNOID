@@ -74,7 +74,7 @@ public class Game {
         keyboard.addEventListener(keyPressedSpace);
 
         while (ball.isAlive()) {
-            engine.moveBall(ball);
+            engine.moveBall(ball,paddle);
             Thread.sleep(4);
         }
     }

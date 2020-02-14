@@ -23,8 +23,8 @@ public class Ball{
     public Ball(Paddle paddle) {
         positionX = paddle.getPositionX() + (paddle.getWidth()/2-8);
         picture = new Picture(positionX, positionY, "resources/Images/general/ball_15x15.png");
-        x = 1;
-        y = -1;
+        x = 2;
+        y = -2;
         picture.draw();
     }
 
@@ -59,7 +59,10 @@ public class Ball{
     //memorise the new axis y
     public void setY(double y) { this.y=y; }
 
+    //write the new value in x, to be ready by the canvas.translate
     public double getX() { return x; }
+
+    //write the new value in y, to be ready by the canvas.translate
     public double getY() { return y; }
 
 }

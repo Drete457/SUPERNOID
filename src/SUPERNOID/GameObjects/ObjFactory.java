@@ -25,9 +25,7 @@ public class ObjFactory {
                         (rowNumber * Block.BLOCKHEIGHT) + BLOCK_TOP_PADDING + initialVerticalPos);
 
             }
-        startingIndex = index;
+            startingIndex = index;
         }
     }
-
-
 }

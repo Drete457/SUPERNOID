@@ -47,7 +47,7 @@ public class GameEngine {
         else if ( ball.getPositionY() >= 55 && ball.getPositionX() < 550 && ball.getPositionX() > 55 )
         { ball.setY(-ball.getY()); ball.move(); }
 
-        //if the y of the ball reach 850 or more, is delete
+        //if the y of the ball reach 900 or more, is delete
         if ( ball.getPositionY() >= 900 )
         { ball.setAlive(); }
     }

@@ -4,6 +4,10 @@ import SUPERNOID.Game;
 
 public class ObjFactory {
 
+    public static void resetStartingIndex(){
+        this.startingIndex = 0;
+    }
+
     private static int startingIndex = 0;
 
     private static final int BLOCK_TOP_PADDING = 80;

@@ -13,6 +13,9 @@ public class Game {
     //Print the BackGround
     private final Grid backGround;
 
+    //Array of Blocks for this game
+    public Block[] blocks;
+
     //Print the paddle
     private Paddle paddle;
 
@@ -35,12 +38,13 @@ public class Game {
     private KeyboardEvent keyPressedSpace = new KeyboardEvent();
 
     //Game Constructor
-    public Game() {
+    public Game(int totalBlocks) {
         this.backGround = new Grid();
         this.paddle = new Paddle();
         this.engine = new GameEngine();
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
+        blocks = new Block[totalBlocks];
     }
 
     //Draw the back ground

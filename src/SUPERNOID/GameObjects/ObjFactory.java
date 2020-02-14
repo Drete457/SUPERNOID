@@ -5,7 +5,7 @@ import SUPERNOID.Grid;
 public class ObjFactory {
 
     private static final int BLOCK_TOP_PADDING = 80;
-    private static final int BLOCK_LEFT_PADDING = 50;
+    private static final int BLOCK_LEFT_PADDING = 90;
 
 
     public static Ball getNewBall(Paddle paddle) {
@@ -18,16 +18,24 @@ public class ObjFactory {
         return null;
     }
 
-    public static Block[] getNewBlocks(int numberOfBlocks) {
-        Block[] blocks = new Block[numberOfBlocks];
+    public static Block[] getNewBlocks(int numberOfColumns, int numberOfRows, int initalVerticalPos, int initialHorizontalPos) {
+        Block[] blocks = new Block[numberOfColumns * numberOfRows];
 
-        for (int i = 1; i <= 4 ; i++) {
-            for (int j = 1; j <= 11 ; j++) {
-                blocks[i] = new Block((j * Block.BLOCKWIDTH) + BLOCK_LEFT_PADDING,
-                        (i * Block.BLOCKHEIGHT) + BLOCK_TOP_PADDING);
+        int index = -1;
+
+        for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
+            for (int colNumber = 0; colNumber < numberOfColumns; colNumber++) {
+
+                index++;
+
+                System.out.println(index);
+                blocks[index] = new Block((colNumber * Block.BLOCKWIDTH) + BLOCK_LEFT_PADDING + initialHorizontalPos,
+                        (rowNumber * Block.BLOCKHEIGHT) + BLOCK_TOP_PADDING + initalVerticalPos);
             }
         }
 
         return blocks;
     }
+
+
 }

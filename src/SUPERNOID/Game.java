@@ -6,6 +6,7 @@ import SUPERNOID.GameObjects.Paddle;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 
 public class Game extends KeyboardEvent {
@@ -49,6 +50,11 @@ public class Game extends KeyboardEvent {
         return this.backGround;
     }
 
+    public void initLogos() {
+
+    }
+
+
     //Methods - Game Start
     public void start() throws InterruptedException {
 
@@ -66,11 +72,11 @@ public class Game extends KeyboardEvent {
             keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
             keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
             keyboard.addEventListener(keyPressedSpace);
-
+        
             while (ball.isAlive()){
                 engine.moveBall(ball);
                 Thread.sleep(20);
            }
         }
-    }
+
 

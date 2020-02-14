@@ -8,34 +8,44 @@ public class Block {
     public static final int BLOCKWIDTH = 40;
     public static final int BLOCKHEIGHT = 15;
 
+    //Returns the energy of the block. After a block is hit, this value decreases, if this value is zero, block is destroyed
     private int blockEnergy = 10;
+
+    //if true, block is destroyed, it must be deleted
     private boolean destroyed = false;
 
+    //Constructor
     public Block(double xPos, double yPos) {
         BlockType randomBlock = BlockType.values() [(int) (Math.random() * BlockType.values().length)];
         picture = new Picture(xPos, yPos, randomBlock.getImage());
         picture.draw();
     }
 
+    //return the energy that block have
     public int getBlockEnergy() {
         return blockEnergy;
     }
 
+    //Block Energy Setter
     public void setBlockEnergy(int blockEnergy) {
         this.blockEnergy = blockEnergy;
     }
 
+    //Method to call when the ball hist the block
     public void hit(int damage){
+        //decrease energy and if its <= 0, set destroyed to true
         blockEnergy -= damage;
         if (blockEnergy <= 0) {
             destroyed = true;
         }
     }
 
+    //getter for destroyed
     public boolean isDestroyed() {
         return destroyed;
     }
 
+    //destroyed setter
     public void setDestroyed(boolean destroyed) {
         this.destroyed = destroyed;
     }
@@ -50,6 +60,7 @@ public class Block {
         this.picture.load(url);
     }
 
+    //Returns a random block image
     private enum BlockType {
         BLUE("resources/Images/color-blocks/blue_40x15.jpg"),
         BROWN("resources/Images/color-blocks/brown_40x15.jpg"),

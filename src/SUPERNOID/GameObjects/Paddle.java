@@ -1,8 +1,6 @@
 package SUPERNOID.GameObjects;
 
-import SUPERNOID.Game;
 import SUPERNOID.GameEngine;
-import SUPERNOID.Main;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;

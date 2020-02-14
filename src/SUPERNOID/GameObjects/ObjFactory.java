@@ -19,9 +19,10 @@ public class ObjFactory {
         return null;
     }
 
+
     public static void getNewBlocks(int numberOfColumns, int numberOfRows, int initialVerticalPos, int initialHorizontalPos, Game game) {
         Block[] blocks = new Block[numberOfColumns * numberOfRows];
-        int index = game.blocks.length;
+        int index = 0;
 
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
             for (int colNumber = 0; colNumber < numberOfColumns; colNumber++) {

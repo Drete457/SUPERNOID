@@ -20,9 +20,9 @@ public class ObjFactory {
     }
 
 
-    public static Block[] getNewBlocks(int numberOfColumns, int numberOfRows, int initialVerticalPos, int initialHorizontalPos, Game game) {
+    public static void getNewBlocks(int numberOfColumns, int numberOfRows, int initialVerticalPos, int initialHorizontalPos, Game game) {
         Block[] blocks = new Block[numberOfColumns * numberOfRows];
-        int index = -1;
+        int index = 0;
 
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
             for (int colNumber = 0; colNumber < numberOfColumns; colNumber++) {

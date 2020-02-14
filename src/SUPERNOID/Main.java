@@ -12,9 +12,9 @@ public class Main {
 
         //draw the BackGround and start the game
         game.backGround();
-        ObjFactory.getNewBlocks(11,5, 50,0);
-        ObjFactory.getNewBlocks(11,5, 150,0);
-        ObjFactory.getNewBlocks(5,3, 250, 120);
+        ObjFactory.getNewBlocks(11,5, 50,0,game);
+        ObjFactory.getNewBlocks(11,5, 150,0, game);
+        ObjFactory.getNewBlocks(5,3, 250, 120, game);
         game.initLogos();
         game.start();
     }

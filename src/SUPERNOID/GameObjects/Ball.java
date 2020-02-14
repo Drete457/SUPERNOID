@@ -1,9 +1,12 @@
 package SUPERNOID.GameObjects;
 
+import SUPERNOID.Grid;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Ball{
-    
+
+    //speed of the ball
+    private int SPEED = 1;
     //the start position in X
     private final int positionX;
     //the start position in Y
@@ -19,10 +22,10 @@ public class Ball{
 
     //start the ball object
     public Ball(Paddle paddle) {
-        positionX = paddle.getPositionX() + (paddle.getWidth()/2-8);
+        positionX = paddle.getPositionX() + (paddle.getWidth()/2 -Grid.PADDING);
         picture = new Picture(positionX, positionY, "resources/Images/general/ball_15x15.png");
-        x = 2;
-        y = -2;
+        x = SPEED;
+        y = -SPEED;
         picture.draw();
     }
 
@@ -43,8 +46,8 @@ public class Ball{
     }
 
     //print the new position of the ball
-    public void move() { picture.translate(x,y); }
-
+    public void move() { picture.translate(x,y);
+        System.out.println("x: " + picture.getX() + " y: " + picture.getY());}
     //get the X of the ball
     public int getPositionX() { return picture.getX(); }
 

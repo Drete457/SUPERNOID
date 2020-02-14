@@ -14,7 +14,7 @@ public class Game {
     private final Grid backGround;
 
     //Array of Blocks for this game
-    Block[] blocks;
+    public Block[] blocks;
 
     //Print the paddle
     private Paddle paddle;

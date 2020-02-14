@@ -19,6 +19,7 @@ public class ObjFactory {
         return null;
     }
 
+
     public static Block[] getNewBlocks(int numberOfColumns, int numberOfRows, int initialVerticalPos, int initialHorizontalPos, Game game) {
         Block[] blocks = new Block[numberOfColumns * numberOfRows];
         int index = -1;
@@ -26,15 +27,10 @@ public class ObjFactory {
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
             for (int colNumber = 0; colNumber < numberOfColumns; colNumber++) {
 
-                index++;
-
-                System.out.println(index);
-                blocks[index] = new Block((colNumber * Block.BLOCKWIDTH) + BLOCK_LEFT_PADDING + initialHorizontalPos,
+                game.blocks[index++] = new Block((colNumber * Block.BLOCKWIDTH) + BLOCK_LEFT_PADDING + initialHorizontalPos,
                         (rowNumber * Block.BLOCKHEIGHT) + BLOCK_TOP_PADDING + initialVerticalPos);
             }
         }
-
-        return blocks;
     }
 
 

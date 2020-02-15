@@ -41,26 +41,30 @@ public class Game implements KeyboardHandler {
     //create the object that will receive the input right
     private KeyboardEvent keyPressedRight = new KeyboardEvent();
 
-    //create the object that will receive the input space
+    //create the object that will receive the input new game
     private KeyboardEvent keyPressedNew = new KeyboardEvent();
 
-    //create the object that will receive the input space
+    //create the object that will receive the input exit
     private KeyboardEvent keyPressedExit = new KeyboardEvent();
+
+    //create the object that will receive the input exit
+    private KeyboardEvent keyPressedSpace = new KeyboardEvent();
+
+    private boolean reset =  false;
 
     //Game Constructor
     public Game(int totalBlocks) {
         this.backGround = new Grid();
         this.paddle = new Paddle();
+        blocks = new Block[totalBlocks];
         this.engine = new GameEngine();
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
         keyboardGame = new Keyboard(this);
-        blocks = new Block[totalBlocks];
     }
 
     //Draw the back ground
     public Grid backGround() {
-        Hearts.drawAll();
         return this.backGround;
     }
 
@@ -68,12 +72,19 @@ public class Game implements KeyboardHandler {
     public void initScreen() {
         Picture screen = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/startScreen_900x900_v1.jpg");
         screen.draw();
-
     }
 
 
     //draw the first lvl
     public void loadLevel1() {
+        if (reset) {
+            for (Block newborns : blocks) {
+                newborns.resetDestroyed();
+            }
+            reset = false;
+            return;
+        }
+        ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
         ObjFactory.getNewBlocks(11, 5, 150, 0, this); // 11 x 5 = 55 blocks - 100 total
         ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 125 total
@@ -82,6 +93,7 @@ public class Game implements KeyboardHandler {
 
     //draw the second lvl
     public void loadLevel2() {
+        ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
         ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 70 total
         ObjFactory.getNewBlocks(11, 5, 350, 0, this); // 11 x 5 = 55 blocks - 125 total
@@ -91,7 +103,8 @@ public class Game implements KeyboardHandler {
     public void drawBlocks() {
         //Draw blocks after creating them
         for (Block singleBlock : blocks) {
-            singleBlock.getPicture().draw();
+            singleBlock.getPicture();
+            singleBlock.resetDestroyed();
         }
     }
 
@@ -118,13 +131,18 @@ public class Game implements KeyboardHandler {
         keyPressedExit.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboardGame.addEventListener(keyPressedExit);
 
+        //run the code for the space key - First Menu
+        keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
+        keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardGame.addEventListener(keyPressedExit);
+
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
+
         while (ball.isAlive()) {
-            engine.moveBall(ball, paddle);
+            engine.moveBall(ball, paddle, blocks);
             Thread.sleep(2);
         }
     }
-
 
     //Draw initial score
     public Text scoreDraw() {
@@ -142,53 +160,26 @@ public class Game implements KeyboardHandler {
     }
 
 
-    public void livesLost(int livesLost) {
+    //restart the game method
+    public void restart() {
+        reset = true;
 
-        switch (livesLost) {
-            case 1:
-                Hearts.HEART4.pic.delete();
-                break;
-            case 2:
-                Hearts.HEART3.pic.delete();
-                break;
-            case 3:
-                Hearts.HEART2.pic.delete();
-                break;
-            case 4:
-                Hearts.HEART1.pic.delete();
-                break;
-        }
+        //verify the position of the ball and move the ball back to the paddle
+        double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
+        double y = -ball.getPositionY()+(paddle.getPositionY()-Grid.PADDING*1.5);
 
+        // put the new values for the movement of the ball
+        ball.setX(x); ball.setY(y);
+
+        //force the ball to the new position
+        ball.move();
+
+        //give the ball the new velocity and direction
+        ball.setX(1); ball.setY(-1); ball.draw();
+
+        //draw the blocks again on new game
+        loadLevel1();
     }
-
-    private enum Hearts {
-
-        HEART1(new Picture(665, 665, "resources/Images/general/life_46x50_1.jpg")),
-        HEART2(new Picture(710, 665, "resources/Images/general/life_46x50_2.jpg")),
-        HEART3(new Picture(755, 665, "resources/Images/general/life_46x50_3.jpg")),
-        HEART4(new Picture(800, 665, "resources/Images/general/life_46x50_4.jpg"));
-
-        private Picture pic;
-
-        Hearts(Picture pic) {
-            this.pic = pic;
-
-        }
-
-        private static void drawAll() {
-            HEART1.pic.draw();
-            HEART2.pic.draw();
-            HEART3.pic.draw();
-            HEART4.pic.draw();
-        }
-    }
-
-        //restart the game method
-        public void restart() {
-            ball.delete();
-            this.ball = new Ball(paddle);
-            blocks = new Block[150];
-        }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard
         @Override
@@ -203,6 +194,11 @@ public class Game implements KeyboardHandler {
                 //exit the game
                 case KeyboardEvent.KEY_E:
                     System.exit(0);
+                    break;
+
+                //return to the first menu
+                case KeyboardEvent.KEY_SPACE:
+                    //put the code here
                     break;
             }
         }

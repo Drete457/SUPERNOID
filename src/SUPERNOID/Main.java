@@ -19,15 +19,8 @@ public class Main {
         //game.livesLost(2);
         //game.livesLost(3);
         //game.livesLost(4);
-        game.score("010");
+       // game.score("010");
         //game.score("020");
-
-
-        if (level == 1) {
-            game.loadLevel1();
-        } else if (level == 2){
-            game.loadLevel2();
-        }
 
         //game.initScreen();
         if (level == 1) { game.loadLevel1(); }

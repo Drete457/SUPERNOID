@@ -8,7 +8,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Paddle implements KeyboardHandler{
 
     //speed of the paddle
-    private final int SPEED = 8;
+    private final int SPEED = 20;
     //the start position in X
     private final int positionX = 220;
     //the start position in Y

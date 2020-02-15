@@ -32,21 +32,20 @@ public class Ball{
     //delete the image of the ball
     public void delete() { picture.delete(); }
 
+    //draw the ball
+    public void draw() { picture.draw(); }
+
     //return if the ball is alive
     public boolean isAlive() { return alive; }
 
     //kill the ball
-    public void setAlive() { picture.delete(); alive = false; }
+    public void setAlive() { picture.delete(); }
 
     //get the Width of the ball
-    public int getWidth() {
-        return picture.getWidth();
-    }
+    public int getWidth() { return picture.getWidth(); }
 
-    //get the Hight of the ball
-    public int getHeight() {
-        return picture.getHeight();
-    }
+    //get the Height of the ball
+    public int getHeight() { return picture.getHeight(); }
 
     //print the new position of the ball
     public void move() { picture.translate(x,y); }
@@ -68,5 +67,4 @@ public class Ball{
 
     //write the new value in y, to be ready by the canvas.translate
     public double getY() { return y; }
-
 }

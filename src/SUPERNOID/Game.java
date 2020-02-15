@@ -41,11 +41,14 @@ public class Game implements KeyboardHandler {
     //create the object that will receive the input right
     private KeyboardEvent keyPressedRight = new KeyboardEvent();
 
-    //create the object that will receive the input space
+    //create the object that will receive the input new game
     private KeyboardEvent keyPressedNew = new KeyboardEvent();
 
-    //create the object that will receive the input space
+    //create the object that will receive the input exit
     private KeyboardEvent keyPressedExit = new KeyboardEvent();
+
+    //create the object that will receive the input exit
+    private KeyboardEvent keyPressedSpace = new KeyboardEvent();
 
     //Game Constructor
     public Game(int totalBlocks) {
@@ -121,13 +124,17 @@ public class Game implements KeyboardHandler {
         keyPressedExit.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboardGame.addEventListener(keyPressedExit);
 
+        //run the code for the space key - First Menu
+        keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
+        keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardGame.addEventListener(keyPressedExit);
+
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
         while (ball.isAlive()) {
             engine.moveBall(ball, paddle);
             Thread.sleep(2);
         }
     }
-
 
     //Draw initial score
     public Text scoreDraw() {
@@ -161,7 +168,6 @@ public class Game implements KeyboardHandler {
                 Hearts.HEART1.pic.delete();
                 break;
         }
-
     }
 
     private enum Hearts {
@@ -188,10 +194,18 @@ public class Game implements KeyboardHandler {
 
         //restart the game method
         public void restart() {
-          ball.delete();
-          ball = new Ball(paddle);
-          blocks = new Block[blocks.length];
-          loadLevel1();
+        double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
+        double y = -ball.getPositionY()+(paddle.getPositionY()-Grid.PADDING*1.5);
+
+        // put the new values for the movement of the ball
+        ball.setX(x); ball.setY(y);
+
+        //force the ball to the new position
+        ball.move();
+
+        //give the ball the new velocity and direction
+        ball.setX(1); ball.setY(-1);
+        ball.draw();
         }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard
@@ -207,6 +221,11 @@ public class Game implements KeyboardHandler {
                 //exit the game
                 case KeyboardEvent.KEY_E:
                     System.exit(0);
+                    break;
+
+                //return to the first menu
+                case KeyboardEvent.KEY_SPACE:
+                    //put code here
                     break;
             }
         }

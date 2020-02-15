@@ -20,17 +20,14 @@ public class GameEngine {
 
     //verify if the ball touch the Paddle in Axis X
     private boolean ballInTheLimitXPaddle(Ball ball, Paddle paddle){
-        if (ball.getPositionX() >= paddle.getPositionX()-Grid.PADDING &&
-           ball.getPositionX() <= paddle.getPositionX()+paddle.getWidth())
-        { return true; }
-        return false;
+        return ball.getPositionX() >= paddle.getPositionX()-Grid.PADDING &&
+           ball.getPositionX() <= paddle.getPositionX()+paddle.getWidth();
     }
 
     //verify if the ball have reach the limit of the game area
     private boolean ballCollisionDetectWall(Ball ball){
-        if (ball.getPositionX() > 55 && ball.getPositionX() < 550
-        && ball.getPositionY() > 55 && ball.getPositionY() < 900) { return true; }
-        return false;
+        return ball.getPositionX() > 55 && ball.getPositionX() < 550
+        && ball.getPositionY() > 55 && ball.getPositionY() < 900;
     }
 
     //verify the collision between the ball and all the blocks

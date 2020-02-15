@@ -38,7 +38,7 @@ public class Ball {
     public String getMovingDirection() {
         String result = "";
         if (x == -1.0 && y == -1.0) { result = "dirUpLeft"; }
-        if (x == 1.0 && y == -1.0) { result = "dirUpRigth"; }
+        if (x == 1.0 && y == -1.0) { result = "dirUpRight"; }
         if (x == -1.0 && y == 1.0) { result = "dirDownLeft"; }
         if (x == 1.0 && y == 1.0) { result = "dirDownRight"; }
         return result;}

@@ -147,7 +147,7 @@ public class Game implements KeyboardHandler {
 
     //update score
     public void score(String points) {
-        //scoreDraw().delete();
+        scoreDraw().delete();
         scoreDraw().setText(points);
     }
 

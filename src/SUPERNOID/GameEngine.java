@@ -73,6 +73,11 @@ public class GameEngine {
     //verify if the ball can continue the direction or move to another one.
     private void nextBallDirection(Ball ball) {
 
+        if (ball.getPositionY() >= 900) {
+            ball.setAlive();
+            return;
+        }
+
         //if the ball didn't hit the wall, continue in the same direction
         if (ballCollisionDetectWall(ball)) {
             ball.move();
@@ -88,9 +93,6 @@ public class GameEngine {
         }
 
         //if the y of the ball reach 900 or more, is delete
-        if (ball.getPositionY() >= 900) {
-            ball.setAlive();
-        }
     }
 
     //make the ball move

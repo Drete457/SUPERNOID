@@ -30,7 +30,7 @@ public class Block {
         this.blockEnergy = blockEnergy;
     }
 
-    //Method to call when the ball hist the block
+    //Method to call when the ball hits the block
     public void hit(int damage) {
         //decrease energy and if its <= 0, set destroyed to true
         blockEnergy -= damage;

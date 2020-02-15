@@ -36,6 +36,13 @@ public class GameEngine {
             ball.setY(-ball.getY());
             ball.move();
         }
+        if (ball.getX() == 1 && ball.getY() == 1 && ball.getPositionY() > paddle.getPositionY() - Grid.PADDING && ballInTheLimitXPaddle(ball, paddle)) {
+            ball.setX(-ball.getX());
+            ball.setY(-ball.getY());
+        } else if (ball.getX() == -1 && ball.getY() == 1 && ball.getPositionY() > paddle.getPositionY() - Grid.PADDING && ballInTheLimitXPaddle(ball, paddle)) {
+            ball.setX(-ball.getX());
+            ball.setY(-ball.getY());
+        }
     }
 
     //verify if the ball touch the Paddle in Axis X
@@ -115,8 +122,8 @@ public class GameEngine {
     //verify if the ball can continue the direction or move to another one.
     private void nextBallDirection(Ball ball) {
 
-        //if the y of the ball reach 850 or more, is delete
-        if (ball.getPositionY() >= 850) { ball.setDead(); return;}
+        //if the y of the ball reach 820 or more, is delete
+        if (ball.getPositionY() >= 820) { ball.setDead(); return;}
 
         //if the ball didn't hit the wall, continue in the same direction
         if (ballCollisionDetectWall(ball)) { ball.move(); }

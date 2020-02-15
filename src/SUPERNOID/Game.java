@@ -30,6 +30,8 @@ public class Game implements KeyboardHandler {
     //Create the game engine
     private GameEngine engine;
 
+    private int lives = 4;
+
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
     private Keyboard keyboard; //Keyboard for the paddle

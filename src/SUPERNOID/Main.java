@@ -21,6 +21,7 @@ public class Main {
         //draw the BackGround and start the game
         //game.initScreen();
         game.backGround();
+
         SoundClip soundClip = new SoundClip();
         soundClip.playMusic(BABYSHARK);
         //game.livesLost(1);

@@ -129,7 +129,7 @@ public class Game implements KeyboardHandler {
         keyboardGame.addEventListener(keyPressedExit);
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
-        while (ball.isAlive()) {
+        while (ball.isAlive() && ball != null) {
             engine.moveBall(ball, paddle);
             Thread.sleep(2);
         }
@@ -153,6 +153,7 @@ public class Game implements KeyboardHandler {
 
     //restart the game method
     public void restart() {
+
         double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
         double y = -ball.getPositionY()+(paddle.getPositionY()-Grid.PADDING*1.5);
 
@@ -187,7 +188,7 @@ public class Game implements KeyboardHandler {
 
                 //return to the first menu
                 case KeyboardEvent.KEY_SPACE:
-                    //put code here
+
                     break;
             }
         }

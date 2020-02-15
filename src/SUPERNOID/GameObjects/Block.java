@@ -70,6 +70,7 @@ public class Block {
 
     public void resetDestroyed() {
         this.destroyed = false;
+        picture.draw();
     }
 
     //destroyed setter, deletes image when block is destroyed

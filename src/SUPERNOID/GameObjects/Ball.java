@@ -14,7 +14,7 @@ public class Ball{
     //to memorise the ball
     private Picture picture;
     //memorise if the ball is alive or not
-    private boolean alive = true;
+    private boolean alive = false;
     //movement of the ball in axis X
     private double x;
     //movement of the ball in axis Y
@@ -26,11 +26,14 @@ public class Ball{
         picture = new Picture(positionX, positionY, "resources/Images/general/ball_15x15.png");
         x = SPEED;
         y = -SPEED;
+        alive = true;
         picture.draw();
     }
 
     //delete the image of the ball
-    public void delete() { picture.delete(); }
+    public void delete() {
+        picture.delete();
+    }
 
     public String getMovingDirection() {
        String result = "";
@@ -59,7 +62,8 @@ public class Ball{
     public boolean isAlive() { return alive; }
 
     //kill the ball
-    public void setAlive() { picture.delete(); }
+    public void setDead() {
+        picture.delete(); }
 
     //get the Width of the ball
     public int getWidth() { return picture.getWidth(); }

@@ -73,8 +73,9 @@ public class GameEngine {
     //verify if the ball can continue the direction or move to another one.
     private void nextBallDirection(Ball ball) {
 
+        //if the y of the ball reach 900 or more, is delete
         if (ball.getPositionY() >= 900) {
-            ball.setAlive();
+            ball.setDead();
             return;
         }
 
@@ -92,13 +93,14 @@ public class GameEngine {
             ball.move();
         }
 
-        //if the y of the ball reach 900 or more, is delete
     }
 
     //make the ball move
     public void moveBall(Ball ball, Paddle paddle) {
-        ballCollisionBlocks(ball);
-        paddleCollisionBall(ball, paddle);
-        nextBallDirection(ball);
+        if(ball.isAlive()) {
+            ballCollisionBlocks(ball);
+            paddleCollisionBall(ball, paddle);
+            nextBallDirection(ball);
+        }
     }
 }

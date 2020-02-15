@@ -62,7 +62,6 @@ public class Block {
         return picture.getY();
     }
 
-
     //getter for destroyed
     public boolean isDestroyed() {
         return destroyed;

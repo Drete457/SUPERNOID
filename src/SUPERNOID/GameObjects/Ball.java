@@ -24,7 +24,7 @@ public class Ball {
     public Ball(Paddle paddle) {
         positionX = paddle.getPositionX() + (paddle.getWidth() / 2 - Grid.PADDING);
         picture = new Picture(positionX, positionY, "resources/Images/general/ball_15x15.png");
-        x = SPEED;
+        x = -SPEED;
         y = -SPEED;
         alive = true;
         picture.draw();
@@ -35,36 +35,20 @@ public class Ball {
         picture.delete();
     }
 
-    public String getMovingDirection() {
+   public String getMovingDirection() {
         String result = "";
+<<<<<<< HEAD
         if (x == -1.0 && y == -1.0) { result = "dirUpLeft"; }
         if (x == 1.0 && y == -1.0) { result = "dirUpRight"; }
         if (x == -1.0 && y == 1.0) { result = "dirDownLeft"; }
         if (x == 1.0 && y == 1.0) { result = "dirDownRight"; }
+=======
+        if (getX() == -1 && getY() == -1) { result = "dirUpLeft"; }
+        if (getX() == 1 && getY() == -1) { result = "dirUpRight"; }
+        if (getX() == -1 && getY() == 1) { result = "dirDownLeft"; }
+        if (getX() == 1 && getY() == 1) { result = "dirDownRight"; }
+>>>>>>> b85adad70f103a2e914a91c7a4d2e6eca27c2dbc
         return result;}
-
-
-    public void setMovingDirection(String direction) {
-
-        switch (direction) {
-            case "dirUpLeft":
-                setX(-1);
-                setY(-1);
-                break;
-            case "dirUpRight":
-                setX(1);
-                setY(-1);
-                break;
-            case "dirDownLeft":
-                setX(-1);
-                setY(1);
-                break;
-            case "dirDownRight":
-                setX(1);
-                setY(1);
-                break;
-        }
-    }
 
     //draw the ball
     public void draw() {

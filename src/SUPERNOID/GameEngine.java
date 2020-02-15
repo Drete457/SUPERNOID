@@ -47,9 +47,8 @@ public class GameEngine {
 
     //verify the collision between the ball and all the blocks
     private boolean ballCollisionBlocks(Ball ball) {
-        // (RectA.X1 < RectB.X2 && RectA.X2 > RectB.X1 &&
-        //        RectA.Y1 < RectB.Y2 && RectA.Y2 > RectB.Y1)
         boolean result = false;
+        String direction = "";
         for (Block block : blocks) {
             if (!block.isDestroyed()) {
                 result = (block.getPositionX() < (ball.getPositionX() + ball.getWidth()) &&
@@ -58,15 +57,18 @@ public class GameEngine {
                         (block.getPositionY() + block.getHeight()) > ball.getPositionY());
                 if (result) {
                     block.setDestroyed();
+                    direction = ball.getMovingDirection();
+                    switch (direction){
+                        case "dirDownLeft":
+                            if (ball.getPositionY() <= block.getPositionY()) {
+                                ball.setMovingDirection("dirUpLeft");
+                            }
+                    }
+
+
                 }
             }
-
-/*            System.out.println(block.getPositionX() < ball.getPositionX() + ball.getWidth());
-            System.out.println(block.getPositionX() + block.getWidth() > ball.getPositionX());
-            System.out.println(block.getPositionY() < ball.getPositionY() + ball.getHeight());
-            System.out.println(block.getPositionY() + block.getHeight() > ball.getPositionY());*/
         }
-       // System.out.println(" ** " + !result);
         return !result;
     }
 

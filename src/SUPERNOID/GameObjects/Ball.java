@@ -3,7 +3,7 @@ package SUPERNOID.GameObjects;
 import SUPERNOID.Grid;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class Ball{
+public class Ball {
 
     //speed of the ball
     private int SPEED = 1;
@@ -22,7 +22,7 @@ public class Ball{
 
     //start the ball object
     public Ball(Paddle paddle) {
-        positionX = paddle.getPositionX() + (paddle.getWidth()/2 -Grid.PADDING);
+        positionX = paddle.getPositionX() + (paddle.getWidth() / 2 - Grid.PADDING);
         picture = new Picture(positionX, positionY, "resources/Images/general/ball_15x15.png");
         x = SPEED;
         y = -SPEED;
@@ -30,15 +30,17 @@ public class Ball{
     }
 
     //delete the image of the ball
-    public void delete() { picture.delete(); }
+    public void delete() {
+        picture.delete();
+    }
 
     public String getMovingDirection() {
-       String result = "";
-        if ( x == -1.0 && y == -1.0){
+        String result = "";
+        if (x == -1.0 && y == -1.0) {
             result = "dirUpLeft";
         }
 
-        if ( x == 1.0 && y == -1.0) {
+        if (x == 1.0 && y == -1.0) {
             result = "dirUpRigth";
         }
 
@@ -52,39 +54,86 @@ public class Ball{
         return result;
     }
 
+
+    public void setMovingDirection(String direction) {
+
+        switch (direction) {
+            case "dirUpLeft":
+                x = -1.0;
+                y = -1.0;
+                break;
+            case "dirUpRight":
+                x = 1.0;
+                y = -1.0;
+                break;
+            case "dirDownLeft":
+                x = -1.0;
+                y = 1.0;
+                break;
+            case "dirDownRight":
+                x = 1.0;
+                y = 1.0;
+                break;
+        }
+    }
+
     //draw the ball
-    public void draw() { picture.draw(); }
+    public void draw() {
+        picture.draw();
+    }
 
     //return if the ball is alive
-    public boolean isAlive() { return alive; }
+    public boolean isAlive() {
+        return alive;
+    }
 
     //kill the ball
-    public void setAlive() { picture.delete(); }
+    public void setAlive() {
+        picture.delete();
+    }
 
     //get the Width of the ball
-    public int getWidth() { return picture.getWidth(); }
+    public int getWidth() {
+        return picture.getWidth();
+    }
 
     //get the Height of the ball
-    public int getHeight() { return picture.getHeight(); }
+    public int getHeight() {
+        return picture.getHeight();
+    }
 
     //print the new position of the ball
-    public void move() { picture.translate(x,y); }
+    public void move() {
+        picture.translate(x, y);
+    }
 
     //get the X of the ball
-    public int getPositionX() { return picture.getX(); }
+    public int getPositionX() {
+        return picture.getX();
+    }
 
     //get the Y of the ball
-    public int getPositionY() { return picture.getY(); }
+    public int getPositionY() {
+        return picture.getY();
+    }
 
     //memorise the new axis x
-    public void setX(double x) { this.x=x; }
+    public void setX(double x) {
+        this.x = x;
+    }
 
     //memorise the new axis y
-    public void setY(double y) { this.y=y; }
+    public void setY(double y) {
+        this.y = y;
+    }
 
     //write the new value in x, to be ready by the canvas.translate
-    public double getX() { return x; }
+    public double getX() {
+        return x;
+    }
 
     //write the new value in y, to be ready by the canvas.translate
-    public double getY() { return y; }
+    public double getY() {
+        return y;
+    }
 }

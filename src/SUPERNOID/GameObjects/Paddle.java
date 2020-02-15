@@ -8,7 +8,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Paddle implements KeyboardHandler{
 
     //speed of the paddle
-    private final int SPEED = 8;
+    private final int SPEED = 30;
     //the start position in X
     private final int positionX = 220;
     //the start position in Y
@@ -16,13 +16,19 @@ public class Paddle implements KeyboardHandler{
     //to memorise the paddle
     private Picture picture;
 
+    //Set Paddle's width
+    //private final int width = 10;
+
     //start the paddle object
     public Paddle() {
         picture = new Picture(positionX, positionY, "resources/Images/general/monitor_180x41.png");
         picture.draw();
     }
 
+
+
     //get the Width of the paddle
+    //public int getWidth() { return this.width; }
     public int getWidth() { return picture.getWidth(); }
 
     //get the Height of the paddle

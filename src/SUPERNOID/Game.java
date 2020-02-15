@@ -65,6 +65,7 @@ public class Game implements KeyboardHandler {
 
     //Draw the back ground
     public Grid backGround() {
+        engine.scoreDraw();
         return this.backGround;
     }
 
@@ -144,25 +145,15 @@ public class Game implements KeyboardHandler {
         }
     }
 
-    //Draw initial score
-    public Text scoreDraw() {
-        Text score = new Text(750, 485, "000");
-        score.setColor(Color.WHITE);
-        score.grow(50, 40);
-        score.draw();
-        return score;
-    }
 
-    //update score
-    public void score(String points) {
-        //scoreDraw().delete();
-        scoreDraw().setText(points);
-    }
 
 
     //restart the game method
     public void restart() {
         reset = true;
+
+        engine.setScore(0);
+        engine.score();
 
         //verify the position of the ball and move the ball back to the paddle
         double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
@@ -179,6 +170,7 @@ public class Game implements KeyboardHandler {
 
         //draw the blocks again on new game
         loadLevel1();
+
     }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard

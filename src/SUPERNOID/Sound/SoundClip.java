@@ -1,30 +1,29 @@
 package SUPERNOID.Sound;
 
-import javax.swing.*;
 
-public class SoundClip extends JFrame {
-/*
-    public SoundClipTest() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Test Sound Clip");
-        this.setSize(300, 200);
-        this.setVisible(true);
+import java.io.File;
+import javax.sound.sampled.*;
 
+
+public class SoundClip {
+
+    public void playMusic(String musicfile) {
         try {
-            // Open an audio input stream.
-            URL url = this.getClass().getClassLoader().getResource("gameover.wav");
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-            // Get a sound clip resource.
-            Clip clip = AudioSystem.getClip();
-            // Open audio clip and load samples from the audio input stream.
-            clip.open(audioIn);
+            final Clip clip = (Clip) AudioSystem.getLine(new Line.Info(Clip.class));
+
+            clip.addLineListener(new LineListener() {
+                @Override
+                public void update(LineEvent event) {
+                    if (event.getType() == LineEvent.Type.STOP)
+                        clip.close();
+                }
+            });
+            File music = new File(musicfile);
+            clip.open(AudioSystem.getAudioInputStream(music));
             clip.start();
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
+        } catch (Exception exc) {
+            exc.printStackTrace(System.out);
         }
-        */
     }
+
+}

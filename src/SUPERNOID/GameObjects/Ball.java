@@ -37,17 +37,10 @@ public class Ball {
 
    public String getMovingDirection() {
         String result = "";
-<<<<<<< HEAD
         if (x == -1.0 && y == -1.0) { result = "dirUpLeft"; }
         if (x == 1.0 && y == -1.0) { result = "dirUpRight"; }
         if (x == -1.0 && y == 1.0) { result = "dirDownLeft"; }
         if (x == 1.0 && y == 1.0) { result = "dirDownRight"; }
-=======
-        if (getX() == -1 && getY() == -1) { result = "dirUpLeft"; }
-        if (getX() == 1 && getY() == -1) { result = "dirUpRight"; }
-        if (getX() == -1 && getY() == 1) { result = "dirDownLeft"; }
-        if (getX() == 1 && getY() == 1) { result = "dirDownRight"; }
->>>>>>> b85adad70f103a2e914a91c7a4d2e6eca27c2dbc
         return result;}
 
     //draw the ball

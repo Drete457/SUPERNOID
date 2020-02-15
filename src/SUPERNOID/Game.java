@@ -141,7 +141,7 @@ public class Game implements KeyboardHandler {
 
         while (ball.isAlive()) {
             engine.moveBall(ball, paddle, blocks);
-            Thread.sleep(2);
+            Thread.sleep(1);
         }
     }
 

@@ -6,14 +6,6 @@ import SUPERNOID.GameObjects.Paddle;
 
 public class GameEngine {
 
-    //Reference to Blocks[} array need to check collision with blocks
-    private Block[] blocks;
-
-    //Constructor
-    public GameEngine(Block[] blocks) {
-        this.blocks = blocks;
-    }
-
     //verify if the paddle have reach the limit of the game area
     public static void paddleCollisionDetectWall(Paddle paddle, int SPEED) {
         if (paddle.getPositionX() < 378 && paddle.getPositionX() > 60) {
@@ -46,7 +38,7 @@ public class GameEngine {
     }
 
     //verify the collision between the ball and all the blocks
-    private boolean ballCollisionBlocks(Ball ball) {
+    private boolean ballCollisionBlocks(Ball ball, Block[] blocks) {
         boolean result = false;
         String direction = "";
         for (Block block : blocks) {
@@ -129,9 +121,9 @@ public class GameEngine {
     }
 
     //make the ball move
-    public void moveBall(Ball ball, Paddle paddle) {
+    public void moveBall(Ball ball, Paddle paddle, Block[] blocks) {
         if (ball.isAlive()) {
-            ballCollisionBlocks(ball);
+            ballCollisionBlocks(ball, blocks);
             paddleCollisionBall(ball, paddle);
             nextBallDirection(ball);
         }

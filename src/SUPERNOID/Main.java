@@ -19,7 +19,7 @@ public class Main {
         //game.livesLost(2);
         //game.livesLost(3);
         //game.livesLost(4);
-        game.score("010");
+       // game.score("010");
         //game.score("020");
 
         //game.initScreen();

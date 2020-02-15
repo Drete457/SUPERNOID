@@ -14,7 +14,6 @@ public class Main {
         //draw the BackGround and start the game
         //game.initScreen();
         game.backGround();
-        game.scoreDraw();
         //game.livesLost(1);
         //game.livesLost(2);
         //game.livesLost(3);

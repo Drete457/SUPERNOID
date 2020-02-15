@@ -3,8 +3,21 @@ package SUPERNOID;
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class GameEngine {
+
+    private int score;
+    private Text scoreText;
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     //verify if the paddle have reach the limit of the game area
     public static void paddleCollisionDetectWall(Paddle paddle, int SPEED) {
@@ -48,6 +61,8 @@ public class GameEngine {
                         block.getPositionY() < (ball.getPositionY() + ball.getHeight()) &&
                         (block.getPositionY() + block.getHeight()) > ball.getPositionY());
                 if (result) {
+                    score += 10;
+                    score();
                     block.setDestroyed();
                     direction = ball.getMovingDirection();
 
@@ -92,8 +107,9 @@ public class GameEngine {
                 }
             }
         }
-        return !result;
+        return result;
     }
+
 
     //verify if the ball can continue the direction or move to another one.
     private void nextBallDirection(Ball ball) {
@@ -128,4 +144,20 @@ public class GameEngine {
             nextBallDirection(ball);
         }
     }
+
+    //Draw initial score
+    public Text scoreDraw() {
+        scoreText = new Text(750, 485, "000");
+        scoreText.setColor(Color.WHITE);
+        scoreText.grow(50, 40);
+        scoreText.draw();
+        return scoreText;
+    }
+
+    //update score
+    public void score() {
+        scoreText.delete();
+        scoreDraw().setText(score + "");
+    }
+
 }

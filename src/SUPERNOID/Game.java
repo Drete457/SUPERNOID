@@ -129,7 +129,8 @@ public class Game implements KeyboardHandler {
         keyboardGame.addEventListener(keyPressedExit);
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
-        while (ball.isAlive() && ball != null) {
+
+        while (ball.isAlive()) {
             engine.moveBall(ball, paddle);
             Thread.sleep(2);
         }

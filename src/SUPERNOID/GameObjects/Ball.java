@@ -37,43 +37,31 @@ public class Ball {
 
     public String getMovingDirection() {
         String result = "";
-        if (x == -1.0 && y == -1.0) {
-            result = "dirUpLeft";
-        }
-
-        if (x == 1.0 && y == -1.0) {
-            result = "dirUpRigth";
-        }
-
-        if (x == -1.0 && y == 1.0) {
-            result = "dirDownLeft";
-        }
-
-        if (x == 1.0 && y == 1.0) {
-            result = "dirDownRight";
-        }
-        return result;
-    }
+        if (x == -1.0 && y == -1.0) { result = "dirUpLeft"; }
+        if (x == 1.0 && y == -1.0) { result = "dirUpRigth"; }
+        if (x == -1.0 && y == 1.0) { result = "dirDownLeft"; }
+        if (x == 1.0 && y == 1.0) { result = "dirDownRight"; }
+        return result;}
 
 
     public void setMovingDirection(String direction) {
 
         switch (direction) {
             case "dirUpLeft":
-                x = -1.0;
-                y = -1.0;
+                setX(-1);
+                setY(-1);
                 break;
             case "dirUpRight":
-                x = 1.0;
-                y = -1.0;
+                setX(1);
+                setY(-1);
                 break;
             case "dirDownLeft":
-                x = -1.0;
-                y = 1.0;
+                setX(-1);
+                setY(1);
                 break;
             case "dirDownRight":
-                x = 1.0;
-                y = 1.0;
+                setX(1);
+                setY(1);
                 break;
         }
     }
@@ -89,8 +77,7 @@ public class Ball {
     }
 
     //kill the ball
-    public void setDead() {
-        picture.delete(); }
+    public void setDead() { picture.delete(); }
 
     //get the Width of the ball
     public int getWidth() {
@@ -103,9 +90,7 @@ public class Ball {
     }
 
     //print the new position of the ball
-    public void move() {
-        picture.translate(x, y);
-    }
+    public void move() { picture.translate(x, y); }
 
     //get the X of the ball
     public int getPositionX() {

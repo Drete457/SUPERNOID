@@ -50,12 +50,14 @@ public class Game implements KeyboardHandler {
     //create the object that will receive the input exit
     private KeyboardEvent keyPressedSpace = new KeyboardEvent();
 
+    private boolean reset =  false;
+
     //Game Constructor
     public Game(int totalBlocks) {
         this.backGround = new Grid();
         this.paddle = new Paddle();
         blocks = new Block[totalBlocks];
-        this.engine = new GameEngine(blocks);
+        this.engine = new GameEngine();
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
         keyboardGame = new Keyboard(this);
@@ -75,8 +77,14 @@ public class Game implements KeyboardHandler {
 
     //draw the first lvl
     public void loadLevel1() {
+        if (reset) {
+            for (Block newborns : blocks) {
+                newborns.resetDestroyed();
+            }
+            reset = false;
+            return;
+        }
         ObjFactory.startingIndex = 0;
-
         ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
         ObjFactory.getNewBlocks(11, 5, 150, 0, this); // 11 x 5 = 55 blocks - 100 total
         ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 125 total
@@ -95,7 +103,7 @@ public class Game implements KeyboardHandler {
     public void drawBlocks() {
         //Draw blocks after creating them
         for (Block singleBlock : blocks) {
-            singleBlock.getPicture().draw();
+            singleBlock.getPicture();
             singleBlock.resetDestroyed();
         }
     }
@@ -131,7 +139,7 @@ public class Game implements KeyboardHandler {
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
 
         while (ball.isAlive()) {
-            engine.moveBall(ball, paddle);
+            engine.moveBall(ball, paddle, blocks);
             Thread.sleep(2);
         }
     }
@@ -154,7 +162,9 @@ public class Game implements KeyboardHandler {
 
     //restart the game method
     public void restart() {
+        reset = true;
 
+        //verify the position of the ball and move the ball back to the paddle
         double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
         double y = -ball.getPositionY()+(paddle.getPositionY()-Grid.PADDING*1.5);
 
@@ -165,8 +175,7 @@ public class Game implements KeyboardHandler {
         ball.move();
 
         //give the ball the new velocity and direction
-        ball.setX(1); ball.setY(-1);
-        ball.draw();
+        ball.setX(1); ball.setY(-1); ball.draw();
 
         //draw the blocks again on new game
         loadLevel1();
@@ -189,7 +198,7 @@ public class Game implements KeyboardHandler {
 
                 //return to the first menu
                 case KeyboardEvent.KEY_SPACE:
-
+                    //put the code here
                     break;
             }
         }

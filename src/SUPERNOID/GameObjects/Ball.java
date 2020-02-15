@@ -32,6 +32,26 @@ public class Ball{
     //delete the image of the ball
     public void delete() { picture.delete(); }
 
+    public String getMovingDirection() {
+       String result = "";
+        if ( x == -1.0 && y == -1.0){
+            result = "dirUpLeft";
+        }
+
+        if ( x == 1.0 && y == -1.0) {
+            result = "dirUpRigth";
+        }
+
+        if (x == -1.0 && y == 1.0) {
+            result = "dirDownLeft";
+        }
+
+        if (x == 1.0 && y == 1.0) {
+            result = "dirDownRight";
+        }
+        return result;
+    }
+
     //draw the ball
     public void draw() { picture.draw(); }
 

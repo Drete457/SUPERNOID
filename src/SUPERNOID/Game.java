@@ -54,11 +54,11 @@ public class Game implements KeyboardHandler {
     public Game(int totalBlocks) {
         this.backGround = new Grid();
         this.paddle = new Paddle();
-        this.engine = new GameEngine();
+        blocks = new Block[totalBlocks];
+        this.engine = new GameEngine(blocks);
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
         keyboardGame = new Keyboard(this);
-        blocks = new Block[totalBlocks];
     }
 
     //Draw the back ground

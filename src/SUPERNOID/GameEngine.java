@@ -58,14 +58,45 @@ public class GameEngine {
                 if (result) {
                     block.setDestroyed();
                     direction = ball.getMovingDirection();
-                    switch (direction){
+
+                    switch (direction) {
                         case "dirDownLeft":
-                            if (ball.getPositionY() <= block.getPositionY()) {
+                            if (ball.getPositionY() + 1 <= block.getPositionY() +1) {
                                 ball.setMovingDirection("dirUpLeft");
+                                break;
+                            }
+                            if (ball.getPositionX() + 1 >= block.getPositionX() +1) {
+                                ball.setMovingDirection("dirDownRight");
+                                break;
+                            }
+                        case "dirDownRight":
+                            if (ball.getPositionY() +1 <= block.getPositionY() +1) {
+                                ball.setMovingDirection("dirUpRight");
+                                break;
+                            }
+                            if (ball.getPositionX() +1 <= block.getPositionX() +1) {
+                                ball.setMovingDirection("dirDownLeft");
+                                break;
+                            }
+                        case "dirUpRight":
+                            if (ball.getPositionY() +1 >= block.getPositionY() +1) {
+                                ball.setMovingDirection("dirDownRight");
+                                break;
+                            }
+                            if (ball.getPositionX() +1 <= block.getPositionX() +1) {
+                                ball.setMovingDirection("dirUpLeft");
+                                break;
+                            }
+                        case "dirUpLeft":
+                            if (ball.getPositionY() +1 >= block.getPositionY() +1) {
+                                ball.setMovingDirection("dirDownLeft");
+                                break;
+                            }
+                            if (ball.getPositionX() +1 >= block.getPositionX() +1) {
+                                ball.setMovingDirection("dirUpRight");
+                                break;
                             }
                     }
-
-
                 }
             }
         }
@@ -99,8 +130,10 @@ public class GameEngine {
 
     //make the ball move
     public void moveBall(Ball ball, Paddle paddle) {
-        ballCollisionBlocks(ball);
-        paddleCollisionBall(ball, paddle);
-        nextBallDirection(ball);
+        if (ball.isAlive()) {
+            ballCollisionBlocks(ball);
+            paddleCollisionBall(ball, paddle);
+            nextBallDirection(ball);
+        }
     }
 }

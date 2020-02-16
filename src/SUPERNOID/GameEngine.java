@@ -20,8 +20,10 @@ public class GameEngine {
     //if someone won the game
     private boolean winner = false;
 
+    //memorise the game over and the winner image
     private Picture gOver;
     private Picture winnerScreen;
+
 
     public Picture getGOver() {
         return gOver;

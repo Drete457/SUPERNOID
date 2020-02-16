@@ -13,7 +13,7 @@ public class CreateLvl {
         for (Block newborns : blocks) { newborns.deletePictureBlock(); newborns = null; Game.restart = false; } }
         else { for (Block newborns : blocks) { newborns = null; } }
 
-            //Creates each block in its respective position
+        //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, game); // 11 x 5 = 55 blocks
         ObjFactory.getNewBlocks(11, 5, 150, 0, game); // 11 x 5 = 55 blocks

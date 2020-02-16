@@ -97,13 +97,10 @@ public class Game implements KeyboardHandler {
     public void loadLevel2() {
 
         //verify if the lvl is new or restart
-        if (reset) {
             for (Block newborns : blocks) {
-                newborns.resetDestroyed();
+                newborns = null;
             }
             reset = false;
-            return;
-        }
 
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
@@ -158,7 +155,6 @@ public class Game implements KeyboardHandler {
             engine.moveBall(ball, paddle, blocks, backGround);
             Thread.sleep(2);
         }
-
     }
 
 
@@ -204,12 +200,16 @@ public class Game implements KeyboardHandler {
 
                 //restart the game
                 case KeyboardEvent.KEY_N:
-                    restart();
-                    break;
+                    try {
+                        restart();
+                        Thread.sleep(2);
+                        break;
+                    }catch (InterruptedException e) {
+                        ball = new Ball(paddle);
+                    }
 
                 //exit the game
                 case KeyboardEvent.KEY_E:
-
                     System.exit(0);
                     break;
 

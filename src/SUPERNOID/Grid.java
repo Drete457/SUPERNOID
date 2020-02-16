@@ -24,6 +24,9 @@ public class Grid {
         heart1 = new Picture(665, 650, "resources/Images/general/heart_62x62.png");
         heart2 = new Picture(725, 650, "resources/Images/general/heart_62x62.png");
         heart3 = new Picture(788, 650, "resources/Images/general/heart_62x62.png");
+        skull1 = new Picture(665, 650, "resources/Images/general/skull_62x62.png");
+        skull2 = new Picture(725, 650, "resources/Images/general/skull_62x62.png");
+        skull3 = new Picture(788, 650, "resources/Images/general/skull_62x62.png");
         picture.draw();
         drawAllHearts();
     }
@@ -38,17 +41,30 @@ public class Grid {
         heart3.delete();
         heart2.delete();
         heart1.delete();
+        skull1.delete();
+        skull2.delete();
+        skull3.delete();
     }
 
     public void draw2hearts() {
         delete();
         heart1.draw();
         heart2.draw();
+        skull3.draw();
     }
 
     public void draw1heart() {
         delete();
         heart1.draw();
+        skull2.draw();
+        skull3.draw();
+    }
+
+    public void drawAllSkulls() {
+        delete();
+        skull1.draw();
+        skull2.draw();
+        skull3.draw();
     }
 
 

@@ -30,16 +30,21 @@ public class Grid {
        heart3.draw();
     }
 
-    public void deleteheart3() {
+    public void delete() {
         heart3.delete();
-    }
-
-    public void deleteheart2() {
         heart2.delete();
+        heart1.delete();
     }
 
-    public void deleteheart1() {
-        heart1.delete();
+    public void draw2hearts() {
+        delete();
+        heart1.draw();
+        heart2.draw();
+    }
+
+    public void draw1heart() {
+        delete();
+        heart1.draw();
     }
 
 

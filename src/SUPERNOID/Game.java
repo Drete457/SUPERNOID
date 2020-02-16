@@ -30,8 +30,6 @@ public class Game implements KeyboardHandler {
     //Create the game engine
     private GameEngine engine;
 
-    private int lives = 4;
-
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
     private Keyboard keyboard; //Keyboard for the paddle
@@ -145,6 +143,26 @@ public class Game implements KeyboardHandler {
             engine.moveBall(ball, paddle, blocks);
             Thread.sleep(2);
         }
+
+        switch(engine.getLives()) {
+            case 3:
+                backGround.draw2hearts();
+                break;
+            case 2:
+                backGround.draw1heart();
+                break;
+            case 1:
+                backGround.delete();
+                break;
+            case 0:
+                gameOver();
+                break;
+        }
+    }
+
+    public void gameOver() {
+        Picture gOver = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/game_over_900x900.jpg");
+        gOver.draw();
     }
 
 
@@ -156,6 +174,8 @@ public class Game implements KeyboardHandler {
 
         engine.setScore(0);
         engine.score();
+
+        engine.setLives(4);
 
         //verify the position of the ball and move the ball back to the paddle
         double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);

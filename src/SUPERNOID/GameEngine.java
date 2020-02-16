@@ -10,9 +10,18 @@ public class GameEngine {
 
     private int score;
     private Text scoreText;
+    private int lives = 4;
 
     public int getScore() {
         return score;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
     }
 
     public void setScore(int score) {
@@ -123,7 +132,7 @@ public class GameEngine {
     private void nextBallDirection(Ball ball) {
 
         //if the y of the ball reach 820 or more, is delete
-        if (ball.getPositionY() >= 820) { ball.setDead(); return;}
+        if (ball.getPositionY() >= 820) { ball.setDead(); lives--; return;}
 
         //if the ball didn't hit the wall, continue in the same direction
         if (ballCollisionDetectWall(ball)) { ball.move(); }

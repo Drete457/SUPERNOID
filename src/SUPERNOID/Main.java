@@ -1,6 +1,5 @@
 package SUPERNOID;
 
-import SUPERNOID.Sound.SoundClip;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -11,10 +10,6 @@ public class Main {
     //The Beginning of the game, and Interrupted when it finishes
     public static void main(String[] args) throws InterruptedException  {
 
-        String BABYSHARK = "resources/Music/8-Bit_Songs/baby-shark.wav";
-        String GHOSTBUSTERS = "resources/Music/8-Bit_Songs/ghostbusters.wav";
-        String MK = "resources/Music/8-Bit_Songs/mk-theme.wav";
-        
         //will instance the game and initialise
         Game game = new Game(125);
 

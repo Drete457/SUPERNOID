@@ -3,6 +3,7 @@ package SUPERNOID;
 import SUPERNOID.Sound.SoundClip;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Main {
 
@@ -23,16 +24,18 @@ public class Main {
         SoundClip soundClip = new SoundClip();
         soundClip.playAudio();
 
-        Text startMessage = new Text(250,550, " LEFT and RIGHT keys to move");
+        Picture instructions = new Picture(120, 400, "resources/Images/general/game_instructions.png");
+        instructions.draw();
+
+        /*Text startMessage = new Text(250,550, " LEFT and RIGHT keys to move");
         startMessage.setColor(Color.DARK_GRAY);
         startMessage.grow(140,35);
         startMessage.draw();
 
         Text startMessage2 = new Text(230,620, "Press SPACE to start the game");
-
         startMessage2.setColor(Color.DARK_GRAY);
         startMessage2.grow(120,35);
-        startMessage2.draw();
+        startMessage2.draw();*/
 
         Text startTimer = new Text(305,690, "5");
         startTimer.setColor(Color.DARK_GRAY);
@@ -47,8 +50,9 @@ public class Main {
         Thread.sleep(1000);
         startTimer.setText("1");
         Thread.sleep(1000);
-        startMessage.delete();
-        startMessage2.delete();
+        //startMessage.delete();
+        //startMessage2.delete();
+        instructions.delete();
         startTimer.delete();
 
         //draw the BackGround and start the game

@@ -133,7 +133,7 @@ public class GameEngine {
 
     //verify if the ball can continue the direction or move to another one.
     private void nextBallDirection(Ball ball) {
-        
+
         //if the y of the ball reach 820 or more, is delete
         if (ball.getPositionY() >= 820) { ball.setDead(); lives--; return;}
 

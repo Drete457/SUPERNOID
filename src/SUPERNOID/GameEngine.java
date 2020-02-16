@@ -17,8 +17,11 @@ public class GameEngine {
     private int lives = 3;
     private boolean gameOver = false;
 
+    //if someone won the game
+    private boolean winner = false;
+
     private Picture gOver;
-    private Picture winner;
+    private Picture winnerScreen;
 
     public Picture getGOver() {
         return gOver;
@@ -30,6 +33,18 @@ public class GameEngine {
 
     public int getLives() {
         return lives;
+    }
+
+    public boolean isWinner() {
+        return winner;
+    }
+
+    public void setWinner(boolean winner) {
+        this.winner = winner;
+    }
+
+    public Picture getWinnerScreen() {
+        return winnerScreen;
     }
 
     public void setLives(int lives) {
@@ -207,6 +222,15 @@ public class GameEngine {
                 grid.drawAllSkulls();
                 score();
                 break;
+        }
+    }
+
+    //draw winner screen
+    public void win() {
+        if(winner) {
+            winnerScreen = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/winner_900x900.jpg");
+            winnerScreen.draw();
+            score();
         }
     }
 

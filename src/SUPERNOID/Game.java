@@ -90,8 +90,8 @@ public class Game implements KeyboardHandler {
     //Methods - Game Start
     public void start() throws InterruptedException {
 
-        SoundClip soundClip = new SoundClip();
-        soundClip.playAudio();
+        //SoundClip soundClip = new SoundClip();
+        //soundClip.playAudio();
 
         //create the first game
         nextLvl();
@@ -142,9 +142,9 @@ public class Game implements KeyboardHandler {
         //change the value of the restart for true
         restart = true;
 
-        //set game over false
+        //set game over or winner false
         engine.setGameOver(false);
-
+        engine.setWinner(false);
 
         //used to make the first lvl just respawn the blocks, and not create new one
         reset = true;
@@ -202,7 +202,7 @@ public class Game implements KeyboardHandler {
         else if ( currentLvl == 2 ) { lvl.loadLevel3(blocks, this); currentLvl = 3; }
         else if ( currentLvl == 3 ) { lvl.loadLevel4(blocks,this); currentLvl = 4; }
         else if ( currentLvl == 4 ) { lvl.loadLevel5(blocks, this); currentLvl = 5; }
-        else if ( currentLvl == 5 ) {  }
+        else if ( currentLvl == 5 ) { engine.setWinner(true); engine.win(); }
     }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard
@@ -217,6 +217,10 @@ public class Game implements KeyboardHandler {
                         Thread.sleep(2);
                         if(engine.isGameOver()) {
                             engine.getGOver().delete();
+                        }
+                        Thread.sleep(2);
+                        if(engine.isWinner()) {
+                            engine.getWinnerScreen().delete();
                         }
                         Thread.sleep(2);
                         restart();

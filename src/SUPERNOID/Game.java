@@ -163,7 +163,7 @@ public class Game implements KeyboardHandler {
         keyboardGame.addEventListener(keyPressedSpace);
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
-        while (ball.isAlive()) {
+        while (true) {
             engine.moveBall(ball, paddle, blocks);
             Thread.sleep(2);
         }
@@ -213,6 +213,12 @@ public class Game implements KeyboardHandler {
         //give the ball the new velocity and direction
         ball.setX(0); ball.setY(0); ball.draw();
 
+        //make the paddle impossible to move.
+        Ball.stopMovement();
+
+        //make the ball alive
+        ball.setAlive();
+
         //draw the blocks again on new game
         loadLevel1();
     }
@@ -235,8 +241,14 @@ public class Game implements KeyboardHandler {
 
                 //return to the first menu
                 case KeyboardEvent.KEY_SPACE:
-                    ball.setY(-1);
-                    ball.setX(1);
+
+                    //verify if the ball is alive
+                    if (ball.isAlive() && ball.getX() == 0 && ball.getY() == 0) {
+                        ball.setY(-1);
+                        ball.setX(1);
+                        Ball.setMovement();
+                    }
+
                     break;
             }
         }

@@ -189,7 +189,7 @@ public class Game implements KeyboardHandler {
         ball.move();
 
         //give the ball the new velocity and direction
-        ball.setX(1); ball.setY(-1); ball.draw();
+        ball.setX(0); ball.setY(0); ball.draw();
 
         //draw the blocks again on new game
         loadLevel1();

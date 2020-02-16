@@ -51,7 +51,7 @@ public class Ball {
     }
 
     //kill the ball
-    public void setDead() { setX(0); setY(-3); move(); setY(0); picture.delete();  }
+    public void setDead() { setX(0); setY(-3); move(); setY(0); picture.delete(); }
 
     //get the Width of the ball
     public int getWidth() { return picture.getWidth(); }

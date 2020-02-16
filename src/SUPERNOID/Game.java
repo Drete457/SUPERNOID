@@ -2,14 +2,10 @@ package SUPERNOID;
 
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
-import SUPERNOID.GameObjects.ObjFactory;
 import SUPERNOID.GameObjects.Paddle;
-import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class Game implements KeyboardHandler {
@@ -30,6 +26,12 @@ public class Game implements KeyboardHandler {
     //Create the game engine
     private GameEngine engine;
 
+    //Create the Create level
+    private CreateLvl lvl;
+
+    //memorise the current lvl in the game
+    private int currentLvl;
+
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
     private Keyboard keyboard; //Keyboard for the paddle
@@ -49,7 +51,7 @@ public class Game implements KeyboardHandler {
 
     //create the object that will receive the input exit
     private KeyboardEvent keyPressedSpace = new KeyboardEvent();
-
+    
     //memorise if the game was restarted or not
     private boolean reset =  false;
 
@@ -62,54 +64,13 @@ public class Game implements KeyboardHandler {
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
         keyboardGame = new Keyboard(this);
+        lvl = new CreateLvl();
     }
 
     //Draw the background
     public Grid backGround() {
         engine.scoreDraw();
         return this.backGround;
-    }
-
-
-    //draw the first lvl
-    public void loadLevel1() {
-
-        //verify if the lvl is new or restart
-        if (reset) {
-            for (Block newborns : blocks) {
-                newborns.resetDestroyed();
-            }
-            reset = false;
-            return;
-        }
-
-        //Creates each block in its respective position
-        ObjFactory.startingIndex = 0;
-        ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(11, 5, 150, 0, this); // 11 x 5 = 55 blocks - 100 total
-        ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 125 total
-
-        //draw the blocks
-        drawBlocks();
-    }
-
-    //draw the second lvl
-    public void loadLevel2() {
-
-        //verify if the lvl is new or restart
-            for (Block newborns : blocks) {
-                newborns = null;
-            }
-            reset = false;
-
-        //Creates each block in its respective position
-        ObjFactory.startingIndex = 0;
-        ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 70 total
-        ObjFactory.getNewBlocks(11, 5, 350, 0, this); // 11 x 5 = 55 blocks - 125 total
-
-        //draw the blocks
-        drawBlocks();
     }
 
     //method to create the blocks
@@ -124,6 +85,9 @@ public class Game implements KeyboardHandler {
 
     //Methods - Game Start
     public void start() throws InterruptedException {
+
+        //create the first game
+        nextLvl();
 
         //run the code for the left key
         keyPressedLeft.setKey(KeyboardEvent.KEY_LEFT);
@@ -152,11 +116,18 @@ public class Game implements KeyboardHandler {
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
         while (true) {
+            //count how many block are dead
+            int totalBlocksDead = 0;
+            for (Block newborns : blocks) { if ( newborns.isDestroyed() ) { totalBlocksDead++; } }
+
+            //start the next lvl
+            if (totalBlocksDead == blocks.length) { nextLvl(); resetBallPaddle(); }
+
+            //verify the collision between the ball, block and the grid
             engine.moveBall(ball, paddle, blocks, backGround);
             Thread.sleep(2);
         }
     }
-
 
     //restart the game method
     public void restart() {
@@ -164,24 +135,42 @@ public class Game implements KeyboardHandler {
         //set game over false
         engine.setGameOver(false);
 
+
         //used to make the first lvl just respawn the blocks, and not create new one
         reset = true;
+
+        //used to make the first lvl just respawn the blocks, and not create news one
+        currentLvl = 0;
+
 
         //create the score and start the same
         engine.setScore(0);
         engine.score();
 
+        //reset the counter live to 3 and draw them
         engine.setLives(3);
         backGround.drawAllHearts();
 
-        
+        //reset the position of the ball and the paddle
+        resetBallPaddle();
+
+        //draw the blocks again on new game
+        lvl.loadLevel1(blocks,this);
+    }
+
+    private void resetBallPaddle() {
+        //verify the position of the paddle and give the new position
+        double xPaddle = -paddle.getPositionX()+Paddle.positionX;
+
+        //put the paddle at the center of the screen
+        paddle.setPosition(xPaddle);
 
         //verify the position of the ball and move the ball back to the paddle
-        double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
-        double y = -ball.getPositionY()+(paddle.getPositionY()-Grid.PADDING*1.5);
+        double xBall = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
+        double yBall = -ball.getPositionY()+(paddle.getPositionY()-Grid.PADDING*1.5);
 
         // put the new values for the movement of the ball
-        ball.setX(x); ball.setY(y);
+        ball.setX(xBall); ball.setY(yBall);
 
         //force the ball to the new position
         ball.move();
@@ -194,9 +183,16 @@ public class Game implements KeyboardHandler {
 
         //make the ball alive
         ball.setAlive();
+    }
 
-        //draw the blocks again on new game
-        loadLevel1();
+    //if the player win, create the next lvl.
+    private void nextLvl(){
+        if ( currentLvl == 0 ) { lvl.loadLevel1(blocks,this); currentLvl = 1; }
+        else if ( currentLvl == 1 ) { lvl.loadLevel2(blocks,this); currentLvl = 2; }
+        else if ( currentLvl == 2 ) { lvl.loadLevel3(blocks, this); currentLvl = 3; }
+        else if ( currentLvl == 3 ) { lvl.loadLevel4(blocks,this); currentLvl = 4; }
+        else if ( currentLvl == 4 ) { lvl.loadLevel5(blocks, this); currentLvl = 5; }
+        else if ( currentLvl == 5 ) {  }
     }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard
@@ -206,6 +202,7 @@ public class Game implements KeyboardHandler {
 
                 //restart the game
                 case KeyboardEvent.KEY_N:
+                    //catch the error of the null ball
                     try {
                         Thread.sleep(2);
                         if(engine.isGameOver()) {
@@ -214,6 +211,7 @@ public class Game implements KeyboardHandler {
                         Thread.sleep(2);
                         restart();
                     }catch (InterruptedException e) {
+                        //restart tha ball again if the null ball occur
                         ball = new Ball(paddle);
                     }
                     break;
@@ -232,7 +230,6 @@ public class Game implements KeyboardHandler {
                         ball.setX(1);
                         Ball.setMovement();
                     }
-
                     break;
             }
         }

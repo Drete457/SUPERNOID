@@ -201,9 +201,9 @@ public class GameEngine {
                 break;
             case 0:
                 gameOver = true;
-                grid.delete();
                 gOver = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/game_over_900x900.jpg");
                 gOver.draw();
+                grid.drawAllSkulls();
                 score();
                 break;
         }

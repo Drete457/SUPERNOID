@@ -27,16 +27,6 @@ public class Main {
         Picture instructions = new Picture(120, 400, "resources/Images/general/game_instructions.png");
         instructions.draw();
 
-        /*Text startMessage = new Text(250,550, " LEFT and RIGHT keys to move");
-        startMessage.setColor(Color.DARK_GRAY);
-        startMessage.grow(140,35);
-        startMessage.draw();
-
-        Text startMessage2 = new Text(230,620, "Press SPACE to start the game");
-        startMessage2.setColor(Color.DARK_GRAY);
-        startMessage2.grow(120,35);
-        startMessage2.draw();*/
-
         Text startTimer = new Text(305,690, "5");
         startTimer.setColor(Color.DARK_GRAY);
         startTimer.grow(25,25);
@@ -59,16 +49,7 @@ public class Main {
         //game.initScreen();
         game.backGround();
 
-        //game.livesLost(1);
-        //game.livesLost(2);
-        //game.livesLost(3);
-        //game.livesLost(4);
-       // game.score("010");
-        //game.score("020");
-
-        //game.initScreen();
-        if (level == 1) { game.loadLevel1(); }
-        else if (level == 2){ game.loadLevel2(); }
+        //start the game
         game.start();
     }
 }

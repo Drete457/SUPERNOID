@@ -30,6 +30,8 @@ public class Game implements KeyboardHandler {
     //Create the game engine
     private GameEngine engine;
 
+    private int lives = 4;
+
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
     private Keyboard keyboard; //Keyboard for the paddle
@@ -135,7 +137,7 @@ public class Game implements KeyboardHandler {
         //run the code for the space key - First Menu
         keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
         keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboardGame.addEventListener(keyPressedExit);
+        keyboardGame.addEventListener(keyPressedSpace);
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
 
@@ -185,12 +187,14 @@ public class Game implements KeyboardHandler {
 
                 //exit the game
                 case KeyboardEvent.KEY_E:
+
                     System.exit(0);
                     break;
 
                 //return to the first menu
                 case KeyboardEvent.KEY_SPACE:
-                    //put the code here
+                    ball.setX(-1);
+                    ball.setY(1);
                     break;
             }
         }

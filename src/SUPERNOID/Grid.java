@@ -10,56 +10,37 @@ public class Grid {
     //memorise the background
     private Picture picture;
 
+    private Picture heart1;
+    private Picture heart2;
+    private Picture heart3;
+
     //initiate the constructor of the grid
     public Grid() {
         picture = new Picture(PADDING, PADDING, "resources/Images/general/field_900x900_c.jpg");
+        heart1 = new Picture(665, 650, "resources/Images/general/heart_62x62.png");
+        heart2 = new Picture(725, 650, "resources/Images/general/heart_62x62.png");
+        heart3 = new Picture(788, 650, "resources/Images/general/heart_62x62.png");
         picture.draw();
-        Hearts.drawAll();
+        drawAllHearts();
     }
 
-    //tell the image of each heart
-    private enum Hearts {
-
-        //proprieties
-        HEART1(new Picture(665, 665, "resources/Images/general/life_46x50_1.jpg")),
-        HEART2(new Picture(710, 665, "resources/Images/general/life_46x50_2.jpg")),
-        HEART3(new Picture(755, 665, "resources/Images/general/life_46x50_3.jpg")),
-        HEART4(new Picture(800, 665, "resources/Images/general/life_46x50_4.jpg"));
-
-        //memorise each heart
-        private Picture pic;
-
-        //constructed
-        Hearts(Picture pic) {
-            this.pic = pic;
-
-        }
-
-        //draw the Hearth's
-        private static void drawAll() {
-            HEART1.pic.draw();
-            HEART2.pic.draw();
-            HEART3.pic.draw();
-            HEART4.pic.draw();
-        }
-
-        //delete the hearts every time the ball die
-        public void livesLost(int livesLost) {
-
-            switch (livesLost) {
-                case 1:
-                    Hearts.HEART4.pic.delete();
-                    break;
-                case 2:
-                    Hearts.HEART3.pic.delete();
-                    break;
-                case 3:
-                    Hearts.HEART2.pic.delete();
-                    break;
-                case 4:
-                    Hearts.HEART1.pic.delete();
-                    break;
-            }
-        }
+    public void drawAllHearts() {
+       heart1.draw();
+       heart2.draw();
+       heart3.draw();
     }
+
+    public void deleteheart3() {
+        heart3.delete();
+    }
+
+    public void deleteheart2() {
+        heart2.delete();
+    }
+
+    public void deleteheart1() {
+        heart1.delete();
+    }
+
+
 }

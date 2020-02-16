@@ -141,6 +141,7 @@ public class GameEngine {
             ballCollisionBlocks(ball, blocks);
             paddleCollisionBall(ball, paddle);
             nextBallDirection(ball);
+
         }
     }
 

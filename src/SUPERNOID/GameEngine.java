@@ -5,6 +5,7 @@ import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameEngine {
 
@@ -13,7 +14,7 @@ public class GameEngine {
 
     //use to write the score in the scree
     private Text scoreText;
-    private int lives = 4;
+    private int lives = 3;
 
     public int getScore() {
         return score;
@@ -132,10 +133,10 @@ public class GameEngine {
 
 
     //verify if the ball can continue the direction or move to another one.
-    private void nextBallDirection(Ball ball) {
+    private void nextBallDirection(Ball ball, Grid grid) {
 
         //if the y of the ball reach 820 or more, is delete
-        if (ball.getPositionY() >= 820) { ball.setDead(); lives--; return;}
+        if (ball.getPositionY() >= 820) { ball.setDead(); lives--; loseLives(grid);return;}
 
         //if the ball didn't hit the wall, continue in the same direction
         if (ballCollisionDetectWall(ball)) { ball.move(); }
@@ -148,11 +149,11 @@ public class GameEngine {
     }
 
     //make the ball move
-    public void moveBall(Ball ball, Paddle paddle, Block[] blocks) {
+    public void moveBall(Ball ball, Paddle paddle, Block[] blocks, Grid grid) {
         if (ball.isAlive()) {
             ballCollisionBlocks(ball, blocks);
             paddleCollisionBall(ball, paddle);
-            nextBallDirection(ball);
+            nextBallDirection(ball, grid);
         }
     }
 
@@ -169,5 +170,23 @@ public class GameEngine {
     public void score() {
         scoreText.delete();
         scoreDraw().setText(score + "");
+    }
+
+    private void loseLives(Grid grid) {
+        switch(lives) {
+            case 2:
+                grid.delete();
+                grid.draw2hearts();
+                break;
+            case 1:
+                grid.delete();
+                grid.draw1heart();
+                break;
+            case 0:
+                grid.delete();
+                Picture gOver = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/game_over_900x900.jpg");
+                gOver.draw();
+                break;
+        }
     }
 }

@@ -30,9 +30,6 @@ public class Game implements KeyboardHandler {
     //Create the game engine
     private GameEngine engine;
 
-    //how many lives the player has
-    private int lives = 4;
-
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
     private Keyboard keyboard; //Keyboard for the paddle
@@ -71,12 +68,6 @@ public class Game implements KeyboardHandler {
     public Grid backGround() {
         engine.scoreDraw();
         return this.backGround;
-    }
-
-    //Draw the initial screen
-    public void initScreen() {
-        Picture screen = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/startScreen_900x900_v1.jpg");
-        screen.draw();
     }
 
 
@@ -164,30 +155,12 @@ public class Game implements KeyboardHandler {
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
         while (true) {
-            engine.moveBall(ball, paddle, blocks);
+            engine.moveBall(ball, paddle, blocks, backGround);
             Thread.sleep(2);
         }
 
-        switch(engine.getLives()) {
-            case 3:
-                backGround.draw2hearts();
-                break;
-            case 2:
-                backGround.draw1heart();
-                break;
-            case 1:
-                backGround.delete();
-                break;
-            case 0:
-                gameOver();
-                break;
-        }
     }
 
-    public void gameOver() {
-        Picture gOver = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/game_over_900x900.jpg");
-        gOver.draw();
-    }
 
     //restart the game method
     public void restart() {
@@ -198,7 +171,8 @@ public class Game implements KeyboardHandler {
         engine.setScore(0);
         engine.score();
 
-        engine.setLives(4);
+        engine.setLives(3);
+        backGround.drawAllHearts();
 
         //verify the position of the ball and move the ball back to the paddle
         double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);

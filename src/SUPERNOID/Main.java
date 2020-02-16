@@ -1,6 +1,8 @@
 package SUPERNOID;
 
 import SUPERNOID.Sound.SoundClip;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class Main {
 
@@ -18,12 +20,40 @@ public class Main {
         //Game level
         int level = 1;
 
+        SoundClip soundClip = new SoundClip();
+        soundClip.playAudio();
+
+        Text startMessage = new Text(200,550, "Move the ball with LEFT and RIGHT keys");
+        startMessage.setColor(Color.DARK_GRAY);
+        startMessage.grow(140,35);
+        startMessage.draw();
+
+        Text startMessage2 = new Text(270,620, "Game will start in ...");
+        startMessage2.setColor(Color.DARK_GRAY);
+        startMessage2.grow(120,35);
+        startMessage2.draw();
+
+        Text startTimer = new Text(423,622, "5");
+        startTimer.setColor(Color.DARK_GRAY);
+        startTimer.grow(25,25);
+        startTimer.draw();
+        Thread.sleep(1000);
+        startTimer.setText("4");
+        Thread.sleep(1000);
+        startTimer.setText("3");
+        Thread.sleep(1000);
+        startTimer.setText("2");
+        Thread.sleep(1000);
+        startTimer.setText("1");
+        Thread.sleep(1000);
+        startMessage.delete();
+        startMessage2.delete();
+        startTimer.delete();
+
         //draw the BackGround and start the game
         //game.initScreen();
         game.backGround();
 
-        SoundClip soundClip = new SoundClip();
-        soundClip.playMusic(BABYSHARK);
         //game.livesLost(1);
         //game.livesLost(2);
         //game.livesLost(3);

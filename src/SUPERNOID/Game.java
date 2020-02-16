@@ -191,6 +191,9 @@ public class Game implements KeyboardHandler {
         //give the ball the new velocity and direction
         ball.setX(0); ball.setY(0); ball.draw();
 
+        //make the paddle impossible to move.
+        Ball.stopMovement();
+
         //draw the blocks again on new game
         loadLevel1();
     }

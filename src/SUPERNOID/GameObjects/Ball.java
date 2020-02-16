@@ -82,7 +82,12 @@ public class Ball {
     //write the new value in y, to be ready by the canvas.translate
     public double getY() { return y; }
 
+    //return if the paddle is authorize to move
     public static boolean getMovement() { return movement; }
+
+    //give the authorize for the paddle to move
     public static void setMovement() { movement = true; }
+
+    //make the paddle impossible to move
     public static void stopMovement() { movement = false; }
 }

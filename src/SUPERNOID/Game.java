@@ -115,10 +115,10 @@ public class Game implements KeyboardHandler {
         while (true) {
             //count how many block are dead
             int totalBlocksDead = 0;
+            for (Block newborns : blocks) { if ( newborns.isDestroyed() ) { totalBlocksDead++; } }
+            if (totalBlocksDead == blocks.length) { nextLvl(); }
             engine.moveBall(ball, paddle, blocks, backGround);
             Thread.sleep(2);
-            for (Block newborns : blocks) { if ( newborns.isDestroyed() ) { totalBlocksDead++; } }
-            if (totalBlocksDead == blocks.length-1) { nextLvl(); }
         }
     }
 

@@ -92,16 +92,16 @@ public class Block {
 
     //Returns a random block image
     private enum BlockType {
-        BLUE("resources/Images/color-blocks/blue_40x15.jpg"),
-        BROWN("resources/Images/color-blocks/brown_40x15.jpg"),
-        GREEN("resources/Images/color-blocks/green_40x15.jpg"),
-        CYAN("resources/Images/color-blocks/light_blue_40x15.jpg"),
-        LIME("resources/Images/color-blocks/light_green_40x15.jpg"),
-        MAGENTA("resources/Images/color-blocks/magenta_40x15.jpg"),
-        ORANGE("resources/Images/color-blocks/orange_40x15.jpg"),
-        PINK("resources/Images/color-blocks/pink_40x15.jpg"),
-        RED("resources/Images/color-blocks/red_40x15.jpg"),
-        YELLOW("resources/Images/color-blocks/yellow_40x15.jpg");
+        BLUE("resources/Images/photo-blocks/audrey_40x30.gif"),
+        BROWN("resources/Images/photo-blocks/catarina_40x30.gif"),
+        GREEN("resources/Images/photo-blocks/christina_40x30.gif"),
+        CYAN("resources/Images/photo-blocks/pedro_40x30.gif"),
+        LIME("resources/Images/photo-blocks/priscila_40x30.gif"),
+        MAGENTA("resources/Images/photo-blocks/vando_40x30.gif"),
+        ORANGE("resources/Images/photo-blocks/audrey_40x30.gif"),
+        PINK("resources/Images/photo-blocks/catarina_40x30.gif"),
+        RED("resources/Images/photo-blocks/christina_40x30.gif"),
+        YELLOW("resources/Images/photo-blocks/priscila_40x30.gif");
 
         private String image;
 

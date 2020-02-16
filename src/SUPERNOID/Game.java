@@ -118,7 +118,7 @@ public class Game implements KeyboardHandler {
             engine.moveBall(ball, paddle, blocks, backGround);
             Thread.sleep(2);
             for (Block newborns : blocks) { if ( newborns.isDestroyed() ) { totalBlocksDead++; } }
-            if (totalBlocksDead == blocks.length-1) { nextLvl(); }
+            if (totalBlocksDead == blocks.length) { nextLvl(); }
         }
     }
 
@@ -175,7 +175,7 @@ public class Game implements KeyboardHandler {
         else if ( currentLvl == 2 ) { lvl.loadLevel3(blocks, this); currentLvl = 3; }
         else if ( currentLvl == 3 ) { lvl.loadLevel4(blocks,this); currentLvl = 4; }
         else if ( currentLvl == 4 ) { lvl.loadLevel5(blocks, this); currentLvl = 5; }
-        else if ( currentLvl == 5 ) { }
+        else if ( currentLvl == 5 ) {  }
     }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard

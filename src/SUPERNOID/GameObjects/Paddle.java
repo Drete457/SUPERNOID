@@ -25,8 +25,6 @@ public class Paddle implements KeyboardHandler{
         picture.draw();
     }
 
-
-
     //get the Width of the paddle
     //public int getWidth() { return this.width; }
     public int getWidth() { return picture.getWidth(); }

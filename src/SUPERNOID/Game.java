@@ -30,6 +30,7 @@ public class Game implements KeyboardHandler {
     //Create the game engine
     private GameEngine engine;
 
+    //how many live the player have
     private int lives = 4;
 
     /*create the object that will receive the keyboard and
@@ -52,6 +53,7 @@ public class Game implements KeyboardHandler {
     //create the object that will receive the input exit
     private KeyboardEvent keyPressedSpace = new KeyboardEvent();
 
+    //memorise if the game was restart or not
     private boolean reset =  false;
 
     //Game Constructor
@@ -80,6 +82,8 @@ public class Game implements KeyboardHandler {
 
     //draw the first lvl
     public void loadLevel1() {
+
+        //verify if the lvl is new or restart
         if (reset) {
             for (Block newborns : blocks) {
                 newborns.resetDestroyed();
@@ -87,23 +91,42 @@ public class Game implements KeyboardHandler {
             reset = false;
             return;
         }
+
+        //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
         ObjFactory.getNewBlocks(11, 5, 150, 0, this); // 11 x 5 = 55 blocks - 100 total
         ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 125 total
+
+        //draw the blocks
         drawBlocks();
     }
 
     //draw the second lvl
     public void loadLevel2() {
+
+        //verify if the lvl is new or restart
+        if (reset) {
+            for (Block newborns : blocks) {
+                newborns.resetDestroyed();
+            }
+            reset = false;
+            return;
+        }
+
+        //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
         ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 70 total
         ObjFactory.getNewBlocks(11, 5, 350, 0, this); // 11 x 5 = 55 blocks - 125 total
+
+        //draw the blocks
         drawBlocks();
     }
 
+    //method to create the blocks
     public void drawBlocks() {
+
         //Draw blocks after creating them
         for (Block singleBlock : blocks) {
             singleBlock.getPicture();
@@ -134,26 +157,24 @@ public class Game implements KeyboardHandler {
         keyPressedExit.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboardGame.addEventListener(keyPressedExit);
 
-        //run the code for the space key - First Menu
+        //run the code for the space key - Start the ball
         keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
         keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboardGame.addEventListener(keyPressedSpace);
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
-
         while (ball.isAlive()) {
             engine.moveBall(ball, paddle, blocks);
             Thread.sleep(2);
         }
     }
 
-
-
-
     //restart the game method
     public void restart() {
+        //used to make the first lvl just respawn the blocks, and not create news one
         reset = true;
 
+        //create the score and start the same
         engine.setScore(0);
         engine.score();
 
@@ -172,7 +193,6 @@ public class Game implements KeyboardHandler {
 
         //draw the blocks again on new game
         loadLevel1();
-
     }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard
@@ -192,8 +212,8 @@ public class Game implements KeyboardHandler {
 
                 //return to the first menu
                 case KeyboardEvent.KEY_SPACE:
-                    ball.setX(-1);
-                    ball.setY(1);
+                    ball.setY(-1);
+                    ball.setX(1);
                     break;
             }
         }
@@ -202,7 +222,6 @@ public class Game implements KeyboardHandler {
         @Override
         public void keyReleased(KeyboardEvent keyboardEvent) {
         }
-
     }
 
 

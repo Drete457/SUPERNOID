@@ -137,7 +137,7 @@ public class Game implements KeyboardHandler {
         //run the code for the space key - First Menu
         keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
         keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboardGame.addEventListener(keyPressedExit);
+        keyboardGame.addEventListener(keyPressedSpace);
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
 
@@ -192,7 +192,8 @@ public class Game implements KeyboardHandler {
 
                 //return to the first menu
                 case KeyboardEvent.KEY_SPACE:
-                    //put the code here
+                    ball.setX(-1);
+                    ball.setY(1);
                     break;
             }
         }

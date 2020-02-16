@@ -9,11 +9,11 @@ import javax.sound.midi.Sequencer;
 
 public class SoundClip {
 
+    Sequencer sequencer = null;
 
     public void playAudio() {
 
         // Obtains the default Sequencer connected to a default device.
-        Sequencer sequencer = null;
         try {
             sequencer = MidiSystem.getSequencer();
         } catch (MidiUnavailableException e) {
@@ -31,7 +31,7 @@ public class SoundClip {
         // create a stream from a file
         InputStream is = null;
         try {
-            is = new BufferedInputStream(new FileInputStream(new File("resources/Music/8-Bit_Songs/gbusters.mid")));
+            is = new BufferedInputStream(new FileInputStream(new File("resources/Music/8-Bit_Songs/gameMusic.mid")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -47,7 +47,12 @@ public class SoundClip {
         }
 
         // Starts playback of the MIDI data in the currently loaded sequence.
-            sequencer.start();
+        sequencer.setLoopCount(5);
+        sequencer.start();
 
+    }
+
+    public void closeAudio() {
+        sequencer.close();
     }
 }

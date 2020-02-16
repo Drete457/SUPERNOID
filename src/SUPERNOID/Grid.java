@@ -14,6 +14,10 @@ public class Grid {
     private Picture heart2;
     private Picture heart3;
 
+    private Picture skull1;
+    private Picture skull2;
+    private Picture skull3;
+
     //initiate the constructor of the grid
     public Grid() {
         picture = new Picture(PADDING, PADDING, "resources/Images/general/field_900x900_c.jpg");

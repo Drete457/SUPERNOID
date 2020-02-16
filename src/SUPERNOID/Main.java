@@ -22,7 +22,7 @@ public class Main {
         //game.initScreen();
         game.backGround();
         SoundClip soundClip = new SoundClip();
-        soundClip.playMusic(BABYSHARK);
+        soundClip.playMusic(GHOSTBUSTERS);
         //game.livesLost(1);
         //game.livesLost(2);
         //game.livesLost(3);

@@ -116,7 +116,11 @@ public class Game implements KeyboardHandler {
             //count how many block are dead
             int totalBlocksDead = 0;
             for (Block newborns : blocks) { if ( newborns.isDestroyed() ) { totalBlocksDead++; } }
-            if (totalBlocksDead == blocks.length) { nextLvl(); }
+
+            //start the next lvl
+            if (totalBlocksDead == blocks.length) { nextLvl(); resetBallPaddle(); }
+
+            //verify the collision between the ball, block and the grid
             engine.moveBall(ball, paddle, blocks, backGround);
             Thread.sleep(2);
         }
@@ -139,6 +143,14 @@ public class Game implements KeyboardHandler {
         engine.setLives(3);
         backGround.drawAllHearts();
 
+        //reset the position of the ball and the paddle
+        resetBallPaddle();
+
+        //draw the blocks again on new game
+        lvl.loadLevel1(blocks,this);
+    }
+
+    private void resetBallPaddle() {
         //verify the position of the paddle and give the new position
         double xPaddle = -paddle.getPositionX()+Paddle.positionX;
 
@@ -163,13 +175,10 @@ public class Game implements KeyboardHandler {
 
         //make the ball alive
         ball.setAlive();
-
-        //draw the blocks again on new game
-        lvl.loadLevel1(blocks,this);
     }
 
     //if the player win, create the next lvl.
-    public void nextLvl(){
+    private void nextLvl(){
         if ( currentLvl == 0 ) { lvl.loadLevel1(blocks,this); currentLvl = 1; }
         else if ( currentLvl == 1 ) { lvl.loadLevel2(blocks,this); currentLvl = 2; }
         else if ( currentLvl == 2 ) { lvl.loadLevel3(blocks, this); currentLvl = 3; }

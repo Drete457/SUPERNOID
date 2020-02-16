@@ -70,48 +70,6 @@ public class Game implements KeyboardHandler {
         return this.backGround;
     }
 
-
-    /*//draw the first lvl
-    public void loadLevel1() {
-
-        //verify if the lvl is new or restart
-        if (reset) {
-            for (Block newborns : blocks) {
-                newborns.resetDestroyed();
-            }
-            reset = false;
-            return;
-        }
-
-        //Creates each block in its respective position
-        ObjFactory.startingIndex = 0;
-        ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(11, 5, 150, 0, this); // 11 x 5 = 55 blocks - 100 total
-        ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 125 total
-
-        //draw the blocks
-        drawBlocks();
-    }
-
-    //draw the second lvl
-    public void loadLevel2() {
-
-        //verify if the lvl is new or restart
-            for (Block newborns : blocks) {
-                newborns = null;
-            }
-            reset = false;
-
-        //Creates each block in its respective position
-        ObjFactory.startingIndex = 0;
-        ObjFactory.getNewBlocks(11, 5, 50, 0, this); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(5, 3, 250, 120, this); // 5 x 3 = 15 blocks - 70 total
-        ObjFactory.getNewBlocks(11, 5, 350, 0, this); // 11 x 5 = 55 blocks - 125 total
-
-        //draw the blocks
-        drawBlocks();
-    }*/
-
     //method to create the blocks
     public void drawBlocks() {
 

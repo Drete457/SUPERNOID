@@ -20,8 +20,8 @@ public class CreateLvl {
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, game); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(11, 5, 150, 0, game); // 11 x 5 = 55 blocks - 100 total
-        ObjFactory.getNewBlocks(5, 3, 250, 120, game); // 5 x 3 = 15 blocks - 125 total
+        ObjFactory.getNewBlocks(11, 5, 150, 0, game); // 11 x 5 = 55 blocks
+        ObjFactory.getNewBlocks(5, 3, 250, 120, game); // 5 x 3 = 15 blocks
 
         //draw the blocks
         game.drawBlocks();
@@ -35,18 +35,18 @@ public class CreateLvl {
         newborns = null;
       }
 
-    //Creates each block in its respective position
+        //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, game); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(5, 1, 150, 120, game); // 5 x 3 = 15 blocks - 125 total
-        ObjFactory.getNewBlocks(5, 2, 250, 120, game); // 5 x 3 = 15 blocks - 125 total
-        ObjFactory.getNewBlocks(11, 5, 350, 0, game); // 11 x 5 = 55 blocks - 100 total
+        ObjFactory.getNewBlocks(5, 1, 150, 120, game); // 5 x 1 = 05 blocks
+        ObjFactory.getNewBlocks(5, 2, 250, 120, game); // 5 x 2 = 10 blocks
+        ObjFactory.getNewBlocks(11, 5, 350, 0, game); // 11 x 5 = 55 blocks
 
         //draw the blocks
-    game.drawBlocks();
+        game.drawBlocks();
     }
 
-    //draw the second lvl
+    //draw the third lvl
     public void loadLevel3(Block [] blocks, Game game) {
 
         //reset all position on the array
@@ -57,15 +57,15 @@ public class CreateLvl {
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, game); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(5, 3, 150, 120, game); // 5 x 3 = 15 blocks - 125 total
-        ObjFactory.getNewBlocks(11, 3, 250, 0, game); // 11 x 5 = 55 blocks - 100 total
-        ObjFactory.getNewBlocks(11, 2, 350, 0, game); // 11 x 5 = 55 blocks - 100 total
+        ObjFactory.getNewBlocks(5, 3, 150, 120, game); // 5 x 3 = 15 blocks
+        ObjFactory.getNewBlocks(11, 3, 250, 0, game); // 11 x 3 = 33 blocks
+        ObjFactory.getNewBlocks(11, 2, 350, 0, game); // 11 x 2 = 22 blocks
 
         //draw the blocks
         game.drawBlocks();
     }
 
-    //draw the second lvl
+    //draw the four lvl
     public void loadLevel4(Block [] blocks, Game game) {
 
         //reset all position on the array
@@ -76,16 +76,16 @@ public class CreateLvl {
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 3, 50, 0, game); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(5, 3, 150, 120, game); // 5 x 3 = 15 blocks - 125 total
-        ObjFactory.getNewBlocks(11, 2, 250, 0, game); // 11 x 5 = 55 blocks - 100 total
-        ObjFactory.getNewBlocks(11, 3, 350, 0, game); // 11 x 5 = 55 blocks - 100 total
-        ObjFactory.getNewBlocks(11, 2, 450, 0, game); // 11 x 5 = 55 blocks - 100 total
+        ObjFactory.getNewBlocks(5, 3, 150, 120, game); // 5 x 3 = 15 blocks
+        ObjFactory.getNewBlocks(11, 2, 250, 0, game); // 11 x 2 = 22 blocks
+        ObjFactory.getNewBlocks(11, 3, 350, 0, game); // 11 x 3 = 33 blocks
+        ObjFactory.getNewBlocks(11, 2, 450, 0, game); // 11 x 2 = 22 blocks
 
         //draw the blocks
         game.drawBlocks();
     }
 
-    //draw the second lvl
+    //draw the fiver lvl
     public void loadLevel5(Block [] blocks, Game game) {
 
         //reset all position on the array
@@ -96,9 +96,9 @@ public class CreateLvl {
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
         ObjFactory.getNewBlocks(11, 5, 50, 0, game); // 11 x 5 = 55 blocks
-        ObjFactory.getNewBlocks(11, 3, 150, 0, game); // 11 x 5 = 55 blocks - 100 total
-        ObjFactory.getNewBlocks(11, 2, 250, 0, game); // 11 x 5 = 55 blocks - 100 total
-        ObjFactory.getNewBlocks(5, 3, 350, 120, game); // 5 x 3 = 15 blocks - 125 total
+        ObjFactory.getNewBlocks(11, 3, 150, 0, game); // 11 x 3 = 33 blocks
+        ObjFactory.getNewBlocks(11, 2, 250, 0, game); // 11 x 2 = 22 blocks
+        ObjFactory.getNewBlocks(5, 3, 350, 120, game); // 5 x 3 = 15 blocks
 
         //draw the blocks
         game.drawBlocks();

@@ -19,6 +19,8 @@ public class Ball {
     private double x;
     //movement of the ball in axis Y
     private double y;
+    //ball moving
+    private static boolean movement = false;
 
     //start the ball object
     public Ball(Paddle paddle) {
@@ -50,8 +52,10 @@ public class Ball {
         return alive;
     }
 
+    public void setAlive() { alive = true; }
+
     //kill the ball
-    public void setDead() { setX(0); setY(-3); move(); setY(0); picture.delete(); }
+    public void setDead() { setX(0); setY(-3); move(); setY(0); picture.delete(); stopMovement(); alive = false; }
 
     //get the Width of the ball
     public int getWidth() { return picture.getWidth(); }
@@ -79,4 +83,13 @@ public class Ball {
 
     //write the new value in y, to be ready by the canvas.translate
     public double getY() { return y; }
+
+    //return if the paddle is authorize to move
+    public static boolean getMovement() { return movement; }
+
+    //give the authorize for the paddle to move
+    public static void setMovement() { movement = true; }
+
+    //make the paddle impossible to move
+    public static void stopMovement() { movement = false; }
 }

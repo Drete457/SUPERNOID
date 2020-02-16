@@ -8,7 +8,10 @@ import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class GameEngine {
 
+    //memorise the score
     private int score;
+
+    //use to write the score in the scree
     private Text scoreText;
     private int lives = 4;
 
@@ -130,7 +133,7 @@ public class GameEngine {
 
     //verify if the ball can continue the direction or move to another one.
     private void nextBallDirection(Ball ball) {
-
+        
         //if the y of the ball reach 820 or more, is delete
         if (ball.getPositionY() >= 820) { ball.setDead(); lives--; return;}
 
@@ -150,7 +153,6 @@ public class GameEngine {
             ballCollisionBlocks(ball, blocks);
             paddleCollisionBall(ball, paddle);
             nextBallDirection(ball);
-
         }
     }
 
@@ -168,5 +170,4 @@ public class GameEngine {
         scoreText.delete();
         scoreDraw().setText(score + "");
     }
-
 }

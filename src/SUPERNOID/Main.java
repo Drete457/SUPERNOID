@@ -28,7 +28,7 @@ public class Main {
         startMessage.grow(140,35);
         startMessage.draw();
 
-        Text startMessage2 = new Text(230,620, "Press Space to start the game");
+        Text startMessage2 = new Text(230,620, "Press SPACE to start the game");
 
         startMessage2.setColor(Color.DARK_GRAY);
         startMessage2.grow(120,35);

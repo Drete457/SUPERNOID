@@ -171,17 +171,22 @@ public class Game implements KeyboardHandler {
         engine.setScore(0);
         engine.score();
 
+        //reset the counter live to 3 and draw them
         engine.setLives(3);
         backGround.drawAllHearts();
 
-        
+        //verify the position of the paddle and give the new position
+        double xPaddle = -paddle.getPositionX()+Paddle.positionX;
+
+        //put the paddle at the center of the screen
+        paddle.setPosition(xPaddle);
 
         //verify the position of the ball and move the ball back to the paddle
-        double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
-        double y = -ball.getPositionY()+(paddle.getPositionY()-Grid.PADDING*1.5);
+        double xBall = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
+        double yBall = -ball.getPositionY()+(paddle.getPositionY()-Grid.PADDING*1.5);
 
         // put the new values for the movement of the ball
-        ball.setX(x); ball.setY(y);
+        ball.setX(xBall); ball.setY(yBall);
 
         //force the ball to the new position
         ball.move();
@@ -206,6 +211,7 @@ public class Game implements KeyboardHandler {
 
                 //restart the game
                 case KeyboardEvent.KEY_N:
+                    //catch the error of the null ball
                     try {
                         Thread.sleep(2);
                         if(engine.isGameOver()) {
@@ -214,6 +220,7 @@ public class Game implements KeyboardHandler {
                         Thread.sleep(2);
                         restart();
                     }catch (InterruptedException e) {
+                        //restart tha ball again if the null ball occur
                         ball = new Ball(paddle);
                     }
                     break;
@@ -232,7 +239,6 @@ public class Game implements KeyboardHandler {
                         ball.setX(1);
                         Ball.setMovement();
                     }
-
                     break;
             }
         }

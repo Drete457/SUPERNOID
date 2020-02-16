@@ -10,14 +10,11 @@ public class Paddle implements KeyboardHandler{
     //speed of the paddle
     private final int SPEED = 30;
     //the start position in X
-    private final int positionX = 220;
+    public static final int positionX = 220;
     //the start position in Y
-    private final int positionY = 800;
+    public static final int positionY = 800;
     //to memorise the paddle
     private Picture picture;
-
-    //Set Paddle's width
-    //private final int width = 10;
 
     //start the paddle object
     public Paddle() {
@@ -28,9 +25,6 @@ public class Paddle implements KeyboardHandler{
     //get the Width of the paddle
     //public int getWidth() { return this.width; }
     public int getWidth() { return picture.getWidth(); }
-
-    //get the Height of the paddle
-    public int getHeight() { return picture.getHeight(); }
 
     //print the new position of the paddle
     public void setPosition(double width) { picture.translate(width,0);}

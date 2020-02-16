@@ -215,6 +215,7 @@ public class Game implements KeyboardHandler {
                 case KeyboardEvent.KEY_SPACE:
                     ball.setY(-1);
                     ball.setX(1);
+                    Ball.setMovement();
                     break;
             }
         }

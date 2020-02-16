@@ -133,10 +133,10 @@ public class GameEngine {
 
 
     //verify if the ball can continue the direction or move to another one.
-    private void nextBallDirection(Ball ball, Grid grid) {
+    private void nextBallDirection(Ball ball, Grid grid, Paddle paddle) {
 
         //if the y of the ball reach 820 or more, is delete
-        if (ball.getPositionY() >= 820) { ball.setDead(); lives--; loseLives(grid);return;}
+        if (ball.getPositionY() >= 820) { ball.setDead(); lives--; loseLives(grid, ball, paddle);return;}
 
         //if the ball didn't hit the wall, continue in the same direction
         if (ballCollisionDetectWall(ball)) { ball.move(); }
@@ -153,7 +153,7 @@ public class GameEngine {
         if (ball.isAlive()) {
             ballCollisionBlocks(ball, blocks);
             paddleCollisionBall(ball, paddle);
-            nextBallDirection(ball, grid);
+            nextBallDirection(ball, grid, paddle);
         }
     }
 
@@ -172,21 +172,46 @@ public class GameEngine {
         scoreDraw().setText(score + "");
     }
 
-    private void loseLives(Grid grid) {
+    private void loseLives(Grid grid, Ball ball, Paddle paddle) {
         switch(lives) {
             case 2:
                 grid.delete();
                 grid.draw2hearts();
+                resetBall(ball, paddle);
                 break;
             case 1:
                 grid.delete();
                 grid.draw1heart();
+                resetBall(ball, paddle);
                 break;
             case 0:
                 grid.delete();
                 Picture gOver = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/game_over_900x900.jpg");
                 gOver.draw();
+                scoreDraw().setText(score + "");
                 break;
         }
+    }
+
+    public void resetBall(Ball ball, Paddle paddle) {
+
+        //verify the position of the ball and move the ball back to the paddle
+        double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
+        double y = -ball.getPositionY()+(paddle.getPositionY()-Grid.PADDING*1.5);
+
+        // put the new values for the movement of the ball
+        ball.setX(x); ball.setY(y);
+
+        //force the ball to the new position
+        ball.move();
+
+        //give the ball the new velocity and direction
+        ball.setX(0); ball.setY(0); ball.draw();
+
+        //make the paddle impossible to move.
+        Ball.stopMovement();
+
+        //make the ball alive
+        ball.setAlive();
     }
 }

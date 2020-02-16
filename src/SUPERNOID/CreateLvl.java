@@ -9,7 +9,7 @@ public class CreateLvl {
     public void loadLevel1(Block [] blocks, Game game) {
 
         //verify if the lvl is new or restart
-            for (Block newborns : blocks) { newborns = null; }
+        for (Block newborns : blocks) { newborns = null; }
 
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;

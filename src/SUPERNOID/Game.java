@@ -17,9 +17,6 @@ public class Game implements KeyboardHandler {
     //Array of Blocks for this game
     public Block[] blocks;
 
-    //count how many block are dead
-    private int totalBlocksDead;
-
     //Print the paddle
     private Paddle paddle;
 
@@ -60,7 +57,6 @@ public class Game implements KeyboardHandler {
         this.backGround = new Grid();
         this.paddle = new Paddle();
         blocks = new Block[totalBlocks];
-        totalBlocksDead = 0;
         this.engine = new GameEngine();
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
@@ -117,9 +113,11 @@ public class Game implements KeyboardHandler {
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
         while (true) {
+            //count how many block are dead
+            int totalBlocksDead = 0;
             engine.moveBall(ball, paddle, blocks, backGround);
             Thread.sleep(2);
-            for (Block newborns : blocks) { if ( !newborns.isDestroyed() ) { totalBlocksDead++; } }
+            for (Block newborns : blocks) { if ( newborns.isDestroyed() ) { totalBlocksDead++; } }
             if (totalBlocksDead == blocks.length-1) { nextLvl(); }
         }
     }

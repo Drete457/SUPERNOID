@@ -31,7 +31,7 @@ public class SoundClip {
         // create a stream from a file
         InputStream is = null;
         try {
-            is = new BufferedInputStream(new FileInputStream(new File("gameMusic.mid")));
+            is = new BufferedInputStream(new FileInputStream(new File("src/gameMusic.mid")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

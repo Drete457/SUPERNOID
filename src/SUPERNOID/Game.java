@@ -187,6 +187,7 @@ public class Game implements KeyboardHandler {
 
                 //exit the game
                 case KeyboardEvent.KEY_E:
+
                     System.exit(0);
                     break;
 

@@ -2,14 +2,10 @@ package SUPERNOID;
 
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
-import SUPERNOID.GameObjects.ObjFactory;
 import SUPERNOID.GameObjects.Paddle;
-import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class Game implements KeyboardHandler {
@@ -29,6 +25,9 @@ public class Game implements KeyboardHandler {
 
     //Create the game engine
     private GameEngine engine;
+
+    //Create the Create level
+    private CreateLvl lvl;
 
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
@@ -51,7 +50,7 @@ public class Game implements KeyboardHandler {
     private KeyboardEvent keyPressedSpace = new KeyboardEvent();
 
     //memorise if the game was restart or not
-    private boolean reset =  false;
+    public boolean reset =  false;
 
     //Game Constructor
     public Game(int totalBlocks) {
@@ -62,6 +61,7 @@ public class Game implements KeyboardHandler {
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
         keyboardGame = new Keyboard(this);
+        lvl = new CreateLvl();
     }
 
     //Draw the back ground
@@ -71,7 +71,7 @@ public class Game implements KeyboardHandler {
     }
 
 
-    //draw the first lvl
+    /*//draw the first lvl
     public void loadLevel1() {
 
         //verify if the lvl is new or restart
@@ -110,7 +110,7 @@ public class Game implements KeyboardHandler {
 
         //draw the blocks
         drawBlocks();
-    }
+    }*/
 
     //method to create the blocks
     public void drawBlocks() {
@@ -124,6 +124,9 @@ public class Game implements KeyboardHandler {
 
     //Methods - Game Start
     public void start() throws InterruptedException {
+
+        //create the first game
+        lvl.loadLevel1(blocks,this);
 
         //run the code for the left key
         keyPressedLeft.setKey(KeyboardEvent.KEY_LEFT);
@@ -201,7 +204,7 @@ public class Game implements KeyboardHandler {
         ball.setAlive();
 
         //draw the blocks again on new game
-        loadLevel1();
+        lvl.loadLevel1(blocks,this);
     }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard

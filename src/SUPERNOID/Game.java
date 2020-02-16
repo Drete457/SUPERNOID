@@ -15,6 +15,7 @@ public class Game implements KeyboardHandler {
     //Print the BackGround
     private final Grid backGround;
 
+    //create the class that give the sound
     SoundClip soundClip = new SoundClip();
 
     //Array of Blocks for this game
@@ -92,7 +93,7 @@ public class Game implements KeyboardHandler {
     //Methods - Game Start
     public void start() throws InterruptedException {
 
-
+        //start the sound
         soundClip.playAudio();
 
         //create the first game

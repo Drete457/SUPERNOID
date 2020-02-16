@@ -11,16 +11,14 @@ public class Main {
     //The Beginning of the game, and Interrupted when it finishes
     public static void main(String[] args) throws InterruptedException  {
 
-        String BABYSHARK = "resources/Music/8-Bit_Songs/baby-shark.wav";
-        String GHOSTBUSTERS = "resources/Music/8-Bit_Songs/ghostbusters.wav";
-        String MK = "resources/Music/8-Bit_Songs/mk-theme.wav";
-        
         //will instance the game and initialise
         Game game = new Game(125);
 
+        //print the instructions image
         Picture instructions = new Picture(120, 400, "resources/Images/general/game_instructions.png");
         instructions.draw();
 
+        //print the start time
         Text startTimer = new Text(305,690, "5");
         startTimer.setColor(Color.DARK_GRAY);
         startTimer.grow(25,25);

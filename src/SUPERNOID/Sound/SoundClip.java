@@ -1,6 +1,5 @@
 package SUPERNOID.Sound;
 
-
 import java.io.*;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
@@ -9,6 +8,7 @@ import javax.sound.midi.Sequencer;
 
 public class SoundClip {
 
+    //create the variable
     Sequencer sequencer = null;
 
     public void playAudio() {
@@ -49,6 +49,7 @@ public class SoundClip {
         sequencer.start();
     }
 
+    //close the file sound
     public void closeAudio() {
         sequencer.close();
     }

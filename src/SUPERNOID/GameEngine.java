@@ -15,6 +15,13 @@ public class GameEngine {
     //use to write the score in the scree
     private Text scoreText;
     private int lives = 3;
+    private boolean gameOver = false;
+
+    private Picture gOver;
+
+    public Picture getGOver() {
+        return gOver;
+    }
 
     public int getScore() {
         return score;
@@ -30,6 +37,14 @@ public class GameEngine {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(Boolean gameOver) {
+        this.gameOver = gameOver;
     }
 
     //verify if the paddle have reach the limit of the game area
@@ -185,10 +200,11 @@ public class GameEngine {
                 resetBall(ball, paddle);
                 break;
             case 0:
+                gameOver = true;
                 grid.delete();
-                Picture gOver = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/game_over_900x900.jpg");
+                gOver = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/game_over_900x900.jpg");
                 gOver.draw();
-                scoreDraw().setText(score + "");
+                score();
                 break;
         }
     }

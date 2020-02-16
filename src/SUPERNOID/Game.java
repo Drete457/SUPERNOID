@@ -164,6 +164,10 @@ public class Game implements KeyboardHandler {
 
     //restart the game method
     public void restart() {
+
+        //set game over false
+        engine.setGameOver(false);
+
         //used to make the first lvl just respawn the blocks, and not create news one
         reset = true;
 
@@ -204,6 +208,9 @@ public class Game implements KeyboardHandler {
 
                 //restart the game
                 case KeyboardEvent.KEY_N:
+                    if(engine.isGameOver()) {
+                        engine.getGOver().delete();
+                    }
                     restart();
                     break;
 

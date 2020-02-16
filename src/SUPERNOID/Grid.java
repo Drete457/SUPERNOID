@@ -32,9 +32,10 @@ public class Grid {
     }
 
     public void drawAllHearts() {
-       heart1.draw();
-       heart2.draw();
-       heart3.draw();
+        delete();
+        heart1.draw();
+        heart2.draw();
+        heart3.draw();
     }
 
     public void delete() {

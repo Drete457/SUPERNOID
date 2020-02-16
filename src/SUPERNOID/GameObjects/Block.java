@@ -20,7 +20,7 @@ public class Block {
         picture = new Picture(xPos, yPos, randomBlock.getImage());
     }
 
-    //return the energy that block have
+    //return the amount of energy that a block has
     public int getBlockEnergy() {
         return blockEnergy;
     }
@@ -79,6 +79,8 @@ public class Block {
         // if block was destroyed, delete its picture from canvas
         picture.delete();
     }
+
+    public void deletePictureBlock() { picture.delete(); }
 
     //Get Picture
     public void getPicture() { picture.draw(); };

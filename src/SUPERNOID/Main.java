@@ -8,7 +8,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Main {
 
 
-    //The Beginning of the game, and Interrupted when it finish
+    //The Beginning of the game, and Interrupted when it finishes
     public static void main(String[] args) throws InterruptedException  {
 
         String BABYSHARK = "resources/Music/8-Bit_Songs/baby-shark.wav";
@@ -17,12 +17,6 @@ public class Main {
         
         //will instance the game and initialise
         Game game = new Game(125);
-
-        //Game level
-        int level = 1;
-
-        SoundClip soundClip = new SoundClip();
-        soundClip.playAudio();
 
         Picture instructions = new Picture(120, 400, "resources/Images/general/game_instructions.png");
         instructions.draw();

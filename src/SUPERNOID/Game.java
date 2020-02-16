@@ -3,6 +3,7 @@ package SUPERNOID;
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
+import SUPERNOID.Sound.SoundClip;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -32,6 +33,9 @@ public class Game implements KeyboardHandler {
     //memorise the current lvl in the game
     private int currentLvl;
 
+    //memorise if the game was restart or not
+    public static boolean restart = false;
+
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
     private Keyboard keyboard; //Keyboard for the paddle
@@ -51,6 +55,9 @@ public class Game implements KeyboardHandler {
 
     //create the object that will receive the input exit
     private KeyboardEvent keyPressedSpace = new KeyboardEvent();
+    
+    //memorise if the game was restarted or not
+    private boolean reset =  false;
 
     //Game Constructor
     public Game(int totalBlocks) {
@@ -64,7 +71,7 @@ public class Game implements KeyboardHandler {
         lvl = new CreateLvl();
     }
 
-    //Draw the back ground
+    //Draw the background
     public Grid backGround() {
         engine.scoreDraw();
         return this.backGround;
@@ -82,6 +89,9 @@ public class Game implements KeyboardHandler {
 
     //Methods - Game Start
     public void start() throws InterruptedException {
+
+        SoundClip soundClip = new SoundClip();
+        soundClip.playAudio();
 
         //create the first game
         nextLvl();
@@ -129,11 +139,19 @@ public class Game implements KeyboardHandler {
     //restart the game method
     public void restart() {
 
+        //change the value of the restart for true
+        restart = true;
+
         //set game over false
         engine.setGameOver(false);
 
+
+        //used to make the first lvl just respawn the blocks, and not create new one
+        reset = true;
+
         //used to make the first lvl just respawn the blocks, and not create news one
         currentLvl = 0;
+
 
         //create the score and start the same
         engine.setScore(0);

@@ -12,7 +12,7 @@ public class GameEngine {
     //memorise the score
     private int score;
 
-    //use to write the score in the scree
+    //use to write the score in the screen
     private Text scoreText;
     private int lives = 3;
     private boolean gameOver = false;
@@ -48,7 +48,7 @@ public class GameEngine {
         this.gameOver = gameOver;
     }
 
-    //verify if the paddle have reach the limit of the game area
+    //verify if the paddle has reached the limit of the game area
     public static void paddleCollisionDetectWall(Paddle paddle, int SPEED) {
         if (paddle.getPositionX() < 378 && paddle.getPositionX() > 60) {
             paddle.setPosition(SPEED);
@@ -74,13 +74,13 @@ public class GameEngine {
         }
     }
 
-    //verify if the ball touch the Paddle in Axis X
+    //verify if the ball touched the Paddle in Axis X
     private boolean ballInTheLimitXPaddle(Ball ball, Paddle paddle) {
         return ball.getPositionX() >= paddle.getPositionX() - Grid.PADDING &&
                 ball.getPositionX() <= paddle.getPositionX() + paddle.getWidth();
     }
 
-    //verify if the ball have reach the limit of the game area
+    //verify if the ball has reached the limit of the game area
     private boolean ballCollisionDetectWall(Ball ball) {
         return ball.getPositionX() > 55 && ball.getPositionX() < 550
                 && ball.getPositionY() > 55 && ball.getPositionY() < 900;
@@ -151,7 +151,7 @@ public class GameEngine {
     //verify if the ball can continue the direction or move to another one.
     private void nextBallDirection(Ball ball, Grid grid, Paddle paddle) {
 
-        //if the y of the ball reach 820 or more, is delete
+        //if the y of the ball reach 820 or more, is deleted
         if (ball.getPositionY() >= 820) { ball.setDead(); lives--; loseLives(grid, ball, paddle);return;}
 
         //if the ball didn't hit the wall, continue in the same direction

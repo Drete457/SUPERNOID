@@ -33,7 +33,7 @@ public class Ball {
     //delete the image of the ball
     public void delete() { picture.delete(); }
 
-    //use to verify the direction of the ball when he whit one block
+    //use to verify the direction of the ball when it hits one block
    public String getMovingDirection() {
         String result = "";
         if (x == -1.0 && y == -1.0) { result = "dirUpLeft"; }
@@ -84,10 +84,10 @@ public class Ball {
     //write the new value in y, to be ready by the canvas.translate
     public double getY() { return y; }
 
-    //return if the paddle is authorize to move
+    //return if the paddle is authorized to move
     public static boolean getMovement() { return movement; }
 
-    //give the authorize for the paddle to move
+    //give the authorization for the paddle to move
     public static void setMovement() { movement = true; }
 
     //make the paddle impossible to move

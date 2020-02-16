@@ -80,6 +80,8 @@ public class Block {
         picture.delete();
     }
 
+    public void deletePictureBlock() { picture.delete(); }
+
     //Get Picture
     public void getPicture() { picture.draw(); };
 

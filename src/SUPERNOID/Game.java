@@ -32,6 +32,9 @@ public class Game implements KeyboardHandler {
     //memorise the current lvl in the game
     private int currentLvl;
 
+    //memorise if the game was restart or not
+    public static boolean restart = false;
+
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
     private Keyboard keyboard; //Keyboard for the paddle
@@ -128,6 +131,9 @@ public class Game implements KeyboardHandler {
 
     //restart the game method
     public void restart() {
+
+        //change the value of the restart for true
+        restart = true;
 
         //set game over false
         engine.setGameOver(false);

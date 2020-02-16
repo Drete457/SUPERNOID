@@ -3,6 +3,7 @@ package SUPERNOID;
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
+import SUPERNOID.Sound.SoundClip;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -88,6 +89,9 @@ public class Game implements KeyboardHandler {
 
     //Methods - Game Start
     public void start() throws InterruptedException {
+
+        SoundClip soundClip = new SoundClip();
+        soundClip.playAudio();
 
         //create the first game
         nextLvl();

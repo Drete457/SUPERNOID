@@ -31,7 +31,7 @@ public class SoundClip {
         // create a stream from a file
         InputStream is = null;
         try {
-            is = new BufferedInputStream(new FileInputStream(new File("resources/Music/8-Bit_Songs/gameMusic.mid")));
+            is = new BufferedInputStream(new FileInputStream(new File("/home/drete457/Exer/IDE/SUPERNOID/resources/Music/8-Bit_Songs/gameMusic.mid")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -49,7 +49,6 @@ public class SoundClip {
         // Starts playback of the MIDI data in the currently loaded sequence.
         sequencer.setLoopCount(5);
         sequencer.start();
-
     }
 
     public void closeAudio() {

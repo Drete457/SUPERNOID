@@ -18,12 +18,6 @@ public class Main {
         //will instance the game and initialise
         Game game = new Game(125);
 
-        //Game level
-        int level = 1;
-
-        SoundClip soundClip = new SoundClip();
-        soundClip.playAudio();
-
         Picture instructions = new Picture(120, 400, "resources/Images/general/game_instructions.png");
         instructions.draw();
 

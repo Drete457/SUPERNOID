@@ -29,10 +29,9 @@ public class Ball {
     }
 
     //delete the image of the ball
-    public void delete() {
-        picture.delete();
-    }
+    public void delete() { picture.delete(); }
 
+    //use to verify the direction of the ball when he whit one block
    public String getMovingDirection() {
         String result = "";
         if (x == -1.0 && y == -1.0) { result = "dirUpLeft"; }
@@ -52,48 +51,32 @@ public class Ball {
     }
 
     //kill the ball
-    public void setDead() { picture.delete(); }
+    public void setDead() { setX(0); setY(-3); move(); setY(0); picture.delete(); }
 
     //get the Width of the ball
-    public int getWidth() {
-        return picture.getWidth();
-    }
+    public int getWidth() { return picture.getWidth(); }
 
     //get the Height of the ball
-    public int getHeight() {
-        return picture.getHeight();
-    }
+    public int getHeight() { return picture.getHeight(); }
 
     //print the new position of the ball
     public void move() { picture.translate(x, y); }
 
     //get the X of the ball
-    public int getPositionX() {
-        return picture.getX();
-    }
+    public int getPositionX() { return picture.getX(); }
 
     //get the Y of the ball
-    public int getPositionY() {
-        return picture.getY();
-    }
+    public int getPositionY() { return picture.getY(); }
 
     //memorise the new axis x
-    public void setX(double x) {
-        this.x = x;
-    }
+    public void setX(double x) { this.x = x; }
 
     //memorise the new axis y
-    public void setY(double y) {
-        this.y = y;
-    }
+    public void setY(double y) { this.y = y; }
 
     //write the new value in x, to be ready by the canvas.translate
-    public double getX() {
-        return x;
-    }
+    public double getX() { return x; }
 
     //write the new value in y, to be ready by the canvas.translate
-    public double getY() {
-        return y;
-    }
+    public double getY() { return y; }
 }

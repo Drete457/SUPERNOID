@@ -160,6 +160,10 @@ public class Game implements KeyboardHandler {
 
     //restart the game method
     public void restart() {
+
+        //set game over false
+        engine.setGameOver(false);
+
         //used to make the first lvl just respawn the blocks, and not create news one
         reset = true;
 
@@ -169,6 +173,8 @@ public class Game implements KeyboardHandler {
 
         engine.setLives(3);
         backGround.drawAllHearts();
+
+        
 
         //verify the position of the ball and move the ball back to the paddle
         double x = -ball.getPositionX()+paddle.getPositionX()+(paddle.getWidth()/2-Grid.PADDING);
@@ -201,12 +207,16 @@ public class Game implements KeyboardHandler {
                 //restart the game
                 case KeyboardEvent.KEY_N:
                     try {
-                        restart();
                         Thread.sleep(2);
-                        break;
+                        if(engine.isGameOver()) {
+                            engine.getGOver().delete();
+                        }
+                        Thread.sleep(2);
+                        restart();
                     }catch (InterruptedException e) {
                         ball = new Ball(paddle);
                     }
+                    break;
 
                 //exit the game
                 case KeyboardEvent.KEY_E:

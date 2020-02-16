@@ -1,6 +1,5 @@
 package SUPERNOID;
 
-import SUPERNOID.Sound.SoundClip;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;

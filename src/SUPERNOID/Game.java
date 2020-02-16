@@ -50,7 +50,7 @@ public class Game implements KeyboardHandler {
     //create the object that will receive the input exit
     private KeyboardEvent keyPressedSpace = new KeyboardEvent();
 
-    //memorise if the game was restart or not
+    //memorise if the game was restarted or not
     private boolean reset =  false;
 
     //Game Constructor
@@ -64,7 +64,7 @@ public class Game implements KeyboardHandler {
         keyboardGame = new Keyboard(this);
     }
 
-    //Draw the back ground
+    //Draw the background
     public Grid backGround() {
         engine.scoreDraw();
         return this.backGround;
@@ -164,7 +164,7 @@ public class Game implements KeyboardHandler {
         //set game over false
         engine.setGameOver(false);
 
-        //used to make the first lvl just respawn the blocks, and not create news one
+        //used to make the first lvl just respawn the blocks, and not create new one
         reset = true;
 
         //create the score and start the same

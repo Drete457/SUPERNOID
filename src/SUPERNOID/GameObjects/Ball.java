@@ -24,8 +24,6 @@ public class Ball {
     public Ball(Paddle paddle) {
         positionX = paddle.getPositionX() + (paddle.getWidth() / 2 - Grid.PADDING);
         picture = new Picture(positionX, positionY, "resources/Images/general/ball_15x15.png");
-        x = -SPEED;
-        y = -SPEED;
         alive = true;
         picture.draw();
     }

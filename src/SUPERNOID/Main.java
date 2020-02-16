@@ -23,17 +23,18 @@ public class Main {
         SoundClip soundClip = new SoundClip();
         soundClip.playAudio();
 
-        Text startMessage = new Text(200,550, "Move the ball with LEFT and RIGHT keys");
+        Text startMessage = new Text(250,550, " LEFT and RIGHT keys to move");
         startMessage.setColor(Color.DARK_GRAY);
         startMessage.grow(140,35);
         startMessage.draw();
 
-        Text startMessage2 = new Text(270,620, "Game will start in ...");
+        Text startMessage2 = new Text(230,620, "Press Space to start the game");
+
         startMessage2.setColor(Color.DARK_GRAY);
         startMessage2.grow(120,35);
         startMessage2.draw();
 
-        Text startTimer = new Text(423,622, "5");
+        Text startTimer = new Text(305,690, "5");
         startTimer.setColor(Color.DARK_GRAY);
         startTimer.grow(25,25);
         startTimer.draw();

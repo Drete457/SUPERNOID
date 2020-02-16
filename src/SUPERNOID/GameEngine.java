@@ -18,6 +18,7 @@ public class GameEngine {
     private boolean gameOver = false;
 
     private Picture gOver;
+    private Picture winner;
 
     public Picture getGOver() {
         return gOver;

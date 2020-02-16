@@ -9,13 +9,7 @@ public class CreateLvl {
     public void loadLevel1(Block [] blocks, Game game) {
 
         //verify if the lvl is new or restart
-        if (game.reset) {
-            for (Block newborns : blocks) {
-                newborns.resetDestroyed();
-            }
-            game.reset = false;
-            return;
-        }
+            for (Block newborns : blocks) { newborns = null; }
 
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
@@ -31,9 +25,7 @@ public class CreateLvl {
     public void loadLevel2(Block [] blocks, Game game) {
 
       //reset all position on the array
-      for (Block newborns : blocks) {
-        newborns = null;
-      }
+      for (Block newborns : blocks) { newborns = null; }
 
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
@@ -50,9 +42,7 @@ public class CreateLvl {
     public void loadLevel3(Block [] blocks, Game game) {
 
         //reset all position on the array
-        for (Block newborns : blocks) {
-            newborns = null;
-        }
+        for (Block newborns : blocks) { newborns = null; }
 
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
@@ -69,9 +59,7 @@ public class CreateLvl {
     public void loadLevel4(Block [] blocks, Game game) {
 
         //reset all position on the array
-        for (Block newborns : blocks) {
-            newborns = null;
-        }
+        for (Block newborns : blocks) { newborns = null; }
 
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;
@@ -89,9 +77,7 @@ public class CreateLvl {
     public void loadLevel5(Block [] blocks, Game game) {
 
         //reset all position on the array
-        for (Block newborns : blocks) {
-            newborns = null;
-        }
+        for (Block newborns : blocks) { newborns = null; }
 
         //Creates each block in its respective position
         ObjFactory.startingIndex = 0;

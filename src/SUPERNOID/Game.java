@@ -17,6 +17,9 @@ public class Game implements KeyboardHandler {
     //Array of Blocks for this game
     public Block[] blocks;
 
+    //count how many block are dead
+    private int totalBlocksDead;
+
     //Print the paddle
     private Paddle paddle;
 
@@ -28,6 +31,9 @@ public class Game implements KeyboardHandler {
 
     //Create the Create level
     private CreateLvl lvl;
+
+    //memorise the current lvl in the game
+    private int currentLvl;
 
     /*create the object that will receive the keyboard and
     create the object of the keyboard */
@@ -49,14 +55,12 @@ public class Game implements KeyboardHandler {
     //create the object that will receive the input exit
     private KeyboardEvent keyPressedSpace = new KeyboardEvent();
 
-    //memorise if the game was restart or not
-    public boolean reset =  false;
-
     //Game Constructor
     public Game(int totalBlocks) {
         this.backGround = new Grid();
         this.paddle = new Paddle();
         blocks = new Block[totalBlocks];
+        totalBlocksDead = 0;
         this.engine = new GameEngine();
         this.ball = new Ball(paddle);
         keyboard = new Keyboard(paddle);
@@ -84,7 +88,7 @@ public class Game implements KeyboardHandler {
     public void start() throws InterruptedException {
 
         //create the first game
-        lvl.loadLevel1(blocks,this);
+        nextLvl();
 
         //run the code for the left key
         keyPressedLeft.setKey(KeyboardEvent.KEY_LEFT);
@@ -115,9 +119,10 @@ public class Game implements KeyboardHandler {
         while (true) {
             engine.moveBall(ball, paddle, blocks, backGround);
             Thread.sleep(2);
+            for (Block newborns : blocks) { if ( !newborns.isDestroyed() ) { totalBlocksDead++; } }
+            if (totalBlocksDead == blocks.length-1) { nextLvl(); }
         }
     }
-
 
     //restart the game method
     public void restart() {
@@ -126,7 +131,7 @@ public class Game implements KeyboardHandler {
         engine.setGameOver(false);
 
         //used to make the first lvl just respawn the blocks, and not create news one
-        reset = true;
+        currentLvl = 0;
 
         //create the score and start the same
         engine.setScore(0);
@@ -163,6 +168,16 @@ public class Game implements KeyboardHandler {
 
         //draw the blocks again on new game
         lvl.loadLevel1(blocks,this);
+    }
+
+    //if the player win, create the next lvl.
+    public void nextLvl(){
+        if ( currentLvl == 0 ) { lvl.loadLevel1(blocks,this); currentLvl = 1; }
+        else if ( currentLvl == 1 ) { lvl.loadLevel2(blocks,this); currentLvl = 2; }
+        else if ( currentLvl == 2 ) { lvl.loadLevel3(blocks, this); currentLvl = 3; }
+        else if ( currentLvl == 3 ) { lvl.loadLevel4(blocks,this); currentLvl = 4; }
+        else if ( currentLvl == 4 ) { lvl.loadLevel5(blocks, this); currentLvl = 5; }
+        else if ( currentLvl == 5 ) { }
     }
 
         //listen the keyboard so is possible to restart the game make the paddle move using the keyboard

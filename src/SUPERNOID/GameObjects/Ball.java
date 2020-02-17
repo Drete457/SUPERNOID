@@ -64,7 +64,13 @@ public class Ball {
     public int getHeight() { return picture.getHeight(); }
 
     //print the new position of the ball
-    public void move() { picture.translate(x, y); }
+    public void move() {
+        try {
+            picture.translate(x, y);
+        } catch (Exception e) {
+            //FUCK!!!!
+        }
+    }
 
   //get the X of the ball
     public int getPositionX() { return picture.getX(); }

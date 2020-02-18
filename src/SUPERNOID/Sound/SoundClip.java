@@ -5,15 +5,16 @@ import javax.sound.sampled.*;
 
 public class SoundClip {
 
-    //create the variable
-    Clip audioClipIntro;
-
     public void playAudio() {
 
+        //create the variable
+        Clip audioClipIntro;
+
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("mk-theme.wav");
+            InputStream audiosrc = getClass().getResourceAsStream("/SUPERNOID/resources/mk-theme.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
+
             AudioFormat format = audioStream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);
             audioClipIntro = (Clip) AudioSystem.getLine(info);
@@ -26,7 +27,7 @@ public class SoundClip {
 
     public void close() {
         try {
-            audioClipIntro.close();
+            //audioClip.close();
         } catch (Exception e) {
         }
     }

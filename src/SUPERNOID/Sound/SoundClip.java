@@ -1,15 +1,15 @@
 package SUPERNOID.Sound;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 import javax.sound.sampled.*;
 
 public class SoundClip {
 
+    //create the variable
+    Clip audioClipIntro;
+
     public void playAudio() {
-
-        //create the variable
-        Clip audioClipIntro;
-
         try {
             InputStream audiosrc = getClass().getResourceAsStream("/SUPERNOID/resources/mk-theme.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);

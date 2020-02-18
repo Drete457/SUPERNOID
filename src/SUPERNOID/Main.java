@@ -1,5 +1,6 @@
 package SUPERNOID;
 
+import SUPERNOID.Sound.SoundClip;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -16,6 +17,9 @@ public class Main {
 
         //will instance the game and initialise
         Game game = new Game(125);
+
+        //create the class that give the sound
+        SoundClip soundClip = new SoundClip();
 
         //print the instructions image
         Picture instructions = new Picture(120, 400, "resources/Images/general/game_instructions.png");
@@ -43,6 +47,9 @@ public class Main {
         //draw the BackGround and start the game
         //game.initScreen();
         game.backGround();
+
+        //start the sound
+        soundClip.playAudio();
 
         //start the game
         game.start();

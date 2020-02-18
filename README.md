@@ -1,9 +1,9 @@
 # SUPERNOID
 
-We are students of the Portuguese code academy.
+We are students of a Portuguese code academy.
 
-It was a team project to develop a game in a week. We were a team of 5 people who developed it.
+After 4 weeks of learning, we made our first team project whose goal was to make a game with java and a simple gfx library. We had 1 week to work on it and present a jar file.
 
 The project was a lot of work, but the end result was very satisfying and rewarding.
 
-Bootcamp 37 - Lisbon - Project Academy
+Bootcamp 37 - Lisbon - Code Academy

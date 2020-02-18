@@ -18,7 +18,7 @@ public class Sound {
 
     public void startIntroMusic() {
         try {
-            InputStream audios = SoundClip.class.getResourceAsStream("/resources/Sound/mk-theme.wav");
+            InputStream audios = Sound.class.getResourceAsStream("/resources/Sound/mk-theme.wav");
             InputStream bufferedIn = new BufferedInputStream(audios);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
             AudioFormat format = audioStream.getFormat();

@@ -11,7 +11,6 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class Game implements KeyboardHandler {
 
-    //Properties
     //Print the BackGround
     private final Grid backGround;
 

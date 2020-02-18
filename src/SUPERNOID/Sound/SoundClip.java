@@ -7,11 +7,11 @@ public class SoundClip {
 
     //create the variable
     Clip audioClipIntro;
-
     public void playAudio() {
 
+
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("mk-theme.wav");
+            InputStream audiosrc = SoundClip.class.getResourceAsStream("/resources/mk-theme.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
             AudioFormat format = audioStream.getFormat();

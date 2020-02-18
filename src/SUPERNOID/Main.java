@@ -4,15 +4,10 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.IOException;
-
 public class Main {
 
-
     //The Beginning of the game, and Interrupted when it finishes
-    public static void main(String[] args) throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException {
+    public static void main(String[] args) throws Exception {
 
         //will instance the game and initialise
         Game game = new Game(125);
@@ -41,7 +36,6 @@ public class Main {
         startTimer.delete();
 
         //draw the BackGround and start the game
-        //game.initScreen();
         game.backGround();
 
         //start the game

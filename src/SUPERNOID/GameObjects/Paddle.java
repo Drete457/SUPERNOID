@@ -44,17 +44,13 @@ public class Paddle implements KeyboardHandler{
             case KeyboardEvent.KEY_LEFT:
 
                 //verify if the ball is already moving
-                if ( Ball.getMovement() ) {
-                    GameEngine.paddleCollisionDetectWall(this, -SPEED);
-                }
+                if ( Ball.getMovement() ) { GameEngine.paddleCollisionDetectWall(this, -SPEED); }
                  break;
 
             //run the paddle top the right
             case KeyboardEvent.KEY_RIGHT:
                 //verify if the ball is already moving
-                if ( Ball.getMovement() ) {
-                    GameEngine.paddleCollisionDetectWall(this, SPEED);
-                }
+                if ( Ball.getMovement() ) { GameEngine.paddleCollisionDetectWall(this, SPEED); }
                  break;
         }
     }

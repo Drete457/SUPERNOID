@@ -3,7 +3,7 @@ package SUPERNOID;
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
-import SUPERNOID.Sound.SoundClip;
+import SUPERNOID.Sound.Sound;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -16,7 +16,7 @@ public class Game implements KeyboardHandler {
     private final Grid backGround;
 
     //create the class that give the sound
-    SoundClip soundClip = new SoundClip();
+    Sound soundClip = new Sound();
 
     //Array of Blocks for this game
     public Block[] blocks;
@@ -58,7 +58,7 @@ public class Game implements KeyboardHandler {
 
     //create the object that will receive the input exit
     private KeyboardEvent keyPressedSpace = new KeyboardEvent();
-    
+
     //memorise if the game was restarted or not
     private boolean reset =  false;
 
@@ -91,10 +91,10 @@ public class Game implements KeyboardHandler {
     }
 
     //Methods - Game Start
-    public void start() throws InterruptedException {
+    public void start() throws Exception {
 
-        //start the sound
-        soundClip.playAudio();
+        //start the background sound
+        soundClip.startIntroMusic();
 
         //create the first game
         nextLvl();

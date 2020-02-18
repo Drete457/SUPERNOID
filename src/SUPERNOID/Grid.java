@@ -67,6 +67,4 @@ public class Grid {
         skull2.draw();
         skull3.draw();
     }
-
-
 }

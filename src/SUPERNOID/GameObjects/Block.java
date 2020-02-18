@@ -41,7 +41,6 @@ public class Block {
         }
     }
 
-
     //get the Width of the block
     public int getWidth() {
         return picture.getWidth();
@@ -112,7 +111,5 @@ public class Block {
         String getImage() {
             return image;
         }
-
     }
-
 }

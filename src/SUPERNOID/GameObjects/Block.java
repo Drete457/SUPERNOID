@@ -2,6 +2,8 @@ package SUPERNOID.GameObjects;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.awt.*;
+
 public class Block {
 
     private Picture picture;
@@ -28,17 +30,38 @@ public class Block {
 
     //Block Energy Setter
     public void setBlockEnergy() {
-        this.blockEnergy = (int) (Math.random()*5);
+        this.blockEnergy = (int) (Math.random()*6);
     }
 
     //Method to call when the ball hits the block
     public void hit() {
         //decrease energy and if its <= 0, set destroyed to true
         blockEnergy --;
+        setPictureDestruction();
         if (blockEnergy <= 0) {
             setDestroyed();
-            // if block was destroyed, delete its picture from canvas
-            picture.delete();
+            // if block was destroyed, delete its picture from canvas and draw a picture empty block
+            setPicture("Images/destruction-blocks/empty.png");
+
+        }
+    }
+
+    private void setPictureDestruction() {
+        if (blockEnergy == 4) {
+            setPicture("Images/destruction-blocks/block_destruction_1_40x15.png");
+            return;
+        }
+        if (blockEnergy == 3) {
+            setPicture("Images/destruction-blocks/block_destruction_2_40x15.png");
+            return;
+        }
+        if (blockEnergy == 2) {
+            setPicture("Images/destruction-blocks/block_destruction_3_40x15.png");
+            return;
+        }
+        if (blockEnergy == 1) {
+            setPicture("Images/destruction-blocks/block_destruction_4_40x15.png");
+            return;
         }
     }
 
@@ -87,7 +110,8 @@ public class Block {
 
     //Set Picture
     public void setPicture(String url) {
-        this.picture.load(url);
+        this.picture = new Picture(getPositionX(),getPositionY(),url);
+        picture.draw();
     }
 
     //Returns a random block image

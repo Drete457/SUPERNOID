@@ -114,11 +114,10 @@ public class GameEngine {
                         && ball.getPositionY() < ( block.getPositionY() + block.getHeight())
                         && (ball.getPositionY() + ball.getHeight()) > block.getPositionY()
                 );
-
                 if (result) {
                     score += 10;
                     score();
-                    block.setDestroyed();
+                    block.hit();
                     direction = ball.getMovingDirection();
                     switch (direction) {
                         case "dirDownLeft":

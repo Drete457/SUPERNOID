@@ -18,6 +18,7 @@ public class Block {
     public Block(double xPos, double yPos) {
         BlockType randomBlock = BlockType.values()[(int) (Math.random() * BlockType.values().length)];
         picture = new Picture(xPos, yPos, randomBlock.getImage());
+        setBlockEnergy();
     }
 
     //return the amount of energy that a block has
@@ -26,16 +27,16 @@ public class Block {
     }
 
     //Block Energy Setter
-    public void setBlockEnergy(int blockEnergy) {
-        this.blockEnergy = blockEnergy;
+    public void setBlockEnergy() {
+        this.blockEnergy = (int) (Math.random()*5);
     }
 
     //Method to call when the ball hits the block
-    public void hit(int damage) {
+    public void hit() {
         //decrease energy and if its <= 0, set destroyed to true
-        blockEnergy -= damage;
+        blockEnergy --;
         if (blockEnergy <= 0) {
-            destroyed = true;
+            setDestroyed();
             // if block was destroyed, delete its picture from canvas
             picture.delete();
         }

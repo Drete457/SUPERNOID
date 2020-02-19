@@ -1,8 +1,7 @@
 package SUPERNOID.GameObjects;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-
-import java.awt.*;
 
 public class Block {
 
@@ -41,8 +40,8 @@ public class Block {
         if (blockEnergy <= 0) {
             setDestroyed();
             // if block was destroyed, delete its picture from canvas and draw a picture empty block
-            setPicture("Images/destruction-blocks/empty.png");
-
+            picture.load("Images/destruction-blocks/teste.png");
+            picture.draw();
         }
     }
 
@@ -100,7 +99,7 @@ public class Block {
         this.destroyed = true;
 
         // if block was destroyed, delete its picture from canvas
-        picture.delete();
+       // picture.delete();
     }
 
     public void deletePictureBlock() { picture.delete(); }

@@ -23,7 +23,7 @@ public class Sound {
             audioClipIntro = (Clip) AudioSystem.getLine(info);
             audioClipIntro.open(audioStream);
             audioClipIntro.start();
-            audioClipIntro.loop(1000);
+            audioClipIntro.loop(0);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

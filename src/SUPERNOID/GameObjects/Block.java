@@ -6,6 +6,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Block {
 
     private Picture picture;
+    private String path;
     public static final int BLOCKWIDTH = 40;
     public static final int BLOCKHEIGHT = 15;
 
@@ -18,6 +19,7 @@ public class Block {
     //Constructor
     public Block(double xPos, double yPos) {
         BlockType randomBlock = BlockType.values()[(int) (Math.random() * BlockType.values().length)];
+        path = randomBlock.getImage().substring(0, randomBlock.getImage().length()-4);
         picture = new Picture(xPos, yPos, randomBlock.getImage());
         setBlockEnergy();
     }
@@ -39,27 +41,27 @@ public class Block {
         setPictureDestruction();
         if (blockEnergy <= 0) {
             setDestroyed();
-            // if block was destroyed, delete its picture from canvas and draw a picture empty block
-            picture.load("Images/destruction-blocks/teste.png");
-            picture.draw();
+            // if block was destroyed, delete its picture from canvas.
+            picture.delete();
         }
     }
 
     private void setPictureDestruction() {
+        String newPath = path;
         if (blockEnergy == 4) {
-            setPicture("Images/destruction-blocks/block_destruction_1_40x15.png");
+            setPicture(newPath + "-1.png");
             return;
         }
         if (blockEnergy == 3) {
-            setPicture("Images/destruction-blocks/block_destruction_2_40x15.png");
+            setPicture(newPath + "-2.png");
             return;
         }
         if (blockEnergy == 2) {
-            setPicture("Images/destruction-blocks/block_destruction_3_40x15.png");
+            setPicture(newPath + "-3.png");
             return;
         }
         if (blockEnergy == 1) {
-            setPicture("Images/destruction-blocks/block_destruction_4_40x15.png");
+            setPicture(newPath + "-4.png");
             return;
         }
     }
@@ -97,9 +99,6 @@ public class Block {
     //destroyed setter, deletes image when block is destroyed
     public void setDestroyed() {
         this.destroyed = true;
-
-        // if block was destroyed, delete its picture from canvas
-       // picture.delete();
     }
 
     public void deletePictureBlock() { picture.delete(); }
@@ -109,8 +108,7 @@ public class Block {
 
     //Set Picture
     public void setPicture(String url) {
-        this.picture = new Picture(getPositionX(),getPositionY(),url);
-        picture.draw();
+        this.picture.load(url);
     }
 
     //Returns a random block image

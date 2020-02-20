@@ -4,7 +4,6 @@ import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
 import SUPERNOID.Sound.Sound;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Game {
 
@@ -12,7 +11,7 @@ public class Game {
     private Grid backGround;
 
     //create the class that give the sound
-    Sound soundClip = new Sound();
+    private Sound soundClip = new Sound();
 
     //Array of Blocks for this game
     public Block[] blocks;
@@ -36,7 +35,7 @@ public class Game {
     public static boolean restart = false;
 
     //Game Constructor
-    public Game(int totalBlocks) {
+    private Game(int totalBlocks) {
         this.backGround = new Grid();
         blocks = new Block[totalBlocks];
         this.paddle = new Paddle();
@@ -46,10 +45,9 @@ public class Game {
     }
 
     //Draw the background
-    public void backGround() {
+    private void backGround() {
         engine.scoreDraw();
     }
-
 
     //method to create the blocks
     public void drawBlocks() {
@@ -75,6 +73,7 @@ public class Game {
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
         while (true) {
+
             //count how many block are dead
             int totalBlocksDead = 0;
             for (Block newborns : blocks) { if ( newborns.isDestroyed() ) { totalBlocksDead++; } }
@@ -167,19 +166,6 @@ public class Game {
 
     public Ball getBall(){
         return ball;
-    }
-
-    public class FirstMenu {
-
-        Picture firstMenu = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/start_screen_900x900.jpg");
-
-        public void draw(){
-            firstMenu.draw();
-        }
-
-        public  void delete(){
-            firstMenu.delete();
-        }
     }
 }
 

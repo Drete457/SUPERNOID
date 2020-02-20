@@ -132,8 +132,8 @@ public class KeyboardManager implements KeyboardHandler {
         }
     }
 
-            //disable method
-            @Override
-            public void keyReleased (KeyboardEvent keyboardEvent){
-            }
-        }
+    //disable method
+    @Override
+    public void keyReleased(KeyboardEvent keyboardEvent) {
+    }
+}

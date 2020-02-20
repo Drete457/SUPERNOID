@@ -9,8 +9,8 @@ public class CreateLvl {
     public void loadLevel1(Block [] blocks, Game game) {
 
         //verify if the lvl is new or restart
-        if (Game.restart) {
-        for (Block newborns : blocks) { newborns.deletePictureBlock(); newborns = null; Game.restart = false; } }
+        if (game.restart) {
+        for (Block newborns : blocks) { newborns.deletePictureBlock(); newborns = null; game.restart = false; } }
         else { for (Block newborns : blocks) { newborns = null; } }
 
         //Creates each block in its respective position

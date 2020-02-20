@@ -9,10 +9,15 @@ public class Main {
     //The Beginning of the game, and Interrupted when it finishes
     public static void main(String[] args) throws Exception {
 
+
+        FirstMenu firstMenu = new FirstMenu();
+
         //will instance the game and initialise
         Game game = new Game(125);
+        KeyboardManager keyboard = new KeyboardManager(game.getGame(), game.getPaddle(), game.getBall(), game.getEngine(), firstMenu);
 
-        //print the instructions image
+       // firstMenu.draw();
+      /*  //print the instructions image
         Picture instructions = new Picture(120, 400, "resources/Images/general/game_instructions.png");
         instructions.draw();
 
@@ -31,12 +36,10 @@ public class Main {
         startTimer.setText("1");
         Thread.sleep(1000);
         instructions.delete();
-        startTimer.delete();
-
-        //draw the BackGround and start the game
-        game.backGround();
+        startTimer.delete(); */
 
         //start the game
         game.start();
+
     }
 }

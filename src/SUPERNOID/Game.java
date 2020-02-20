@@ -4,15 +4,11 @@ import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
 import SUPERNOID.Sound.Sound;
-import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-public class Game implements KeyboardHandler {
+public class Game {
 
     //Print the BackGround
-    private final Grid backGround;
+    private Grid backGround;
 
     //create the class that give the sound
     Sound soundClip = new Sound();
@@ -38,46 +34,21 @@ public class Game implements KeyboardHandler {
     //memorise if the game was restart or not
     public static boolean restart = false;
 
-    /*create the object that will receive the keyboard and
-    create the object of the keyboard */
-    private Keyboard keyboard; //Keyboard for the paddle
-    private Keyboard keyboardGame; //keyboard for the game menu
-
-    //create the object that will receive the input left
-    private KeyboardEvent keyPressedLeft = new KeyboardEvent();
-
-    //create the object that will receive the input right
-    private KeyboardEvent keyPressedRight = new KeyboardEvent();
-
-    //create the object that will receive the input new game
-    private KeyboardEvent keyPressedNew = new KeyboardEvent();
-
-    //create the object that will receive the input exit
-    private KeyboardEvent keyPressedExit = new KeyboardEvent();
-
-    //create the object that will receive the input exit
-    private KeyboardEvent keyPressedSpace = new KeyboardEvent();
-
-    //memorise if the game was restarted or not
-    private boolean reset =  false;
-
     //Game Constructor
     public Game(int totalBlocks) {
         this.backGround = new Grid();
-        this.paddle = new Paddle();
         blocks = new Block[totalBlocks];
+        this.paddle = new Paddle();
         this.engine = new GameEngine();
         this.ball = new Ball(paddle);
-        keyboard = new Keyboard(paddle);
-        keyboardGame = new Keyboard(this);
         lvl = new CreateLvl();
     }
 
     //Draw the background
-    public Grid backGround() {
+    public void backGround() {
         engine.scoreDraw();
-        return this.backGround;
     }
+
 
     //method to create the blocks
     public void drawBlocks() {
@@ -92,36 +63,14 @@ public class Game implements KeyboardHandler {
     //Methods - Game Start
     public void start() throws Exception {
 
+        //draw the ScoreBoard
+        backGround();
+
         //start the background sound
         soundClip.startIntroMusic();
 
         //create the first game
         nextLvl();
-
-        //run the code for the left key
-        keyPressedLeft.setKey(KeyboardEvent.KEY_LEFT);
-        keyPressedLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboard.addEventListener(keyPressedLeft);
-
-        //run the code for the right key
-        keyPressedRight.setKey(KeyboardEvent.KEY_RIGHT);
-        keyPressedRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboard.addEventListener(keyPressedRight);
-
-        //run the code for the N key - New Game
-        keyPressedNew.setKey(KeyboardEvent.KEY_N);
-        keyPressedNew.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboardGame.addEventListener(keyPressedNew);
-
-        //run the code for the E key - Exit
-        keyPressedExit.setKey(KeyboardEvent.KEY_E);
-        keyPressedExit.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboardGame.addEventListener(keyPressedExit);
-
-        //run the code for the space key - Start the ball
-        keyPressedSpace.setKey(KeyboardEvent.KEY_SPACE);
-        keyPressedSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboardGame.addEventListener(keyPressedSpace);
 
         //cycle that verify the movement of the ball and the collision of the blocks, paddle and ball
         while (true) {
@@ -139,7 +88,7 @@ public class Game implements KeyboardHandler {
     }
 
     //restart the game method
-    public void restart() {
+    public void restart() throws Exception {
 
         //change the value of the restart for true
         restart = true;
@@ -147,9 +96,6 @@ public class Game implements KeyboardHandler {
         //set game over or winner false
         engine.setGameOver(false);
         engine.setWinner(false);
-
-        //used to make the first lvl just respawn the blocks, and not create new one
-        reset = true;
 
         //used to make the first lvl just respawn the blocks, and not create news one
         currentLvl = 0;
@@ -206,54 +152,22 @@ public class Game implements KeyboardHandler {
         else if ( currentLvl == 5 ) { engine.setWinner(true); engine.win(); }
     }
 
-        //listen the keyboard so is possible to restart the game make the paddle move using the keyboard
-        @Override
-        public void keyPressed(KeyboardEvent keyboardEvent) {
-            switch (keyboardEvent.getKey()) {
-
-                //restart the game
-                case KeyboardEvent.KEY_N:
-                    //catch the error of the null ball
-                    try {
-                        Thread.sleep(2);
-                        if(engine.isGameOver()) {
-                            engine.getGOver().delete();
-                        }
-                        Thread.sleep(2);
-                        if(engine.isWinner()) {
-                            engine.getWinnerScreen().delete();
-                        }
-                        Thread.sleep(2);
-                        restart();
-                    }catch (InterruptedException e) {
-                        //restart tha ball again if the null ball occur
-                        ball = new Ball(paddle);
-                    }
-                    break;
-
-                //exit the game
-                case KeyboardEvent.KEY_E:
-                    System.exit(0);
-                    break;
-
-                //return to the first menu
-                case KeyboardEvent.KEY_SPACE:
-
-                    //verify if the ball is alive
-                    if (ball.isAlive() && ball.getX() == 0 && ball.getY() == 0) {
-                        ball.setY(-1);
-                        ball.setX(1);
-                        Ball.setMovement();
-                    }
-                    break;
-            }
-        }
-
-        //disable method
-        @Override
-        public void keyReleased(KeyboardEvent keyboardEvent) {
-        }
+    public Game getGame(){
+        return this;
     }
+
+    public Paddle getPaddle(){
+        return paddle;
+    }
+
+    public GameEngine getEngine(){
+        return engine;
+    }
+
+    public Ball getBall(){
+        return ball;
+    }
+}
 
 
 

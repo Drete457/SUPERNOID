@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class Paddle implements KeyboardHandler{
+public class Paddle {
 
     //speed of the paddle
     private final int SPEED = 30;
@@ -24,38 +24,26 @@ public class Paddle implements KeyboardHandler{
 
     //get the Width of the paddle
     //public int getWidth() { return this.width; }
-    public int getWidth() { return picture.getWidth(); }
-
-    //print the new position of the paddle
-    public void setPosition(double width) { picture.translate(width,0);}
-
-    //get the X of the paddle
-    public int getPositionX() { return picture.getX(); }
-
-    //get the Y of the paddle
-    public int getPositionY() { return picture.getY(); }
-
-    //make the paddle move using the keyboard
-    @Override
-    public void keyPressed(KeyboardEvent keyboardEvent) {
-        switch (keyboardEvent.getKey()){
-
-            //Run the paddle to the left
-            case KeyboardEvent.KEY_LEFT:
-
-                //verify if the ball is already moving
-                if ( Ball.getMovement() ) { GameEngine.paddleCollisionDetectWall(this, -SPEED); }
-                 break;
-
-            //run the paddle top the right
-            case KeyboardEvent.KEY_RIGHT:
-                //verify if the ball is already moving
-                if ( Ball.getMovement() ) { GameEngine.paddleCollisionDetectWall(this, SPEED); }
-                 break;
-        }
+    public int getWidth() {
+        return picture.getWidth();
     }
 
-    //disable method
-    @Override
-    public void keyReleased(KeyboardEvent keyboardEvent) {}
+    //print the new position of the paddle
+    public void setPosition(double width) {
+        picture.translate(width, 0);
+    }
+
+    //get the X of the paddle
+    public int getPositionX() {
+        return picture.getX();
+    }
+
+    //get the Y of the paddle
+    public int getPositionY() {
+        return picture.getY();
+    }
+
+    public int getSPEED() {
+        return SPEED;
+    }
 }

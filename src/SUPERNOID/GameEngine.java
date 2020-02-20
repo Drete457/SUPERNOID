@@ -163,7 +163,6 @@ public class GameEngine {
         return result;
     }
 
-
     //verify if the ball can continue the direction or move to another one.
     private void nextBallDirection(Ball ball, Grid grid, Paddle paddle) {
 
@@ -172,7 +171,7 @@ public class GameEngine {
 
         //if the ball didn't hit the wall, continue in the same direction
         if (ballCollisionDetectWall(ball)) { ball.move(); }
-        else if (ball.getPositionX() >= 550 && ball.getPositionY() < 900 && ball.getPositionY() > 55) {
+        else if (ball.getPositionX() >= 550 && ball.getPositionY() < 900 && ball.getPositionY() > 45) {
             ball.setX(-ball.getX()); ball.move();}
         else if (ball.getPositionX() <= 55 && ball.getPositionY() > 55 && ball.getPositionY() < 900) {
             ball.setX(-ball.getX()); ball.move();}

@@ -35,20 +35,17 @@ public class KeyboardManager implements KeyboardHandler {
     //memorise the game
     private Game game;
 
+    //memorise the ball
     private Ball ball;
 
+    //memorise the engine
     private GameEngine engine;
 
-    private FirstMenu firstMenu;
-
-    private boolean first = true;
-
-    KeyboardManager(Game game, Paddle paddle, Ball ball, GameEngine engine, FirstMenu firstMenu) {
+    KeyboardManager(Game game, Paddle paddle, Ball ball, GameEngine engine) {
         this.paddle = paddle;
         this.game = game;
         this.ball = ball;
         this.engine = engine;
-        this.firstMenu = firstMenu;
         keyboardGame = new Keyboard(this);
 
         //run the code for the left key
@@ -86,27 +83,31 @@ public class KeyboardManager implements KeyboardHandler {
             case KeyboardEvent.KEY_LEFT:
 
                 //verify if the ball is already moving
-                if ( Ball.getMovement() ) { GameEngine.paddleCollisionDetectWall(paddle, -paddle.getSPEED()); }
+                if (Ball.getMovement()) {
+                    GameEngine.paddleCollisionDetectWall(paddle, -paddle.getSPEED());
+                }
                 break;
 
             //run the paddle top the right
             case KeyboardEvent.KEY_RIGHT:
                 //verify if the ball is already moving
-                if ( Ball.getMovement() ) { GameEngine.paddleCollisionDetectWall(paddle, paddle.getSPEED()); }
+                if (Ball.getMovement()) {
+                    GameEngine.paddleCollisionDetectWall(paddle, paddle.getSPEED());
+                }
                 break;
 
             //new game and restart the game
             case KeyboardEvent.KEY_N:
                 //catch the error of the null ball
                 try {
-                        if (engine.isGameOver()) {
-                            engine.getGOver().delete();
-                        }
-                        if (engine.isWinner()) {
-                            engine.getWinnerScreen().delete();
-                        }
-                        game.restart();
-                }catch (InterruptedException e) {
+                    if (engine.isGameOver()) {
+                        engine.getGOver().delete();
+                    }
+                    if (engine.isWinner()) {
+                        engine.getWinnerScreen().delete();
+                    }
+                    game.restart();
+                } catch (InterruptedException e) {
                     //restart tha ball again if the null ball occur
                     ball = new Ball(paddle);
                 } catch (Exception e) {
@@ -121,7 +122,6 @@ public class KeyboardManager implements KeyboardHandler {
 
             //trows the ball
             case KeyboardEvent.KEY_SPACE:
-
                 //verify if the ball is alive
                 if (ball.isAlive() && ball.getX() == 0 && ball.getY() == 0) {
                     ball.setY(-1);
@@ -132,8 +132,8 @@ public class KeyboardManager implements KeyboardHandler {
         }
     }
 
-    //disable method
-    @Override
-    public void keyReleased(KeyboardEvent keyboardEvent) {
-    }
-}
+            //disable method
+            @Override
+            public void keyReleased (KeyboardEvent keyboardEvent){
+            }
+        }

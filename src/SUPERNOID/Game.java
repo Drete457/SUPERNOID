@@ -4,6 +4,7 @@ import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
 import SUPERNOID.Sound.Sound;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Game {
 
@@ -166,6 +167,19 @@ public class Game {
 
     public Ball getBall(){
         return ball;
+    }
+
+    public class FirstMenu {
+
+        Picture firstMenu = new Picture(Grid.PADDING, Grid.PADDING, "resources/Images/general/start_screen_900x900.jpg");
+
+        public void draw(){
+            firstMenu.draw();
+        }
+
+        public  void delete(){
+            firstMenu.delete();
+        }
     }
 }
 

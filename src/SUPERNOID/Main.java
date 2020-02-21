@@ -1,5 +1,7 @@
 package SUPERNOID;
 
+import SUPERNOID.Grid.Grid;
+import SUPERNOID.Keyboard.KeyboardManager;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;

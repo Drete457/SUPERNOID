@@ -4,9 +4,14 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Block {
 
+    //memorise the picture of the block
     private Picture picture;
+    //memorise the path of the image of the block
     private String path;
+
+    //final size of the block in X
     public static final int BLOCKWIDTH = 40;
+    //final size of the block in Y
     public static final int BLOCKHEIGHT = 15;
 
     //Returns the energy of the block. After a block is hit, this value decreases, if this value is zero, block is destroyed
@@ -21,11 +26,6 @@ public class Block {
         path = randomBlock.getImage().substring(0, randomBlock.getImage().length()-4);
         picture = new Picture(xPos, yPos, randomBlock.getImage());
         setBlockEnergy();
-    }
-
-    //return the amount of energy that a block has
-    public int getBlockEnergy() {
-        return blockEnergy;
     }
 
     //Block Energy Setter
@@ -43,6 +43,10 @@ public class Block {
             // if block was destroyed, delete its picture from canvas.
             picture.delete();
         }
+    }
+
+    private void explosion(){
+
     }
 
     //make the block have the correct image based in the live remaining
@@ -91,16 +95,14 @@ public class Block {
         return destroyed;
     }
 
-    public void resetDestroyed() {
-        this.destroyed = false;
-        picture.draw();
-    }
+    public void resetDestroyed() { this.destroyed = false; picture.draw(); }
 
     //destroyed setter, deletes image when block is destroyed
     public void setDestroyed() {
         this.destroyed = true;
     }
 
+    //delete the picture of the block
     public void deletePictureBlock() { picture.delete(); }
 
     //Get Picture

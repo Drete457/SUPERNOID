@@ -1,6 +1,6 @@
 package SUPERNOID.GameObjects;
 
-import SUPERNOID.Grid;
+import SUPERNOID.Grid.Grid;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Ball {
@@ -29,9 +29,6 @@ public class Ball {
         alive = true;
         picture.draw();
     }
-
-    //delete the image of the ball
-    public void delete() { picture.delete(); }
 
     //use to verify the direction of the ball when it hits one block
    public String getMovingDirection() {

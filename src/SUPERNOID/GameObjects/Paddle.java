@@ -1,8 +1,5 @@
 package SUPERNOID.GameObjects;
 
-import SUPERNOID.GameEngine;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Paddle {

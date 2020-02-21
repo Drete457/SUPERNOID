@@ -1,5 +1,7 @@
-package SUPERNOID;
+package SUPERNOID.Keyboard;
 
+import SUPERNOID.Game;
+import SUPERNOID.GameEngine.GameEngine;
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Paddle;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
@@ -42,7 +44,7 @@ public class KeyboardManager implements KeyboardHandler {
     private GameEngine engine;
 
     //constructor
-    KeyboardManager(Game game, Paddle paddle, Ball ball, GameEngine engine) {
+    public KeyboardManager(Game game, Paddle paddle, Ball ball, GameEngine engine) {
         this.paddle = paddle;
         this.game = game;
         this.ball = ball;

@@ -1,4 +1,4 @@
-package SUPERNOID;
+package SUPERNOID.Grid;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 

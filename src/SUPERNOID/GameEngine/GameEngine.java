@@ -1,8 +1,9 @@
-package SUPERNOID;
+package SUPERNOID.GameEngine;
 
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
 import SUPERNOID.GameObjects.Paddle;
+import SUPERNOID.Grid.Grid;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;

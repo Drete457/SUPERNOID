@@ -25,10 +25,11 @@ public class Block {
         BlockType randomBlock = BlockType.values()[(int) (Math.random() * BlockType.values().length)];
         path = randomBlock.getImage().substring(0, randomBlock.getImage().length()-4);
         picture = new Picture(xPos, yPos, randomBlock.getImage());
+        explosion = (int) (Math.random()*11);
         setBlockEnergy();
     }
 
-    //Block Energy Setter
+    //live for each block
     public void setBlockEnergy() {
         this.blockEnergy = (int) (Math.random()*6);
     }
@@ -45,29 +46,13 @@ public class Block {
         }
     }
 
-    private void explosion(){
-
-    }
-
     //make the block have the correct image based in the live remaining
     private void setPictureDestruction() {
         String newPath = path;
-        if (blockEnergy == 4) {
-            setPicture(newPath + "-1.png");
-            return;
-        }
-        if (blockEnergy == 3) {
-            setPicture(newPath + "-2.png");
-            return;
-        }
-        if (blockEnergy == 2) {
-            setPicture(newPath + "-3.png");
-            return;
-        }
-        if (blockEnergy == 1) {
-            setPicture(newPath + "-4.png");
-            return;
-        }
+        if (blockEnergy == 4) { setPicture(newPath + "-1.png"); return; }
+        if (blockEnergy == 3) { setPicture(newPath + "-2.png"); return; }
+        if (blockEnergy == 2) { setPicture(newPath + "-3.png"); return; }
+        if (blockEnergy == 1) { setPicture(newPath + "-4.png"); return; }
     }
 
     //get the Width of the block
@@ -106,7 +91,7 @@ public class Block {
     public void deletePictureBlock() { picture.delete(); }
 
     //Get Picture
-    public void getPicture() { picture.draw(); };
+    public void getPicture() { picture.draw(); }
 
     //Set Picture
     public void setPicture(String url) {

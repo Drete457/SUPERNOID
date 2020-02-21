@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Ball {
 
     //speed of the ball
-    private int SPEED = 1;
+    public final int SPEED = 1;
     //the start position in X
     private int positionX;
     //the start position in Y
@@ -33,10 +33,10 @@ public class Ball {
     //use to verify the direction of the ball when it hits one block
    public String getMovingDirection() {
         String result = "";
-        if (x == -1.0 && y == -1.0) { result = "dirUpLeft"; }
-        if (x == 1.0 && y == -1.0) { result = "dirUpRight"; }
-        if (x == -1.0 && y == 1.0) { result = "dirDownLeft"; }
-        if (x == 1.0 && y == 1.0) { result = "dirDownRight"; }
+        if (x == -SPEED && y == -SPEED) { result = "dirUpLeft"; }
+        if (x == SPEED && y == -SPEED) { result = "dirUpRight"; }
+        if (x == -SPEED && y == SPEED) { result = "dirDownLeft"; }
+        if (x == SPEED && y == SPEED) { result = "dirDownRight"; }
         return result;}
 
     //draw the ball

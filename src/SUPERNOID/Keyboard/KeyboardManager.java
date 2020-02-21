@@ -127,8 +127,8 @@ public class KeyboardManager implements KeyboardHandler {
             case KeyboardEvent.KEY_SPACE:
                 //verify if the ball is alive
                 if (ball.isAlive() && ball.getX() == 0 && ball.getY() == 0) {
-                    ball.setY(-1);
-                    ball.setX(1);
+                    ball.setY(-ball.SPEED);
+                    ball.setX(ball.SPEED);
                     Ball.setMovement();
                 }
                 break;

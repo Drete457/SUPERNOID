@@ -39,10 +39,9 @@ public class Paddle {
     }
 
     //get the Y of the paddle
-    public int getPositionY() {
-        return picture.getY();
-    }
+    public int getPositionY() { return picture.getY(); }
 
+    //return the speed of the paddle
     public int getSPEED() {
         return SPEED;
     }

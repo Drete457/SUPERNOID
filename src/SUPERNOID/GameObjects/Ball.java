@@ -52,6 +52,7 @@ public class Ball {
         return alive;
     }
 
+    //return if the ball is alive
     public void setAlive() { alive = true; }
 
     //kill the ball
@@ -66,7 +67,7 @@ public class Ball {
     //print the new position of the ball
     public void move() { try { picture.translate(x, y); } catch (Exception e) { /*FUCK!!!!*/ } }
 
-  //get the X of the ball
+    //get the X of the ball
     public int getPositionX() { return picture.getX(); }
 
     //get the Y of the ball

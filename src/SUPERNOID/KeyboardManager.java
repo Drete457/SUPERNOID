@@ -41,6 +41,7 @@ public class KeyboardManager implements KeyboardHandler {
     //memorise the engine
     private GameEngine engine;
 
+    //constructor
     KeyboardManager(Game game, Paddle paddle, Ball ball, GameEngine engine) {
         this.paddle = paddle;
         this.game = game;

@@ -4,9 +4,12 @@ import SUPERNOID.Game;
 
 public class ObjFactory {
 
+    //memorise how many blocks have been create
     public static int startingIndex;
 
+    //tell the start position of the first block in x
     private static final int BLOCK_TOP_PADDING = 80;
+    //tell the start position of the first block in y
     private static final int BLOCK_LEFT_PADDING = 90;
 
     //Create blocks for the game. The total number of blocks is numberOfColumns x numberOfRows

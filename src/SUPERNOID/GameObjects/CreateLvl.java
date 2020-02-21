@@ -1,7 +1,6 @@
-package SUPERNOID;
+package SUPERNOID.GameObjects;
 
-import SUPERNOID.GameObjects.Block;
-import SUPERNOID.GameObjects.ObjFactory;
+import SUPERNOID.Game;
 
 public class CreateLvl {
 

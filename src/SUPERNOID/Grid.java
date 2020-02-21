@@ -10,10 +10,12 @@ public class Grid {
     //memorise the background
     private Picture picture;
 
+    //memorise the picture of the heart 1, 2 and 3
     private Picture heart1;
     private Picture heart2;
     private Picture heart3;
 
+    //memorise the picture of the skull 1, 2 and 3
     private Picture skull1;
     private Picture skull2;
     private Picture skull3;
@@ -27,10 +29,15 @@ public class Grid {
         skull1 = new Picture(665, 650, "resources/Images/general/skull_62x62.png");
         skull2 = new Picture(725, 650, "resources/Images/general/skull_62x62.png");
         skull3 = new Picture(788, 650, "resources/Images/general/skull_62x62.png");
+
+        //draw the grid
         picture.draw();
+
+        //draw the hearts
         drawAllHearts();
     }
 
+    //draw all the hearts in the screen
     public void drawAllHearts() {
         delete();
         heart1.draw();
@@ -38,6 +45,7 @@ public class Grid {
         heart3.draw();
     }
 
+    //delete tall the hearts and skulls
     public void delete() {
         heart3.delete();
         heart2.delete();
@@ -47,6 +55,7 @@ public class Grid {
         skull3.delete();
     }
 
+    //if the player loose one live, delete that heart and draw 1 skull
     public void draw2hearts() {
         delete();
         heart1.draw();
@@ -54,6 +63,7 @@ public class Grid {
         skull3.draw();
     }
 
+    //if the player loose the second lives, delete 2 heart's and draw 2 skull's
     public void draw1heart() {
         delete();
         heart1.draw();
@@ -61,6 +71,7 @@ public class Grid {
         skull3.draw();
     }
 
+    //if the player loose three lives, delete all hearts and draw 3 skull's
     public void drawAllSkulls() {
         delete();
         skull1.draw();

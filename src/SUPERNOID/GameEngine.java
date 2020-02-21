@@ -24,43 +24,42 @@ public class GameEngine {
     private Picture gOver;
     private Picture winnerScreen;
 
-
+    //return the picture of the game over
     public Picture getGOver() {
         return gOver;
     }
 
-    public int getScore() {
-        return score;
-    }
-
-    public int getLives() {
-        return lives;
-    }
-
+    //return if the player have win or not
     public boolean isWinner() {
         return winner;
     }
 
+    //put the winner tru
     public void setWinner(boolean winner) {
         this.winner = winner;
     }
 
+    //return the winner screen
     public Picture getWinnerScreen() {
         return winnerScreen;
     }
 
+    //put how many lives the player still have
     public void setLives(int lives) {
         this.lives = lives;
     }
 
+    //update the score
     public void setScore(int score) {
         this.score = score;
     }
 
+    //return if is gameover
     public boolean isGameOver() {
         return gameOver;
     }
 
+    //make the game over true
     public void setGameOver(Boolean gameOver) {
         this.gameOver = gameOver;
     }
@@ -203,6 +202,7 @@ public class GameEngine {
         scoreDraw().setText(score + "");
     }
 
+    //verify how many lives the player still have and make the correct action
     private void loseLives(Grid grid, Ball ball, Paddle paddle) {
         switch(lives) {
             case 2:
@@ -234,6 +234,7 @@ public class GameEngine {
         }
     }
 
+    //reset the ball to the middle of the paddle
     public void resetBall(Ball ball, Paddle paddle) {
 
         //verify the position of the ball and move the ball back to the paddle

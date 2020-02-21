@@ -2,6 +2,7 @@ package SUPERNOID;
 
 import SUPERNOID.GameObjects.Ball;
 import SUPERNOID.GameObjects.Block;
+import SUPERNOID.GameObjects.CreateLvl;
 import SUPERNOID.GameObjects.Paddle;
 import SUPERNOID.Sound.Sound;
 
@@ -35,7 +36,7 @@ public class Game {
     public static boolean restart = false;
 
     //Game Constructor
-    private Game(int totalBlocks) {
+    Game(int totalBlocks) {
         this.backGround = new Grid();
         blocks = new Block[totalBlocks];
         this.paddle = new Paddle();
@@ -115,6 +116,7 @@ public class Game {
         lvl.loadLevel1(blocks,this);
     }
 
+    //reset the ball to the middle of the paddle and the paddle to the middle of the screen
     private void resetBallPaddle() {
         //verify the position of the paddle and give the new position
         double xPaddle = -paddle.getPositionX()+Paddle.positionX;
@@ -152,18 +154,22 @@ public class Game {
         else if ( currentLvl == 5 ) { engine.setWinner(true); engine.win(); }
     }
 
+    //return this object game
     public Game getGame(){
         return this;
     }
 
+    //return the object paddle
     public Paddle getPaddle(){
         return paddle;
     }
 
+    //return the object Game Engine
     public GameEngine getEngine(){
         return engine;
     }
 
+    //return the object ball
     public Ball getBall(){
         return ball;
     }

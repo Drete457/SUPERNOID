@@ -1,6 +1,5 @@
 package SUPERNOID.GameObjects;
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Block {
@@ -46,6 +45,7 @@ public class Block {
         }
     }
 
+    //make the block have the correct image based in the live remaining
     private void setPictureDestruction() {
         String newPath = path;
         if (blockEnergy == 4) {

@@ -25,7 +25,6 @@ public class Block {
         BlockType randomBlock = BlockType.values()[(int) (Math.random() * BlockType.values().length)];
         path = randomBlock.getImage().substring(0, randomBlock.getImage().length()-4);
         picture = new Picture(xPos, yPos, randomBlock.getImage());
-        explosion = (int) (Math.random()*11);
         setBlockEnergy();
     }
 

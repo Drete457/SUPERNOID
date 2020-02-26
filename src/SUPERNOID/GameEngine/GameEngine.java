@@ -78,29 +78,25 @@ public class GameEngine {
 
     //verify the collision between the ball and the paddle
     public void paddleCollisionBall(Ball ball, Paddle paddle) {
-        if (ball.getPositionY() > paddle.getPositionY() - Grid.PADDING && ballInTheLimitXPaddle(ball, paddle)) {
+        if (ball.getPositionY() >= (paddle.getPositionY() - Grid.PADDING) && ballInTheLimitXPaddle(ball, paddle)) {
             ball.setY(-ball.getY());
-            ball.move();
         }
-        if (ball.getX() == 1 && ball.getY() == 1 && ball.getPositionY() > paddle.getPositionY() - Grid.PADDING && ballInTheLimitXPaddle(ball, paddle)) {
-            ball.setX(-ball.getX());
-            ball.setY(-ball.getY());
-        } else if (ball.getX() == -1 && ball.getY() == 1 && ball.getPositionY() > paddle.getPositionY() - Grid.PADDING && ballInTheLimitXPaddle(ball, paddle)) {
-            ball.setX(-ball.getX());
-            ball.setY(-ball.getY());
+        if (ball.getPositionY() >= (paddle.getPositionY() - Grid.PADDING+0.8)){
+            ball.setY(3);
+            ball.move();
         }
     }
 
     //verify if the ball touched the Paddle in Axis X
     private boolean ballInTheLimitXPaddle(Ball ball, Paddle paddle) {
-        return ball.getPositionX() >= paddle.getPositionX() - Grid.PADDING &&
-                ball.getPositionX() <= paddle.getPositionX() + paddle.getWidth();
+        return ball.getPositionX() >= (paddle.getPositionX() - Grid.PADDING) &&
+                ball.getPositionX() <= (paddle.getPositionX() + paddle.getWidth() + Grid.PADDING-3);
     }
 
     //verify if the ball has reached the limit of the game area
     private boolean ballCollisionDetectWall(Ball ball) {
         return ball.getPositionX() > 55 && ball.getPositionX() < 550
-                && ball.getPositionY() > 55 && ball.getPositionY() < 900;
+                && ball.getPositionY() > 55;
     }
 
     //verify the collision between the ball and all the blocks

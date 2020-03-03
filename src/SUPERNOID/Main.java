@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         //Create the instruction image
-        Picture firstMenu = new Picture(Grid.PADDING, Grid.PADDING, "Images/general/start_screen_900x900.jpg");
+        Picture firstMenu = new Picture(Grid.PADDING, Grid.PADDING, "Images/general/start_screen.jpg");
 
         //draw the first menu
         firstMenu.draw();

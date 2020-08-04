@@ -7,3 +7,6 @@ After 4 weeks of learning, we made our first team project whose goal was to make
 The project was a lot of work, but the end result was very satisfying and rewarding.
 
 Bootcamp 37 - Lisbon - Code Academy
+
+## Technologies
+Java, Ant, SimpleGraphics
